@@ -38,4 +38,4 @@ public class HomeController {
 	
 }
 
-//test입니다. - 조희연 // 강민석 commit test full
+//test입니다. - 조희연 // 강민석 commit test
