@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>z</title>
+<title>WERP</title>
 
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 
