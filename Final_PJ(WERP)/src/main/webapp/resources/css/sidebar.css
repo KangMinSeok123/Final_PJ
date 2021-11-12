@@ -6,10 +6,10 @@
     --nav--width: 92px;
 
     /* Colores */
-    --first-color: #0c5df4;
-    --bg-color: #12192c;
-    --sub-color: #b6cefc;
-    --white-color: #fff;
+    --first-color: #ebebeb;
+    --bg-color: #f7f7f7;
+    --sub-color: black;
+    --white-color: black;
 
     /* Fuente y tipografia */
     --body-font: 'Poppins', sans-serif;
@@ -20,9 +20,7 @@
     --z-fixed: 100;
 }
 
-h1{
-	color:red;
-}
+
 
 /* BASE */
 *, ::before, ::after {
@@ -151,7 +149,8 @@ a {
 
 .collapse__sublink {
     color: var(--sub-color);
-    font-size: var(--small-font-size);
+    font-size: 13px;
+    white-space:nowrap;
 }
 
 .collapse__sublink:hover {

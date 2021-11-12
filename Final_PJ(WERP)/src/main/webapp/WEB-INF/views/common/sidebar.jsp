@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-   
-</head>
 <body id="body-pd">
     <div class="l-navbar" id="navbar">
         <nav class="nav">
@@ -24,8 +16,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">-</a>
-                            <a href="#" class="collapse__sublink">-</a>
+                            <a href="#" class="collapse__sublink">- 품목 등록</a>
+                            <a href="#" class="collapse__sublink">- 품목 조회</a>
                     
                         </ul>
                     </div>
@@ -37,8 +29,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">-</a>
-                            <a href="#" class="collapse__sublink">-</a>
+                            <a href="#" class="collapse__sublink">- 입고</a>
+                            <a href="#" class="collapse__sublink">- 출고</a>
                     
                         </ul>
                     </div>
@@ -49,8 +41,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">--</a>
-                            <a href="#" class="collapse__sublink">--</a>
+                            <a href="#" class="collapse__sublink">- 불량자재 등록</a>
+                            <a href="#" class="collapse__sublink">- 불량자재 조회</a>
                         </ul>
                     </div>
 
@@ -61,8 +53,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">--</a>
-                            <a href="#" class="collapse__sublink">--</a>
+                            <a href="#" class="collapse__sublink">- A/S 신청</a>
+                            <a href="#" class="collapse__sublink">- 신청내역</a>
                         </ul>
                     </div>
 
@@ -79,22 +71,17 @@
                         </ul>
                     </div>
 
-                    <a href="#" class="nav__link">
-                        <ion-icon name="settings-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 정보</span>
-                    </a>
                 </div>
                 <a href="#" class="nav__link">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
+                    <span class="nav_name">로그아웃</span>
                 </a>
-            </div>
+            
         </nav>
     </div>
 
-    <!-- IONICONS -->
+    <!-- 외부 아이콘 사용 -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-    <!-- JS -->
+    <!-- JS파일 불러오기 -->
     <script src="resources/js/main.js"></script>
 </body>
-</html>
