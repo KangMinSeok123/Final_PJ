@@ -53,8 +53,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- A/S 신청</a>
-                            <a href="#" class="collapse__sublink">- 신청내역</a>
+                            <a href="${pageContext.request.contextPath}/AS/ASReceipt.do" class="collapse__sublink">- A/S 접수 조회</a>
+                           
                         </ul>
                     </div>
 
