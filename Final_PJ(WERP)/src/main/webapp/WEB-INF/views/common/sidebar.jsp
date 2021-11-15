@@ -22,15 +22,15 @@
                         </ul>
                     </div>
                     
-                     <div href="#" class="nav__link collapse">
+                    <div href="#" class="nav__link collapse">
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">입출고 관리</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- 입고</a>
-                            <a href="#" class="collapse__sublink">- 출고</a>
+                            <a href="${pageContext.request.contextPath}/in/in_form.do" class="collapse__sublink">-입고관리</a>
+                            <a href="#" class="collapse__sublink">-</a>
                     
                         </ul>
                     </div>
