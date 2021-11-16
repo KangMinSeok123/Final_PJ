@@ -33,7 +33,7 @@
 		     <textarea class="form-control" name="errorpCount" placeholder="갯수" required>${errorP.errorpCount }</textarea>
 		    <br>
 		    <c:forEach items="${attachmentList}" var="a" varStatus="vs">
-				<button type="button" 
+				<button type="button"
 						class="btn btn-outline-success btn-block"
 						onclick="fileDownload('${a.originalFileName}','${a.renamedFileName }');">
 					첨부파일${vs.count} - ${a.originalFileName }
