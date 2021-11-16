@@ -269,7 +269,7 @@ ul.tabs li.current {
 	<script>
 	$(function(){
 		$("tr[id]").on("click",function(){
-			var asCode = $(this).attr("id");
+			var asCode = $(this).attr("id"); 
 			console.log("asCode="+asCode);
 			location.href = "${pageContext.request.contextPath}/AS/ASView.do?asCode="+asCode;
 		});

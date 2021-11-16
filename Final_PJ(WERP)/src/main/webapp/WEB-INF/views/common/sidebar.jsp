@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <body id="body-pd">
     <div class="l-navbar" id="navbar">
         <nav class="nav">
@@ -41,7 +41,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- 불량자재 등록</a>
+                             <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 등록</a>
                             <a href="#" class="collapse__sublink">- 불량자재 조회</a>
                         </ul>
                     </div>
@@ -83,5 +83,5 @@
     <!-- 외부 아이콘 사용 -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- JS파일 불러오기 -->
-    <script src="resources/js/main.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 </body>
