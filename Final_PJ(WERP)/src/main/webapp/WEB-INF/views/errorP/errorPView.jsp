@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>게시판 상세보기</title>
+	<title>불량자재 목록</title>
 	<c:import url="../common/header.jsp"/>
 	<style>
 		div#board-container{width:400px; margin:0 auto; text-align:center;}
