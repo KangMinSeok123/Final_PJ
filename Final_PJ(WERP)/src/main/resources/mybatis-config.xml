@@ -16,14 +16,5 @@
  		<typeAlias alias="InManagement" type="com.kh.spring.in.model.vo.InManagement" />		
  	</typeAliases>
  	
- 	 <typeAlias alias="ErrorP" type="com.kh.spring.errorP.model.vo.ErrorP"/>
- 	 <typeAlias alias="MyTypeHandler" type="com.kh.spring.common.MyTypeHandler" />
- 	 <typeAlias alias="Attachment" type="com.kh.spring.errorP.model.vo.Attachment"/>
- 	 
- 	</typeAliases>
  	
- 	<typeHandlers>
- 		<package name="com.kh.spring.common"/>
- 	</typeHandlers>
-
  </configuration>
