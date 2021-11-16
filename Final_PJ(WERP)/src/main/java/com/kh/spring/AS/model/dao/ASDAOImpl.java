@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.AS.model.vo.AS;
+
 @Repository
 public class ASDAOImpl implements ASDAO {
 
@@ -23,6 +25,12 @@ public class ASDAOImpl implements ASDAO {
 	public int selectTotalAS() {
 		
 		return sqlSession.selectOne("asSQL.selectTotalAS");
+	}
+
+	@Override
+	public AS selectOneAS(String asCode) {
+		
+		return sqlSession.selectOne("asSQL.selectOneAS", asCode);
 	}
 	
 

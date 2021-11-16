@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.spring.AS.model.dao.ASDAO;
+import com.kh.spring.AS.model.vo.AS;
 
 @Service
 public class ASServiceImpl implements ASService {
@@ -24,6 +25,12 @@ public class ASServiceImpl implements ASService {
 	public int selectTotalAS() {
 		
 		return asDAO.selectTotalAS();
+	}
+
+	@Override
+	public AS selectOneAS(String asCode) {
+		
+		return asDAO.selectOneAS(asCode);
 	}
 
 	
