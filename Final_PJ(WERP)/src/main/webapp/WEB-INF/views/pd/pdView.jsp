@@ -18,7 +18,7 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 등록</h1>
 	<div id="container">
-		<form name="proDuct" action="${pageContext.request.contextPath}/product/proDuct.do" method="post">
+		<form name="proDuct" action="${pageContext.request.contextPath}/pd/pd.do" method="post">
 		<table>
 						<tr>
 							<th>품목코드</th>
