@@ -6,11 +6,28 @@
 	<select id="selectErrorPList" resultType="com.kh.spring.errorP.model.vo.ErrorP">
 		SELECT B.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE ERRORPNO = B.errorpNo) FILECOUNT
 		FROM ERRORP B
+	<include refid = "search" />
 		ORDER BY INPUTDATE DESC, ERRORPNO DESC
 	</select>
 	
+<sql id = "search">
+<if test="word != null and word != ''.toString()">
+
+where 1 = 0
+<if test="key == 'CODE'">
+OR ERRORPCODE like '%' || #{word} || '%'
+</if>
+
+<if test="key == 'NAME'">
+OR ERRORPNAME like '%' || #{word} || '%'
+</if>
+
+</if>
+</sql>
+	
 	<select id="selectErrorPTotalContents" resultType="int">
 		SELECT COUNT(*) FROM ERRORP
+		<include refid = "search" />
 	</select>
 	
 	<insert id="insertErrorP" parameterType="ErrorP">
@@ -52,6 +69,19 @@
 		  #{ errorpNo }, #{ originalFileName }, #{ renamedFileName }, 
 		  SYSDATE, 0, 'Y' )
 	</insert>
+	
+	<delete id="deleteAttachment" parameterType="int">
+		DELETE FROM ATTACHMENT WHERE ERRORPNO = #{ errorpNo } 
+	</delete>
+	
+	
+	<delete id="deleteFile" parameterType="int">
+		DELETE FROM ATTACHMENT WHERE ATTACHMENTNO = #{ attNo }
+	</delete>
+	
+	<delete id="deleteErrorP" parameterType="String">
+		DELETE FROM ERRORP WHERE ERRORPNO = #{ errorpNo }
+	</delete>
 	
 	
 </mapper>

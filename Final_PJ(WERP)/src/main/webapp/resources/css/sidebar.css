@@ -27,7 +27,7 @@
     box-sizing: border-box;
 }
 
-body {
+#body-pd {
     position: relative;
     margin: 0;
     padding: 2rem 0 0 6.75rem;

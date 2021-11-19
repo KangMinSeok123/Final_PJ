@@ -3,14 +3,15 @@ package com.kh.spring.errorP.model.service;
 import java.util.List;
 import java.util.Map;
 
+import com.kh.spring.common.Utils;
 import com.kh.spring.errorP.model.vo.Attachment;
 import com.kh.spring.errorP.model.vo.ErrorP;
 
 
 public interface ErrorPService {
-	List<Map<String, String>> selectErrorPList(int cPage, int numPerPage);
+	List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word);
 
-	int selectErrorPTotalContents();
+	int selectErrorPTotalContents(String key, String word);
 
 	int insertErrorP(ErrorP errorP, List<Attachment> attachList);
 
@@ -22,8 +23,8 @@ public interface ErrorPService {
 	
 	int updateErrorP(ErrorP errorP, List<Attachment> attachList);
 	
-	int deleteErrorP(int errorpNo);
-
 	int deleteFile(int attNo);
+
+	int deleteErrorP(int errorpNo);
 	
 }

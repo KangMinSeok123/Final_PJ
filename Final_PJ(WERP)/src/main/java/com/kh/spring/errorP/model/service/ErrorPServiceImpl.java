@@ -17,16 +17,16 @@ public class ErrorPServiceImpl implements ErrorPService {
 	ErrorPDAO errorPDAO;
 	
 	@Override
-	public List<Map<String, String>> selectErrorPList(int cPage, int numPerPage) {
+	public List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word) {
 		
-		return errorPDAO.selectBoardList(cPage, numPerPage);
+		return errorPDAO.selectBoardList(cPage, numPerPage, key, word);
 		
 	}
 
 	@Override
-	public int selectErrorPTotalContents() {
+	public int selectErrorPTotalContents(String key, String word) {
 		
-		return errorPDAO.selectErrorPTotalContents();
+		return errorPDAO.selectErrorPTotalContents(key, word);
 	}
 
 	@Override
@@ -97,11 +97,14 @@ public class ErrorPServiceImpl implements ErrorPService {
 		return totalResult;
 	}
 
+	
 	@Override
 	public int deleteErrorP(int errorpNo) {
 		
 		return errorPDAO.deleteErrorP(errorpNo);
-	}
+		}
+		
+	
 
 	@Override
 	public int deleteFile(int attNo) {

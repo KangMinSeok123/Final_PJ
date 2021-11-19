@@ -8,9 +8,9 @@ import com.kh.spring.errorP.model.vo.ErrorP;
 
 
 public interface ErrorPDAO {
-	List<Map<String, String>> selectBoardList(int cPage, int numPerPage);
+	List<Map<String, String>> selectBoardList(int cPage, int numPerPage, String key, String word);
 
-	int selectErrorPTotalContents();
+	int selectErrorPTotalContents(String key, String word);
 
 	int insertErrorP(ErrorP errorP);
 

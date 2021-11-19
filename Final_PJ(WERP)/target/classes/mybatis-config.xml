@@ -17,6 +17,7 @@
  		<typeAlias alias="ErrorP" type="com.kh.spring.errorP.model.vo.ErrorP" />		
  		<typeAlias alias="MyTypeHandler" type="com.kh.spring.common.MyTypeHandler" />
  		<typeAlias alias="Attachment" type="com.kh.spring.errorP.model.vo.Attachment"/>	
+ 		<typeAlias alias="Utils" type="com.kh.spring.common.Utils"/>	
  	</typeAliases>
  	
  	<typeHandlers>

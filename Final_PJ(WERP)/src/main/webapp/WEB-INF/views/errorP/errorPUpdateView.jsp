@@ -24,9 +24,18 @@
 			alert("내용을 입력하세요");
 			return false;
 		}
-		else if(confirm("수정하시겠습니까?"))
+		if(content.trim().length!=0 && confirm("수정하시겠습니까?")) {
 		return true;
+		}
+		
+		else{
+			return false;
+		}
 	}
+	
+	
+		
+	
 	
 	/*부트스트랩 : file 변경시 파일명 보이기 */
 	$(function(){
@@ -44,12 +53,12 @@
 	function fileDownload(oName, rName){
 		//한글파일명이 있을 수 있으므로, 명시적으로 encoding
 		oName = encodeURIComponent(oName);
-		location.href="${pageContext.request.contextPath}/board/fileDownload.do?oName="+oName+"&rName="+rName;
+		location.href="${pageContext.request.contextPath}/errorP/fileDownload.do?oName="+oName+"&rName="+rName;
 	}
 
 	function fileDelete(obj, attNo, rName){
 		$.ajax({
-			url : '${pageContext.request.contextPath}/board/fileDelete.do',
+			url : '${pageContext.request.contextPath}/errorP/fileDelete.do',
 			data : { attNo : attNo, rName : rName }, 
 			dataType : 'json',
 			success : function(data){
@@ -65,9 +74,14 @@
 				console.log(error);
 			}
 		});
+	}
+	
+	function deleteCheck(errorpNo) {
+		
+			location.href= '${pageContext.request.contextPath}/errorP/errorPDelete.do?errorpNo=${errorP.errorpNo}';
 		
 	}
-	f
+	
 	</script>
 </head>
 <body>
@@ -75,7 +89,7 @@
 		<c:import url="../common/sidebar.jsp"/>
 		<div id="board-container">
 			<form name="errorPFrm" action="${pageContext.request.contextPath}/errorP/errorPUpdate.do" method="post" onsubmit="return validate();" enctype="multipart/form-data">
-				<input type="hidden" name="errorpNo" value="${ errorP.errorpNo }" />
+				<input type="hidden" id="errorp" name="errorpNo" value="${ errorP.errorpNo }" />
 					<input type="text" class="form-control" placeholder="상품코드" name="errorpCode" id="errorpCode" value="${ errorP.errorpCode }" required>
 				<input type="text" class="form-control" placeholder="상품명" name="errorpName" id="errorpName" value="${ errorP.errorpName }" required>
 				 <input type="text" class="form-control" name="errorpContent" placeholder="내용" value="${ errorP.errorpContent }" required></textarea>
@@ -112,10 +126,11 @@
 			   
 				<br />
 				<input type="submit" id="btn_modify" class="btn btn-outline-success" value="수정 완료" /> &nbsp;
-				<input type="button"  class="btn btn-outline-danger" value="삭제" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPDelete.do?errorpNo=${errorP.errorpNo}'"/>
+				<input type="button"  class="btn btn-outline-danger" value="삭제" onclick= "deleteCheck();"/>
 			</form>
 		</div>
-		<c:import url="../common/footer.jsp"/>
+		<c:import url="../common/footer.jsp"/> 
+		
 	</div>
 	
 	

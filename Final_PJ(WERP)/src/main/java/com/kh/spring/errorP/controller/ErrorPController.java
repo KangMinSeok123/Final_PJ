@@ -39,28 +39,37 @@ public class ErrorPController {
 	@RequestMapping("/errorP/errorPList.do")
 	public String selectErrorPList(
 			@RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
-			Model model
+			@RequestParam(value= "key", required=false, defaultValue="") String key,
+			@RequestParam(value= "word", required=false, defaultValue="") String word,
+			Model model	
 			) {
 		
 		// 한 페이지당 게시글 수
 		int numPerPage = 10;
 		
 		// 현재 페이지의 게시글 수
-		List<Map<String, String>> list = errorPService.selectErrorPList(cPage, numPerPage);
+		List<Map<String, String>> list = errorPService.selectErrorPList(cPage, numPerPage, key, word);
 		
 		// 전체 게시글 수
-		int totalContents = errorPService.selectErrorPTotalContents();
+		int totalContents = errorPService.selectErrorPTotalContents(key,word);
 		
 		// 페이지 처리 Utils 사용하기
-		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "errorPList.do");	
+		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "errorPList.do", key, word);	
 		
 		model.addAttribute("list", list);
 		model.addAttribute("totalContents", totalContents);
 		model.addAttribute("numPerPage", numPerPage);
 		model.addAttribute("pageBar", pageBar);
+		model.addAttribute("key", key);
+		model.addAttribute("word", word);
+		
 		System.out.println(model);
 		return "errorP/errorPList";
+		
 	}
+	
+	
+	
 	
 	@RequestMapping("/errorP/errorPForm.do")
 	public String errorPForm() { // 글쓰기 메소드!
@@ -317,9 +326,9 @@ public class ErrorPController {
 	
 	@RequestMapping("/errorP/errorPDelete.do")
 	public String errorPDelete(@RequestParam int errorpNo,
-							  HttpServletRequest request,
-							  Model model) {
-		
+								HttpServletRequest request,
+								Model model) {
+	
 		String savePath = request.getServletContext().getRealPath("/resources/boardUpload");
 		
 		// 첨부파일삭제 명단
@@ -343,6 +352,9 @@ public class ErrorPController {
 		
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
+	
+		
+		
 		
 		return "common/msg";
 	}

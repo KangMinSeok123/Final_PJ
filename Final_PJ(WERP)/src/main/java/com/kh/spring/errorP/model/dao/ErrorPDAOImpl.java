@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.common.Utils;
 import com.kh.spring.errorP.model.vo.Attachment;
 import com.kh.spring.errorP.model.vo.ErrorP;
 
@@ -18,17 +19,17 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<Map<String, String>> selectBoardList(int cPage, int numPerPage) {
+	public List<Map<String, String>> selectBoardList(int cPage, int numPerPage, String key, String word) {
 		// 데이터베이스에서 특정 갯수의 행만 가져오는 객체
 				RowBounds rows = new RowBounds((cPage - 1)* numPerPage, numPerPage);
-				
-				return sqlSession.selectList("errorPSQL.selectErrorPList", null, rows);
+				Utils utils = new Utils(key, word);
+				return sqlSession.selectList("errorPSQL.selectErrorPList", utils, rows);
 	}
 
 	@Override
-	public int selectErrorPTotalContents() {
-		
-		return sqlSession.selectOne("errorPSQL.selectErrorPTotalContents");
+	public int selectErrorPTotalContents(String key, String word) {
+		Utils utils = new Utils(key, word);
+		return sqlSession.selectOne("errorPSQL.selectErrorPTotalContents", utils);
 	}
 
 	@Override
@@ -41,6 +42,7 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	public int insertAttachment(Attachment a) {
 		
 		return sqlSession.insert("errorPSQL.insertAttachment", a);
+		
 	}
 
 	@Override
@@ -59,6 +61,7 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	public int updateErrorP(ErrorP errorP) {
 		
 		return sqlSession.update("errorPSQL.updateErrorP", errorP);
+		
 	}
 
 	@Override
