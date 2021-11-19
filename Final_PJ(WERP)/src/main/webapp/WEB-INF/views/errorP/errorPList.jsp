@@ -290,14 +290,6 @@ input::-moz-placeholder {color:#a8a8a8;}
 		}
 	}
 	
-		
-		
-	
-
-
-		
-			
-		
 	</script>
 	
 </head>
