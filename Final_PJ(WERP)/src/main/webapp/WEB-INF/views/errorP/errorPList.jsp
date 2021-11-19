@@ -275,6 +275,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 			var errorpNo = $("input:checkbox[name='cchk']:checked").val();
 		
 		if(confirm("삭제하시겠습니까?")){
+			
 			$.ajax({
 		        type : 'GET'
 		       ,url : '${pageContext.request.contextPath}/errorP/errorPDelete.do?errorpNo='+errorpNo
@@ -317,9 +318,8 @@ input::-moz-placeholder {color:#a8a8a8;}
   
   <select class= "search-option" name="key">
 
-<option value="c" ${(key == "t")?"selected":"" }>상품코드</option>
-<option value="n" ${(key == "c")?"selected":"" }>불량자재명</option>
-
+<option value="t" ${(key == "CODE")?"selected":"" }>상품코드</option>
+<option value="c" ${(key == "NAME")?"selected":"" }>불량자재명</option>
 
 </select>
 

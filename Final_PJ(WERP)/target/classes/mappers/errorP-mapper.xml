@@ -12,13 +12,13 @@
 	
 <sql id = "search">
 <if test="word != null and word != ''.toString()">
-where 1 = 0
 
-<if test="key == 'c'.toString()">
+where 1 = 0
+<if test="key == 'CODE'">
 OR ERRORPCODE like '%' || #{word} || '%'
 </if>
 
-<if test="key == 'n'.toString()">
+<if test="key == 'NAME'">
 OR ERRORPNAME like '%' || #{word} || '%'
 </if>
 
