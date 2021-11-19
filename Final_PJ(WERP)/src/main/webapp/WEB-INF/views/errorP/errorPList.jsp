@@ -380,6 +380,5 @@ input::-moz-placeholder {color:#a8a8a8;}
 				<c:out value="${pageBar}" escapeXml="false"/>
 				<c:import url="../common/footer.jsp"/>
 	
-	
 </body>
 </html>
