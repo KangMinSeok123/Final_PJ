@@ -318,8 +318,8 @@ input::-moz-placeholder {color:#a8a8a8;}
   
   <select class= "search-option" name="key">
 
-<option value="t" ${(key == "CODE")?"selected":"" }>상품코드</option>
-<option value="c" ${(key == "NAME")?"selected":"" }>불량자재명</option>
+<option value="CODE" ${(key == "CODE")?"selected":"" }>상품코드</option>
+<option value="NAME" ${(key == "NAME")?"selected":"" }>불량자재명</option>
 
 </select>
 
