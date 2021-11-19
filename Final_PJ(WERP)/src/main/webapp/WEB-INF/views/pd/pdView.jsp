@@ -17,56 +17,87 @@
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 등록</h1>
-	<div id="container">
-		<form name="proDuct" action="${pageContext.request.contextPath}/pd/pd.do" method="post">
-		<table>
-						<tr>
-							<th>품목코드</th>
-							<td>
-								<input type="text" class="form-control"  name="pcode" id="pcode" required>
-							</td>
-						</tr>
-						<tr>
-							<th>품목명</th>
-							<td>
-								<input type="text" class="form-control" name="pname" id="pname" required>
-							</td>
-						</tr>
-						<tr>
-							<th>카테고리</th>
-							<td>	
-							<input type="text" class="form-control" name="category" id="category" required>
-							</td>
-						</tr>
-						<tr>
-							<th>입고단가</th>
-							<td>	
-								<input type="date" class="form-control" name="inprice" id="inprice" required>
-							</td>
-						</tr>  
-						<tr>
-							<th>출고단가</th>
-							<td>
-								<input type="text" class="form-control"  name="outprice" id="outprice" required>
-							</td>
-						</tr>
-						<tr>
-							<th>품목구분</th>
-							<td>
-								<input type="text" class="form-control"  name="pdivision" id="pdivision" required>
-							</td>
-						</tr>
-						<tr>
-						<td>
-						<input type="submit" class="btn btn-outline-success" value="저장" >
-						</td>
-						</tr>
-					</form>
-					</table>
-		
-	</div>
+	 <div class="admin_content_main">
+                    	<form action="${pageContext.request.contextPath}/pd/pdEnroll" method="post" id="enrollForm">
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>품목코드</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="procode">
+                    			</div>
+                    		</div>
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>품번</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="prono" value="0">
+                    			</div>
+                    		</div> 
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>품목명</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="proname" value="0">
+                    			</div>
+                    		</div>            
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>카테고리</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="category">
+                    			</div>
+                    		</div>            
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>입고단가</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="inprice">
+                    			</div>
+                    		</div>             
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>출고단가</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="outprice">
+                    			</div>
+                    		</div>          
+                    		              
+                    		
+                   		</form>
+                   			<div class="btn_section">
+                   				<button id="cancelBtn" class="btn">취 소</button>
+	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
+	                    	</div> 
+                    </div>  
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
+	<script>
+		let enrollForm = $("#enrollForm")
+
+		/* 취소 버튼 */
+		$("#cancelBtn").click(function() {
+
+			location.href = "/pd/pdManage"
+
+		});
+
+		/* 상품 등록 버튼 */
+		$("#enrollBtn").on("click", function(e) {
+
+			e.preventDefault();
+
+			enrollForm.submit();
+			
+		});
+	</script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- 외부 아이콘 사용 -->
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>

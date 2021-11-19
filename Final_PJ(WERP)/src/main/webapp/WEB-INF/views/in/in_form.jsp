@@ -7,8 +7,25 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>품목 관리</title>
+	<title>입고 관리</title>
 	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+	<style>
+	h1{
+		text-align: center;
+	}
+	.body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	}
+	body {
+		margin-top: 200px;
+		font-family: 'Trebuchet MS', serif;
+		line-height: 1.6
+	}
+	
+	
+	</style>
 	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 
 
@@ -16,46 +33,34 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	<h1>품목 등록</h1>
+	<h1>입고 등록</h1>
 	<div id="container">
-		<form name="proDuct" action="${pageContext.request.contextPath}/product/proDuct.do" method="post">
+		<form name="inFrm" action="${pageContext.request.contextPath}/in/inFormEnd.do" method="post">
 		<table>
+						<tr>
+							<th>입고코드</th>
+							<td>
+								<input type="text" class="form-control"  name="icode" id="icode" required>
+							</td>
+						</tr>
 						<tr>
 							<th>품목코드</th>
 							<td>
-								<input type="text" class="form-control"  name="pcode" id="pcode" required>
+								<input type="text" class="form-control" name="pcode" id="pcode" required>
 							</td>
 						</tr>
 						<tr>
-							<th>품목명</th>
-							<td>
-								<input type="text" class="form-control" name="pname" id="pname" required>
-							</td>
-						</tr>
-						<tr>
-							<th>카테고리</th>
+							<th>입고수량</th>
 							<td>	
-							<input type="text" class="form-control" name="category" id="category" required>
+							<input type="text" class="form-control" name="inNum" id="inNum" required>
 							</td>
 						</tr>
 						<tr>
-							<th>입고단가</th>
+							<th>입력일</th>
 							<td>	
-								<input type="date" class="form-control" name="inprice" id="inprice" required>
+								<input type="date" class="form-control" name="inputDate" id="inputDate" required>
 							</td>
 						</tr>  
-						<tr>
-							<th>출고단가</th>
-							<td>
-								<input type="text" class="form-control"  name="outprice" id="outprice" required>
-							</td>
-						</tr>
-						<tr>
-							<th>품목구분</th>
-							<td>
-								<input type="text" class="form-control"  name="pdivision" id="pdivision" required>
-							</td>
-						</tr>
 						<tr>
 						<td>
 						<input type="submit" class="btn btn-outline-success" value="저장" >

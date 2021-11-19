@@ -16,7 +16,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="${pageContext.request.contextPath}/pd/pd.do" class="collapse__sublink">- 품목 등록</a>
+                            <a href="${pageContext.request.contextPath}/pd/pdManage" class="collapse__sublink">- 품목 등록</a>
                             <a href="#" class="collapse__sublink">- 품목 조회</a>
                     
                         </ul>
