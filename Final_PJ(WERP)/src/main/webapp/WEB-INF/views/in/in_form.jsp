@@ -18,7 +18,6 @@
 		padding: 0;
 		height: 100%;
 	}
-
 	body {
 		margin-top: 200px;
 		font-family: 'Trebuchet MS', serif;
