@@ -28,9 +28,27 @@ public class ASDAOImpl implements ASDAO {
 	}
 
 	@Override
-	public AS selectOneAS(String asCode) {
+	public AS selectOneAS(int asCode) {
 		
 		return sqlSession.selectOne("asSQL.selectOneAS", asCode);
+	}
+
+	@Override
+	public int updateStage(AS as) {
+		
+		return sqlSession.update("asSQL.updateStage", as);
+	}
+
+	@Override
+	public int updateExpectedDate(AS as) {
+		
+		return sqlSession.update("asSQL.updateExpectedDate", as);
+	}
+	
+	@Override
+	public int deleteAS(int asCode) {
+		
+		return sqlSession.delete("asSQL.deleteAS", asCode);
 	}
 	
 

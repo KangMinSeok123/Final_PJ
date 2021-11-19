@@ -17,9 +17,10 @@ public class AS implements Serializable {
 	
 	private static final long serialVersionUID = 11111L;
 
-	private Date asCode; // AS 접수번호(= 접수일)
+	private int asCode;
+	private Date asDate; // AS 접수번호(= 접수일)
 	private String customer;
-	private String pCode; // 상품 코드
+	private String proCode; // 상품 코드
 	private String asTitle; // 접수 제목
 	private String asContent; // 접수 내용
 	private Date asExpectedDate; // 수리 예정일

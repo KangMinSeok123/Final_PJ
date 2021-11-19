@@ -11,7 +11,12 @@ public interface ASDAO {
 
 	int selectTotalAS();
 
-	AS selectOneAS(String asCode);
+	AS selectOneAS(int asCode);
+
+	int updateStage(AS as);
 	
+	int updateExpectedDate(AS as);
+	
+	int deleteAS(int asCode);
 
 }
