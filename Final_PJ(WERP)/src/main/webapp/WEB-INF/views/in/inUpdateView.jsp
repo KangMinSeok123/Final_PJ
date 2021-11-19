@@ -7,9 +7,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>입고 관리</title>
+	<title>입고 등록 수정</title>
 	<style>
-	h1{
+		h1{
 		text-align:center;
 	}
 	
@@ -19,7 +19,7 @@
 		height: 100%;
 	}
 	
-	#inform-success{
+	.in-update-success{
 		border-radius: 5px;
 		width: 100px;
 		height : 40px;
@@ -31,12 +31,12 @@
 		display : inline;
 	}
 
-	#in-form-btn{
+	#in-update-btn{
 		border-collapse: collapse;
 		border-bottom : none;
 		border-top : none;
 	}
-	#in-form-tr, #in-form-td {
+	#in-update-tr, #in-update-td {
 		border-bottom : none;
 	}
 	div {
@@ -81,23 +81,27 @@
 		line-height: 1.6
 		text-align : center;
 	}
-	
+
 	</style>
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	<h1>입고 등록</h1>
+	<h1>입고 등록 수정</h1>
 	
 	<div id="container">
-		<form name="inFrm" action="${pageContext.request.contextPath}/in/inFormEnd.do" method="post">
+		<form name="inupdateFrm" 
+		      action="${pageContext.request.contextPath}/in/inUpdate.do" method="post">
+		    
 		<table>
+						
 						<tr>
 							<th>입고코드</th>
 							<td>
-								<input type="text" class="form-control"  name="incode" id="incode" required>
+								<input type="text" class="form-control" name="incode" id="incode" required>						
 							</td>
 						</tr>
+						
 						<tr>
 							<th>품목코드</th>
 							<td>
@@ -121,15 +125,16 @@
 							<td>	
 								<input type="date" class="form-control" name="inputDate" id="inputDate" required>
 							</td>
-						</tr> 
-						</table>
-						<table id="in-form-btn">
-						<tr id="in-form-tr">
-						<td id="in-form-td">
-						<input type="submit" id="inform-success" value="등록" >
+						</tr>  
+			</table>
+			<table id="in-update-btn">
+						<tr id="in-update-tr">
+						<td id="in-update-td">
+						<input type="submit" class="in-update-success"  value="수정완료">
+						<input type="button" class="in-update-success"  value="삭제" onclick="location.href='${pageContext.request.contextPath}/in/deleteList.do?incode=${origininNum.incode}'"  />
 						</td>
 						</tr>
-						</table> 
+			</table>
 					</form>
 					
 		
@@ -142,5 +147,6 @@
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 	<!-- JS파일 불러오기 -->
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
 </body>
 </html>

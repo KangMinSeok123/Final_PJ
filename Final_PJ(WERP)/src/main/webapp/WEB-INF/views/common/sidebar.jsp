@@ -28,10 +28,11 @@
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-                        <ul class="collapse__menu">
-                            <a href="${pageContext.request.contextPath}/in/in_form.do" class="collapse__sublink">-입고관리</a>
-                            <a href="#" class="collapse__sublink">-</a>
-                    
+                       <ul class="collapse__menu">
+                            <a href="${pageContext.request.contextPath}/in/in_form.do" class="collapse__sublink">-입고등록</a>
+                            <a href="${pageContext.request.contextPath}/in/inView.do" class="collapse__sublink">-입고현황 조회</a>
+                    		<a href="${pageContext.request.contextPath}/out/out_form.do" class="collapse__sublink">-출고등록</a>
+                            <a href="${pageContext.request.contextPath}/out/outView.do" class="collapse__sublink">-출고현황 조회</a>
                         </ul>
                     </div>
                     <div href="#" class="nav__link collapse">

@@ -19,9 +19,10 @@ public class InManagement implements Serializable  {
 	private static final long serialVersionUID = 79337L;
 	
 	
-	private String icode;
-	private String pcode;
-	private int inNum;
-	private Date inputDate;
+	private String incode;	// 입고코드
+	private String procode;	// 품목코드
+	private int inPrice;	// 입고단가
+	private int inNum;		// 입고수량
+	private Date inputDate;	// 입력일
 	
 }
