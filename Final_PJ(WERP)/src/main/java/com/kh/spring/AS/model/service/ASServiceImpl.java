@@ -1,5 +1,6 @@
 package com.kh.spring.AS.model.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,9 +29,27 @@ public class ASServiceImpl implements ASService {
 	}
 
 	@Override
-	public AS selectOneAS(String asCode) {
+	public AS selectOneAS(int asCode) {
 		
 		return asDAO.selectOneAS(asCode);
+	}
+
+	@Override
+	public int updateStage(AS as) {
+		
+		return asDAO.updateStage(as);
+	}
+	
+	@Override
+	public int updateExpectedDate(AS as) {
+		
+		return asDAO.updateExpectedDate(as);
+	}
+
+	@Override
+	public int deleteAS(int asCode) {
+		
+		return asDAO.deleteAS(asCode);
 	}
 
 	

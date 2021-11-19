@@ -11,7 +11,19 @@
 		SELECT COUNT(*) FROM ASMANAGEMENT
 	</select>
 	
-	<select id="selectOneAS" parameterType="String" resultType="AS">
-		SELECT * FROM ASMANAGEMENT WHERE ASCODE = TO_DATE('#{asCode}', 'YYYY/MM/DD')
+	<select id="selectOneAS" parameterType="int" resultType="AS">
+		SELECT * FROM ASMANAGEMENT WHERE ASCODE = #{asCode}
 	</select>
+	
+	<update id="updateStage" parameterType="AS">
+		UPDATE ASMANAGEMENT SET ASSTAGE = #{asStage} WHERE ASCODE = #{asCode} 
+	</update>
+	
+	<update id="updateExpectedDate" parameterType="AS">
+		UPDATE ASMANAGEMENT SET ASEXPECTEDDATE = #{asExpectedDate} WHERE ASCODE = #{asCode} 
+	</update>
+	
+	<delete id="deleteAS" parameterType="int">
+		DELETE FROM ASMANAGEMENT WHERE ASCODE = #{asCode}
+	</delete>
 </mapper>
