@@ -269,32 +269,60 @@ input::-moz-placeholder {color:#a8a8a8;}
 			}
 		}
 
-		function boardDelete(){
+		function SelectDelete(){
 			
 			
-			var errorpNo = $("input:checkbox[name='cchk']:checked").val();
+			var errorpNo = new Array();
+			$("input:checkbox[name='cchk']:checked").each(function() {
+				errorpNo.push($(this).val());
+			});
+			console.log(errorpNo);
+			if( errorpNo.length >= 1 ) {
+			if(confirm("삭제하시겠습니까?")){
+				
+				$.ajax({
+			        type : 'post'
+			       ,url : '${pageContext.request.contextPath}/errorP/errorPDelete.do'
+			        ,data : { cchk : errorpNo }
+			       ,dataType : 'text'
+			       ,success : function(data) {
+						
+						location.reload();
+						alert("삭제 되었습니다.");
+						
+			       }
+			      
+			   })	
 		
-		if(confirm("삭제하시겠습니까?")){
+		}
+			}
 			
+			else {
+				alert("체크박스를 선택하세요.");
+			}
+		}	
+		
+		
+		function Alldelete() {	
+			if(confirm("삭제하시겠습니까?")) {
 			$.ajax({
-		        type : 'GET'
-		       ,url : '${pageContext.request.contextPath}/errorP/errorPDelete.do?errorpNo='+errorpNo
-		       ,dataType : 'text'
-		       ,success : function(data) {
-					alert("해당글이 정상적으로 삭제되었습니다.");
+				type : 'post',
+				url : '${pageContext.request.contextPath}/errorP/errorPAlldelete.do',			
+				dataType : 'text',
+				success : function(data) {
+					
 					location.reload();
+					alert("삭제 되었습니다.");
 					
 		       }
-		      
-		   })	
+			
+			
+			})
+			}
+			
 		}
-	}
-	
-		
-		
-	
 
-
+	
 		
 			
 		
@@ -374,12 +402,12 @@ input::-moz-placeholder {color:#a8a8a8;}
 				</table>
 				<div class="errorp-btn">
 				<input type="button" value="등록" id="btn-add"  onclick="fn_goErrorPForm();"/>
-				<input type="button" value="선택삭제" id="btn-add2" onclick="boardDelete();"/>
-				<input type="button" value="전체삭제" id="btn-add3" onclick="fn_goErrorPForm();"/>
+				<input type="button" value="선택삭제" id="btn-add2" onclick="SelectDelete();"/>
+				<input type="button" value="전체삭제" id="btn-add3" onclick="Alldelete();"/>
 				</div>
 				<c:out value="${pageBar}" escapeXml="false"/>
 				<c:import url="../common/footer.jsp"/>
-	<%--gdgdaaaaa --%>
+	
 	
 </body>
 </html>

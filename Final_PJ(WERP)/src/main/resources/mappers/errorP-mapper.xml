@@ -79,10 +79,13 @@ OR ERRORPNAME like '%' || #{word} || '%'
 		DELETE FROM ATTACHMENT WHERE ATTACHMENTNO = #{ attNo }
 	</delete>
 	
-	<delete id="deleteErrorP" parameterType="String">
+	<delete id="deleteErrorP">
 		DELETE FROM ERRORP WHERE ERRORPNO = #{ errorpNo }
 	</delete>
 	
+	<delete id="AlldeleteErrorP">
+		DELETE FROM ERRORP WHERE ERRORPNO > 0
+	</delete>
 	
 </mapper>
 

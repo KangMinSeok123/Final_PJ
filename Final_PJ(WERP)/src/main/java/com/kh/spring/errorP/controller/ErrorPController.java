@@ -20,10 +20,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import com.kh.spring.common.Utils;
 import com.kh.spring.errorP.model.service.ErrorPService;
@@ -324,39 +322,35 @@ public class ErrorPController {
 		}
 	}
 	
+	@ResponseBody
 	@RequestMapping("/errorP/errorPDelete.do")
-	public String errorPDelete(@RequestParam int errorpNo,
-								HttpServletRequest request,
-								Model model) {
+	public void errorPDelete(
+								@RequestParam(value="cchk[]") List<String> errorpNo,
+								ErrorP errorP,
+								HttpServletRequest request
+								) {
 	
-		String savePath = request.getServletContext().getRealPath("/resources/boardUpload");
+	int result = 0;
+	int errorpNoNum = 0;
 		
 		// 첨부파일삭제 명단
-		List<Attachment> delList = errorPService.selectAttachmentList(errorpNo);
-		
+		for(String i : errorpNo) {
 		// 게시글 삭제
-		int result = errorPService.deleteErrorP(errorpNo); // 서비스 이동~!
-		
-		String loc = "/errorp/errorPList.do";
-		String msg = "";
-		
-		if( result > 0 ) {
-			msg = "삭제 완료!";
+			errorpNoNum = Integer.parseInt(i);
+			errorP.setErrorpNo(errorpNoNum);
+			errorPService.deleteErrorP(errorP); // 서비스 이동~!
 			
-			for(Attachment a : delList) {
-				new File(savePath + "/" + a.getRenamedFileName()).delete();
-			}
-		} else {
-			msg = "삭제 실패!";
-		}
-		
-		model.addAttribute("loc", loc);
-		model.addAttribute("msg", msg);
+		}	
 	
 		
+	}
+	@ResponseBody
+	@RequestMapping("/errorP/errorPAlldelete.do")
+	public void errorPAllDelete (HttpServletRequest request) {
+			
+		errorPService.AlldeleteErrorP();
+		System.out.println("통신");
 		
-		
-		return "common/msg";
 	}
 	
 	

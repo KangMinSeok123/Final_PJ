@@ -24,9 +24,12 @@ public interface ErrorPDAO {
 
 	int updateAttachment(Attachment a);
 
-	int deleteErrorP(int errorpNo);
+	void deleteErrorP(ErrorP errorP);
 
 	int deleteAttachment(int errorpNo);
 
 	int deleteFile(int attNo);
+
+	void AlldeleteErrorP();
+
 }

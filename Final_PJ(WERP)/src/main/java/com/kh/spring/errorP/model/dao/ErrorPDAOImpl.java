@@ -71,9 +71,9 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	}
 
 	@Override
-	public int deleteErrorP(int errorpNo) {
+	public void deleteErrorP(ErrorP errorP) {
 		
-		return sqlSession.delete("errorPSQL.deleteErrorP", errorpNo);
+		sqlSession.delete("errorPSQL.deleteErrorP", errorP);
 	}
 
 	@Override
@@ -86,6 +86,13 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	public int deleteFile(int attNo) {
 		
 		return sqlSession.delete("errorPSQL.deleteFile", attNo);
+	}
+	
+	@Override
+	public void AlldeleteErrorP() {
+		
+		sqlSession.delete("errorPSQL.AlldeleteErrorP");
+		
 	}
 
 }

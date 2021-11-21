@@ -99,9 +99,9 @@ public class ErrorPServiceImpl implements ErrorPService {
 
 	
 	@Override
-	public int deleteErrorP(int errorpNo) {
+	public void deleteErrorP(ErrorP errorP) {
 		
-		return errorPDAO.deleteErrorP(errorpNo);
+		 errorPDAO.deleteErrorP(errorP);
 		}
 		
 	
@@ -110,6 +110,12 @@ public class ErrorPServiceImpl implements ErrorPService {
 	public int deleteFile(int attNo) {
 		
 		return errorPDAO.deleteFile(attNo);
+	}
+	
+	@Override
+	public 	void AlldeleteErrorP() {
+		
+		errorPDAO.AlldeleteErrorP();
 	}
 
 }

@@ -3,7 +3,6 @@ package com.kh.spring.errorP.model.service;
 import java.util.List;
 import java.util.Map;
 
-import com.kh.spring.common.Utils;
 import com.kh.spring.errorP.model.vo.Attachment;
 import com.kh.spring.errorP.model.vo.ErrorP;
 
@@ -25,6 +24,8 @@ public interface ErrorPService {
 	
 	int deleteFile(int attNo);
 
-	int deleteErrorP(int errorpNo);
+	void deleteErrorP(ErrorP errorP);
+
+	void AlldeleteErrorP();
 	
 }
