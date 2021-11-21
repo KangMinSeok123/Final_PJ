@@ -7,7 +7,7 @@
             <div>
                 <div class="nav__brand">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">WERP</a>
+                    <a href="${pageContext.request.contextPath}/" class="nav__logo">WERP</a>
                 </div>
                  <div href="#" class="nav__link collapse">
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
@@ -72,7 +72,7 @@
                     </div>
 
                 </div>
-                <a href="#" class="nav__link">
+                <a href="javascript:void(0)" class="nav__link" onclick="logout(); return false;">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">로그아웃</span>
                 </a>

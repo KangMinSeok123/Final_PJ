@@ -11,6 +11,6 @@
  	
 	<!-- #2 Java full package class access to alias -->
  	<typeAliases>
- 		<!-- <typeAlias alias="Member" type="com.kh.spring.member.model.vo.Member" /> -->
+ 		<typeAlias alias="Member" type="com.kh.spring.member.model.vo.Member" />
  	</typeAliases>
  </configuration>
