@@ -15,7 +15,6 @@
    }
 </style>
 
-<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <link rel="stylesheet" href="/spring/resources/css/common.css">
 <script type="text/javascript" charset="utf-8">
 	sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
