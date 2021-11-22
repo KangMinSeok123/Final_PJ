@@ -52,7 +52,7 @@ li.page-item.disabled>.page-link {
 
 .pagination  {       
 margin-top: 30px; 
-margin-left: 805px;
+margin-left: 665px;
 
 }
 
@@ -63,7 +63,7 @@ table {
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
 	margin-top: 10px;
-	margin-left: auto;
+	margin-left: 200px;
 	margin-right: auto;
 	border:#ccc 1px solid;
 
@@ -157,7 +157,7 @@ margin-left: 150px;
 color: blue;
 }
 .errorp-btn {
-margin-left: 360px;
+margin-left: 250px;
 margin-top: 5px;
 }
 .errorp-btn>input  {
@@ -169,7 +169,7 @@ height:30px;
 
 #search-form {
 
-margin-left : 350px;
+margin-left : 280px;
 
 }
 
@@ -180,7 +180,7 @@ height: 50px;
 }
 
 .navbar-form {
-margin-left: 345px;
+margin-left: 250px;
 }
 
 .search-option {
