@@ -7,6 +7,10 @@
 <!DOCTYPE html>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script type="text/javascript" charset="utf-8">
+	sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
+</script>
+<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 <html>
 <head>
 	<meta charset="UTF-8">
