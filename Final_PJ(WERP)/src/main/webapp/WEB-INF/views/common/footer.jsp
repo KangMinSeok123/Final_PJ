@@ -3,12 +3,16 @@
 
 <style>
 .siteMap {
-	margin-left: 150px;
+
+	margin-left: 300px;
+
 	
 }
 
 .copyright {
-	margin-left: 150px;
+
+	margin-left: 300px;
+
 }
 </style>
 
