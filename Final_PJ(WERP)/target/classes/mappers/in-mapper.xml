@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="inSQL">
+
+	<insert id="insertIn" parameterType="InManagement">
+		INSERT INTO IN_MANAGEMENT (INCODE, PROCODE, INPRICE, INNUM, INPUTDATE)
+		VALUES (#{ incode }, #{ procode }, #{ inPrice }, #{ inNum }, SYSDATE)
+	</insert>
+
+	<select id="selectinList" resultType="InManagement">
+		SELECT * FROM IN_MANAGEMENT
+		ORDER BY INCODE DESC
+	</select>
+	
+	<select id="selectTotalIn" resultType="int">
+		SELECT COUNT(*) FROM IN_MANAGEMENT
+	</select>
+	
+	<select id="updateView" parameterType="string" resultType="InManagement">
+		SELECT * FROM IN_MANAGEMENT WHERE INCODE = #{ incode }
+	</select>
+	
+	<update id="updateList" parameterType="InManagement">
+		UPDATE IN_MANAGEMENT
+		SET PROCODE = #{ procode }, INPRICE = #{ inPrice }, INNUM = #{ inNum }, INPUTDATE = SYSDATE
+		WHERE INCODE = #{ incode }
+	</update>
+	
+	<delete id="deleteList" parameterType="string">
+		DELETE FROM IN_MANAGEMENT WHERE INCODE = #{ incode }
+	</delete>
+</mapper>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <body id="body-pd">
     <div class="l-navbar" id="navbar">
         <nav class="nav">
@@ -22,16 +22,17 @@
                         </ul>
                     </div>
                     
-                     <div href="#" class="nav__link collapse">
+                    <div href="#" class="nav__link collapse">
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">입출고 관리</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- 입고</a>
-                            <a href="#" class="collapse__sublink">- 출고</a>
-                    
+                       <ul class="collapse__menu">
+                            <a href="${pageContext.request.contextPath}/in/in_form.do" class="collapse__sublink">-입고등록</a>
+                            <a href="${pageContext.request.contextPath}/in/inView.do" class="collapse__sublink">-입고현황 조회</a>
+                    		<a href="${pageContext.request.contextPath}/out/out_form.do" class="collapse__sublink">-출고등록</a>
+                            <a href="${pageContext.request.contextPath}/out/outView.do" class="collapse__sublink">-출고현황 조회</a>
                         </ul>
                     </div>
                     <div href="#" class="nav__link collapse">
@@ -41,7 +42,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- 불량자재 등록</a>
+                             <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 등록</a>
                             <a href="#" class="collapse__sublink">- 불량자재 조회</a>
                         </ul>
                     </div>
@@ -53,8 +54,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">- A/S 신청</a>
-                            <a href="#" class="collapse__sublink">- 신청내역</a>
+                            <a href="${pageContext.request.contextPath}/AS/ASReceipt.do" class="collapse__sublink">- A/S 접수 조회</a>
+                           
                         </ul>
                     </div>
 
@@ -83,5 +84,5 @@
     <!-- 외부 아이콘 사용 -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- JS파일 불러오기 -->
-    <script src="resources/js/main.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 </body>

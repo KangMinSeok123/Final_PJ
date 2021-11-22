@@ -11,6 +11,17 @@
  	
 	<!-- #2 Java full package class access to alias -->
  	<typeAliases>
- 		<typeAlias alias="Member" type="com.kh.spring.member.model.vo.Member" />
+ 		<typeAlias alias="Member" type="com.kh.spring.member.model.vo.Member"/>
+ 		<typeAlias alias="AS" type="com.kh.spring.AS.model.vo.AS" />
+ 		<typeAlias alias="InManagement" type="com.kh.spring.in.model.vo.InManagement" />	
+ 		<typeAlias alias="ErrorP" type="com.kh.spring.errorP.model.vo.ErrorP" />		
+ 		<typeAlias alias="MyTypeHandler" type="com.kh.spring.common.MyTypeHandler" />
+ 		<typeAlias alias="Attachment" type="com.kh.spring.errorP.model.vo.Attachment"/>	
+ 		<typeAlias alias="Utils" type="com.kh.spring.common.Utils"/>	
  	</typeAliases>
+ 	
+ 	<typeHandlers>
+ 		<package name="com.kh.spring.common"/>
+ 	</typeHandlers>
+ 	
  </configuration>

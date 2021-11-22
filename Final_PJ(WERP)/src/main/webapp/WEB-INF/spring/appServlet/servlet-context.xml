@@ -49,6 +49,11 @@
 		        <beans:property name="useCacheControlNoStore" value="true" />
 		</beans:bean>
 	</interceptors>
+
+<!-- MultipartResolver : 파일 업로드를 처리하는 클래스 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/> <!-- 최대 파일 크기 -->
+	</beans:bean>
 	
 	<context:component-scan base-package="com.kh.spring" />
 	

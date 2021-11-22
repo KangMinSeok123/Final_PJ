@@ -1,8 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<style>
+.siteMap {
+	margin-left: 300px;
+	
+}
+
+.copyright {
+	margin-left: 300px;
+}
+</style>
+
 <footer>
-	<div class="siteMap">사이트맵 영역 입니다. <br>
+	<div class="siteMap"><br>
 		<a href="javascript:void(0);" onclick="fn1(); return false;">품목 관리   |</a>
 		<a href="javascript:void(0);" onclick="fn2(); return false;">입출고 관리   |</a>
 		<a href="javascript:void(0);" onclick="fn3(); return false;">A/S 관리   |</a>

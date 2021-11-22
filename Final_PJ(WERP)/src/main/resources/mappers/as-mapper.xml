@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="asSQL">
+
+	<select id="selectASList" resultType="AS">
+		SELECT * FROM ASMANAGEMENT
+	</select>
+	
+	<select id="selectTotalAS" resultType="int">
+		SELECT COUNT(*) FROM ASMANAGEMENT
+	</select>
+	
+	<select id="selectOneAS" parameterType="int" resultType="AS">
+		SELECT * FROM ASMANAGEMENT WHERE ASCODE = #{asCode}
+	</select>
+	
+	<update id="updateStage" parameterType="AS">
+		UPDATE ASMANAGEMENT SET ASSTAGE = #{asStage} WHERE ASCODE = #{asCode} 
+	</update>
+	
+	<update id="updateExpectedDate" parameterType="AS">
+		UPDATE ASMANAGEMENT SET ASEXPECTEDDATE = #{asExpectedDate} WHERE ASCODE = #{asCode} 
+	</update>
+	
+	<delete id="deleteAS" parameterType="int">
+		DELETE FROM ASMANAGEMENT WHERE ASCODE = #{asCode}
+	</delete>
+</mapper>
