@@ -3,13 +3,15 @@
 /* footer css */
 
 footer{
-    position: fixed;
+    position: absolute;
     width: 100%;
-    left:0;
-    bottom:0;
+    height: fit-content;
+    top: 700px;
+    left: 0;
+    bottom: 0px;
     text-align: center;
-   color: black;
-   background: lightgray;
+    color: black;
+    background: lightgray;
     padding: 10px;
 
 }
@@ -173,4 +175,68 @@ font-size: 2em;
     border-radius: 15px 15px 15px 15px;
     margin-bottom: 15px;
     color:white;
+}
+/*member Update*/
+#update-container{
+    padding: 15px;
+    text-align: left;
+}
+ #updateForm{
+ padding:15px;
+ border: 4px solid black;
+    border-style: double;
+    border-radius: 10px;
+ }
+ #updateTable{
+ display:flex;
+ flex-direction: column;
+    align-items: center;
+     margin: 15px;
+    padding: 15px 80px 15px 80px;
+ }
+ #updateTable thead{
+ 	margin-bottom:5px;
+ }
+ #updateTable tbody{
+ 	width: 1000px;
+ }
+ #updateTable tbody input{
+ 	width: 600px;
+    height: 25px;
+    border-radius: 10px 5px 10px 5px;
+    padding-left: 15px;
+ }
+ #updateTable tbody select{
+     margin-right: 200px;
+    width: 200px;
+    border-radius: 10px 5px 10px 5px;
+    }
+ #updateTable tr{
+ 	height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 90px 0px 90px;
+}
+#buttonDiv{
+	text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#buttonDiv input{
+	margin: 0px 5px 0px 5px;
+    border-radius: 15px;
+    height: 40px;
+    box-shadow: 4px 5px 5px;
+    font-size: 1.3vw;
+    font-weight: bolder;
+}
+#buttonDiv input:hover{
+	transform: translateY(3px);
+    box-shadow: 0px 0px 0px;
+}
+#buttonDiv input:active{
+	box-shadow: 2px 3px 9px inset;
+    transform: translateY(6px);
 }
