@@ -11,6 +11,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>불량자제 관리</title>
+	<link rel="stylesheet" href="/spring/resources/css/common.css">
 	<style>
 	li {
     display: list-item;
@@ -51,7 +52,7 @@ li.page-item.disabled>.page-link {
 }
 
 .pagination  {       
-margin-top: 30px; 
+margin-top: 5px; 
 margin-left: 665px;
 
 }
