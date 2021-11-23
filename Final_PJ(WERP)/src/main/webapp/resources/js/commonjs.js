@@ -15,9 +15,33 @@
  }
  function fn3(){
  	var contextpath=getContextPath();
- 	window.location.href=contextpath+'/';
+ 	window.location.href=contextpath+'/in/in_form.do';
  }
  function fn4(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/in/inView.do';
+ }
+ function fn5(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/out/out_form.do';
+ }
+  function fn6(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/out/outView.do';
+ }
+ function fn7(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/errorP/errorPForm.do';
+ }
+ function fn8(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/errorP/errorPList.do';
+ }
+ function fn9(){
+ 	var contextpath=getContextPath();
+ 	window.location.href=contextpath+'/AS/ASReceipt.do';
+ }
+ function fn10(){
  	var contextpath=getContextPath();
  	window.location.href=contextpath+'/';
  }

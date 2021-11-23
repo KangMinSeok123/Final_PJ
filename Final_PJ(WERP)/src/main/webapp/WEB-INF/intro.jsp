@@ -15,6 +15,9 @@
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/jquery.backstretch.min.js"></script>
 <style>
+ a{
+ 	text-decoration:none;
+ }
  *{
 	margin:0;
 	padding:0;
@@ -54,8 +57,9 @@
 
 .startBtn:hover{
 	right: calc(50% - 200px);
-	
- 	 width: 400px;
+	 width: 400px;
+background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
+    box-shadow: 1px 5px 5px 1px inset;
 }
 .startBtn:active{
 	transform: translateY(3px);
@@ -115,13 +119,12 @@
     transition: all .3s cubic-bezier(.67,.13,.1,.81), transform .15s cubic-bezier(.67,.13,.1,.81);
 }
 .menu-content .loginDiv:hover{
-	width:350px;
-	height:350px;
+	transform:scale(1.1);
+	background-color: #88cefa4f;
 }
 .menu-content .enrollDiv:hover{
-	width:350px;
-	height:350px;
-	content:'ENROLL';
+	transform:scale(1.1);
+	background-color: #88cefa4f;
 }
 .menu-content #menu-item{
 	top: 10%;
@@ -131,32 +134,52 @@
     display: flex;
     
     justify-content: space-around;
-    background-color: rgba(240,230,190,.9);
+    background-color: rgba(255,255,255,0%);
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
 }
 .menu-content #cancelDiv{
-    background-color: rgba(240,230,190,.9);
+    background-color: rgba(255,255,255,0%);
     display: flex;
     justify-content: flex-end;
     position: absolute;
     width: -webkit-fill-available;
-    height: -webkit-fill-available;
+}
+.menu-content .enrollDiv:hover #enrollimg{
+	opacity:0;
+	transform: translateX(100px);
+}
+.menu-content .loginDiv:hover #loginimg{
+	opacity:0;
+	transform: translateX(-100px);
 }
 #enrollimg{
     position: absolute;
-	left:610px;
+	right:100px;
 	width:280px;
+	transition: all 1s ease-in;
 	
 }
  #loginimg{
  	width: 265px;
     position: absolute;
  	left:110px;
-	
+	transition: all 1s ease-in;
  }
-
+#loginText, #enrollText{
+text-shadow: 14px 5px 13px black;
+    color: black;
+position: relative;
+    top: 170px;
+font-size: 5vw;
+    opacity: 0;
+   transition:all 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s, transform 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s ;
+ }
+ .menu-content .loginDiv:hover #loginText, .menu-content .enrollDiv:hover #enrollText{
+ 	opacity:1;
+ 	transform:translateY(-100px);
+ }
 </style>
 </head>
 <c:import url="views/common/header.jsp"/>
@@ -212,12 +235,12 @@
 				
 				
 				var loginDiv=document.createElement("div");
-				var loginTitle=document.createElement("div");
+			//	var loginTitle=document.createElement("span");
 				var login=document.createElement("a");
 
 				
 				var enrollDiv=document.createElement("div");
-				var enrollTitle=document.createElement("div");
+			//	var enrollTitle=document.createElement("span");
 				var enroll=document.createElement("a");
 				
 				
@@ -241,7 +264,8 @@
 				loginDiv.setAttribute("class","loginDiv");
 				loginDiv.style.padding="10px";								
 				
-			///	loginTitle.setAttribute("class","title");
+				//loginTitle.setAttribute("id","loginTitle");
+			//	loginTitle.innerHTML="LOGIN";
 				
 				login.setAttribute("href","javascript:void(0);");
 				login.setAttribute("class","loginImg");
@@ -260,10 +284,10 @@
 	     		enroll.setAttribute("onclick","goEnroll(); return false;");
 				
 	    		
-	     		login.innerHTML="<img src='/spring/resources/image/signin1.png' alt='로그인' id='loginimg'>"; 		
-	    		enroll.innerHTML="<img src='/spring/resources/image/notes.png' alt='회원가입' id='enrollimg'>";
+	     		login.innerHTML="<img src='/spring/resources/image/signin1.png' alt='로그인' id='loginimg'><div id='loginText'>LOGIN</div>"; 		
+	    		enroll.innerHTML="<img src='/spring/resources/image/notes.png' alt='회원가입' id='enrollimg'><div id='enrollText'>ENROLL</div>";
 	     		
-	     	//	loginDiv.appendChild(loginTitle);
+	     		//loginDiv.appendChild(loginTitle);
 	    		loginDiv.appendChild(login);
 	     		
 	     	//	enrollDiv.appendChild(enrollTitle);
