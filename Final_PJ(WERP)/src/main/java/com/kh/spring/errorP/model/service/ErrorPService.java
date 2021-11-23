@@ -12,7 +12,11 @@ public interface ErrorPService {
 
 	int selectErrorPTotalContents(String key, String word);
 
+	int checkErrorP(String errorpCode);
+
 	int insertErrorP(ErrorP errorP, List<Attachment> attachList);
+
+	int updateCount(ErrorP errorP);
 
 	ErrorP selectOneErrorP(int errorpNo);
 
@@ -27,5 +31,9 @@ public interface ErrorPService {
 	void deleteErrorP(ErrorP errorP);
 
 	void AlldeleteErrorP();
+
+
+
+
 	
 }

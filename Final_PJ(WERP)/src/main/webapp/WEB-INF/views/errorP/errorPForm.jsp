@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -27,6 +27,36 @@
 		return true;
 	}
 	
+	
+	
+	function checkErrorP() {
+		var id = $("[name=errorpCode]").val();
+			$.ajax ({
+				type : 'post',
+				url : "${pageContext.request.contextPath}/errorP/errorPCheck.do",
+				dataType : 'text',
+				data : {errorpCode : id},
+				success : function(data) {
+						if(data == 0) {	
+							document.getElementById('Frm').submit();
+						
+						}
+						
+						else {
+							
+							
+						}
+						
+					
+				
+						
+					
+				}
+			});	
+			
+	}
+				
+	
 	/*부트스트랩 : file 변경시 파일명 보이기 */
 	$(function(){
 		$('[name=upFile]').on('change',function(){
@@ -45,7 +75,7 @@
 	<div id="container">
 		<c:import url="../common/sidebar.jsp"/>
 		<div id="board-container">
-			<form name="boardFrm" action="${pageContext.request.contextPath}/errorP/errorPFormEnd.do" method="post" onsubmit="return validate();" enctype="multipart/form-data" >
+			<form id="Frm" name="boardFrm" action="${pageContext.request.contextPath}/errorP/errorPFormEnd.do" method="post"  enctype="multipart/form-data" >
 				<input type="text" class="form-control" placeholder="상품코드" name="errorpCode" id="errorpCode" required>
 				<input type="text" class="form-control" placeholder="상품명" name="errorpName" id="errorpName" required>
 				 <input type="text" class="form-control" name="errorpContent" placeholder="내용" required></textarea>
@@ -70,7 +100,7 @@
 				  </div>
 				</div>
 			   
-				<input type="submit" class="btn btn-outline-success" value="저장" >
+				<input type="submit" class="btn btn-outline-success" value="저장" onclick=" >
 			</form>
 		</div>
 		<c:import url="../common/footer.jsp"/>

@@ -75,11 +75,15 @@ public class ErrorPController {
 		return "errorP/errorPForm";
 	}
 	
-	@RequestMapping("/errorP/errorPFormEnd.do")
-	public String insertErrorP(ErrorP errorP, Model model, HttpServletRequest req,
-							  @RequestParam(value="upFile", required=false) MultipartFile[] upFiles) {
+
 		
-		System.out.println("errorP : " + errorP);
+		
+	@RequestMapping("/errorP/errorPFormEnd.do")
+	public String insertErrorP(ErrorP errorP, Model model,
+							@RequestParam(value="errorpCode", required=false) String errorpCode,
+							HttpServletRequest request, HttpServletRequest req,
+							  @RequestParam(value="upFile", required=false) MultipartFile[] upFiles)
+												{
 		
 		// 1. 파일 저장 경로 및 파일 정보를 담을 객체 생성
 		String savePath = req.getServletContext().getRealPath("/resources/boardUpload");
@@ -92,8 +96,7 @@ public class ErrorPController {
 				// 3. 파일 이름 변경
 				String originName = f.getOriginalFilename(); // 원본 이름
 				String changeName = fileNameChanger(originName); // 서버에서 관리할 이름
-				
-				// 4. 파일 저장
+			// 4. 파일 저장
 				try {
 					f.transferTo(new File(savePath + "/" + changeName));
 				} catch (IllegalStateException e) {
@@ -110,25 +113,39 @@ public class ErrorPController {
 				attachList.add(a);				
 			}
 		}
-		
 		// 6. 게시글 DB에 등록
-		int result = errorPService.insertErrorP(errorP, attachList);
-		
+		int check = errorPService.checkErrorP(errorpCode);
+		int result, result2;
 		String loc = "/errorP/errorPList.do";
 		String msg = "";
 		
-		if( result > 0) {
-			msg = "게시글 등록 성공!";
-			
+		
+		if(check==0) {	
+			result = errorPService.insertErrorP(errorP, attachList);
+		
+		if( result > 0 ) {
+			msg = "등록 완료";
+			System.out.println(loc + "/" + msg);
 		} else {
-			msg = "게시글 등록 실패!";
+			msg = "등록 실패";
+		}
+	
+		}
+		
+		else {
+		result2 = errorPService.updateCount(errorP);	
+		if( result2 > 0 ) {
+			msg = "등록 완료";
+			System.out.println(loc + "/" + msg);
+		} else {
+			msg = "등록 실패";
+		}
 		}
 		
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 		
 		return "common/msg";
-		
 	}
 	
 	public String fileNameChanger(String oldName) {
@@ -349,7 +366,7 @@ public class ErrorPController {
 	public void errorPAllDelete (HttpServletRequest request) {
 			
 		errorPService.AlldeleteErrorP();
-		System.out.println("통신");
+		
 		
 	}
 	

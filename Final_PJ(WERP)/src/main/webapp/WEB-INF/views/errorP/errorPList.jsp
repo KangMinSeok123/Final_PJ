@@ -230,6 +230,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 			window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
 		}
 		
+		
+		
 		$(function(){
 			$("td[id]").on("click",function(){
 				var errorpNo = $(this).attr("id");

@@ -30,6 +30,9 @@ OR ERRORPNAME like '%' || #{word} || '%'
 		<include refid = "search" />
 	</select>
 	
+	<select id="checkErrorP" resultType="int" >
+		SELECT COUNT(*) FROM ERRORP WHERE ERRORPCODE = #{ errorpCode }
+	</select>
 	<insert id="insertErrorP" parameterType="ErrorP">
 		INSERT INTO ERRORP (ERRORPNO, ERRORPCODE, ERRORPNAME, ERRORPCONTENT, ERRORPCOUNT)
 		VALUES (SEQ_ERRORPNO.NEXTVAL, #{ errorpCode }, #{ errorpName }, #{ errorpContent }, #{ errorpCount })
@@ -48,6 +51,11 @@ OR ERRORPNAME like '%' || #{word} || '%'
 		  #{ errorpNo }, #{ originalFileName }, #{ renamedFileName }, 
 		  SYSDATE, 0, 'Y' )
 	</insert>
+	
+	<update id="updateCount" parameterType="ErrorP">
+		UPDATE ERRORP SET ERRORPCOUNT = ERRORPCOUNT + #{ errorpCount } WHERE
+		ERRORPCODE = #{ errorpCode }
+	</update>
 
 	
 	<select id="selectOneErrorP" parameterType="int" resultType="ErrorP">

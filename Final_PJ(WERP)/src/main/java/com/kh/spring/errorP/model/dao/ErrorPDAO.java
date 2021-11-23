@@ -11,10 +11,15 @@ public interface ErrorPDAO {
 	List<Map<String, String>> selectBoardList(int cPage, int numPerPage, String key, String word);
 
 	int selectErrorPTotalContents(String key, String word);
+	
+	int checkErrorP(String errorpCode);
 
 	int insertErrorP(ErrorP errorP);
 
+	int updateCount(ErrorP errorP);
+	
 	int insertAttachment(Attachment a);
+	
 
 	ErrorP selectOneErrorP(int errorpNo);
 
@@ -31,5 +36,7 @@ public interface ErrorPDAO {
 	int deleteFile(int attNo);
 
 	void AlldeleteErrorP();
+	
+
 
 }

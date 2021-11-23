@@ -31,12 +31,25 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 		Utils utils = new Utils(key, word);
 		return sqlSession.selectOne("errorPSQL.selectErrorPTotalContents", utils);
 	}
+	
+	@Override
+	public int checkErrorP(String errorpCode) {
+		
+		return sqlSession.selectOne("errorPSQL.checkErrorP",errorpCode);
+	}
 
 	@Override
 	public int insertErrorP(ErrorP errorP) {
 		
 		return sqlSession.insert("errorPSQL.insertErrorP", errorP);
 	}
+	
+	@Override
+	public int updateCount(ErrorP errorP) {
+		
+		return sqlSession.update("errorPSQL.updateCount",errorP);
+	}
+
 
 	@Override
 	public int insertAttachment(Attachment a) {

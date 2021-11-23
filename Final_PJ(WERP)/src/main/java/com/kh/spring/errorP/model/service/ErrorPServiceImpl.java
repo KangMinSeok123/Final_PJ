@@ -30,6 +30,12 @@ public class ErrorPServiceImpl implements ErrorPService {
 	}
 
 	@Override
+	public int checkErrorP(String errorpCode) {
+		
+		return errorPDAO.checkErrorP(errorpCode);
+	}
+	
+	@Override
 	public int insertErrorP(ErrorP errorP, List<Attachment> attachList) {
 		
 		int errorPResult = errorPDAO.insertErrorP(errorP);
@@ -49,6 +55,13 @@ public class ErrorPServiceImpl implements ErrorPService {
 				
 		return errorPResult;
 	}
+	
+	@Override
+	public int updateCount(ErrorP errorP) {
+		
+		return errorPDAO.updateCount(errorP);
+	}
+
 
 	@Override
 	public ErrorP selectOneErrorP(int errorpNo) {
@@ -67,7 +80,10 @@ public class ErrorPServiceImpl implements ErrorPService {
 	public ErrorP updateView(int errorpNo) {
 
 		return errorPDAO.selectOneErrorP(errorpNo);
+	
 	}
+	
+	
 
 	@Override
 	public int updateErrorP(ErrorP errorP, List<Attachment> attachList) {
