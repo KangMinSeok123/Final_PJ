@@ -84,7 +84,7 @@ public class Utils {
 		//fn_paging함수
 		pageBar += "<script>";
 		pageBar += "function fn_paging(cPage,numPerPage){";
-		pageBar += "location.href='"+url+"?cPage='+cPage;";
+		pageBar += "location.href='"+url+"?cPage='+cPage+'&key="+key+"&word="+word+"';"; // 검색한 키워드 페이지 처리
 		pageBar += "}";
 		pageBar += "</script>";
 		

@@ -3,30 +3,21 @@
 
 <style>
 .siteMap {
-<<<<<<< HEAD
-
-	margin-left: 150px;
-
-	
-=======
 	display: grid;
     grid-template-columns: 1fr 3fr;
     margin-left: 300px;
     text-align: center;
 }
 #sitemap{
-display: inline-table;
+	display: inline-table;
     text-align: left;
     padding-left: 100px;
     }
 #sitemap span{
-	 font-size: 1.3vw;
->>>>>>> master
+	 font-size: 17px;
 }
 .copyright {
-
-	margin-left: 150px;
-
+	margin-left: 300px;
 }
 </style>
 

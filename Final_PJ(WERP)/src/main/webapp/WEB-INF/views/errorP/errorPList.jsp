@@ -47,6 +47,10 @@ li.page-item.disabled>.page-link {
     cursor: pointer;
 }
 
+li.page-item {
+height:40px;
+}
+
 .page-item>a.page-link {
 	display: inline-block;
     padding: 10px;
@@ -71,7 +75,6 @@ table {
 	background:#eaebec;
 	margin-top: 10px;
 	margin-left: 200px;
-
 	margin-right: auto;
 	border:#ccc 1px solid;
 
@@ -157,6 +160,7 @@ font-weight: bold;
 }
 
 #location-tag { 
+margin-top: 90px;
 margin-left: 150px;
 
 }
@@ -172,8 +176,13 @@ margin-top: 5px;
 
 width:70px;
 height:30px;
-
+border: 1px solid gray;
 } 	
+#btn-add {
+ color: #fff;
+ background-color: #007bff; 
+ border: 1px solid #ffffff;
+}
 
 #search-form {
 
@@ -223,8 +232,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 		function fn_goErrorPForm(){
 			var url = "${pageContext.request.contextPath}/errorP/errorPForm.do";
 			var name = "popup";
-		    var _width = '900';
-		    var _height = '500';				 			    
+		    var _width = '840';
+		    var _height = '650';				 			    
 		    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 		    var _top = Math.ceil(( window.screen.height - _height )/2); 			
 			window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
@@ -344,21 +353,22 @@ input::-moz-placeholder {color:#a8a8a8;}
 <body>
 	<c:import url="../common/header.jsp"/>
 	<c:import url="../common/sidebar.jsp"/>
-	<br><br>
+	
+	
 	<div id="location-tag">
 	<a href="#">품질관리</a> >
 	<a href="#">불량자재</a>
-	
 	</div>
+	<br>
 	
-	<hr>
-	
+	<%-- 검색 jsp --%> 
 	<form class="navbar-form">
   <div class="form-group navbarleft">
   
   <select class= "search-option" name="key">
 
-<option value="CODE" ${(key == "CODE")?"selected":"" }>상품코드</option>
+<%--페이지 이동시에도 옵션 유지 --%>
+<option value="CODE" ${(key == "CODE")?"selected":"" }>상품코드</option> 
 <option value="NAME" ${(key == "NAME")?"selected":"" }>불량자재명</option>
 
 </select>
@@ -370,8 +380,9 @@ input::-moz-placeholder {color:#a8a8a8;}
      
       </button>
 </form>
+<%-- 검색 jsp --%>
 	
-				<table id="checkTable" classpacing='0'>
+				<table classpacing='0'>
 				<colgroup>
 				<col width="50px">
 				<col width="80px">
