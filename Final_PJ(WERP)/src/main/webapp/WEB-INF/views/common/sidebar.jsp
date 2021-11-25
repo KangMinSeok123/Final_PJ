@@ -43,7 +43,9 @@
 
                         <ul class="collapse__menu">
                              <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 등록</a>
-                            <a href="#" class="collapse__sublink">- 불량자재 조회</a>
+                             <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 조회</a>
+                             <a href="${pageContext.request.contextPath}/errorP/qualityIList.do" class="collapse__sublink">- 품질검사 요청건</a>
+                            
                         </ul>
                     </div>
 

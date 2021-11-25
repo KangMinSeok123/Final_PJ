@@ -8,20 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.kh.spring.in.model.dao.InDAO;
 import com.kh.spring.in.model.vo.InManagement;
+import com.kh.spring.pd.model.vo.PdVo;
 
 @Service
 public class InServiceImpl implements InService {
 
 	@Autowired
 	InDAO inDAO;
-	
-	@Override
-	public int insertIn(InManagement inNum) {
-		
-		return inDAO.insertIn(inNum);
-		
-		
-	}
 	
 	@Override
 	public List<Map<String, String>> selectinList(int cPage, int numPerPage) {
@@ -35,6 +28,20 @@ public class InServiceImpl implements InService {
 		return inDAO.selectTotalIn();
 	}
 
+	@Override
+	public int updateStock(PdVo pd) {
+		
+		// 입고 처리
+		int result = inDAO.insertIn(pd);
+		
+		if( result > 0) {
+			// 재고 증가
+			result = inDAO.updateStock(pd);
+		} else {
+			 result = 0;
+		}
+		return result;
+	}
 
 	@Override
 	public InManagement updateView(String incode) {
@@ -55,6 +62,19 @@ public class InServiceImpl implements InService {
 		
 		return inDAO.deleteList(incode);
 	}
+
+	@Override
+	public List<String> getProCodeList() {
+		
+		return inDAO.getProCodeList();
+	}
+
+	@Override
+	public PdVo selectOneInManagement(String procode) {
+	
+		return inDAO.selectOneInManagement(procode);
+	}
+
 
 
 	

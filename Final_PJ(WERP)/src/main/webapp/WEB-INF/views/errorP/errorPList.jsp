@@ -177,6 +177,7 @@ margin-top: 5px;
 width:70px;
 height:30px;
 border: 1px solid gray;
+background: #eaebec;
 } 	
 #btn-add {
  color: #fff;

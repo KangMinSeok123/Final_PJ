@@ -11,8 +11,5 @@ public interface PdDAO {
 
 	int insertPd(PdVo pd);
 
-	
-	
-	
-	
+
 }

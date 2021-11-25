@@ -14,7 +14,7 @@
     padding-left: 100px;
     }
 #sitemap span{
-	 font-size: 17px;
+	 font-size: 15.6px;
 }
 .copyright {
 	margin-left: 300px;
@@ -24,7 +24,7 @@
 <footer>
 	<div class="siteMap">
 		<div id="footerPageLogo">
-			page LOGO
+			
 		</div>
 		<div id="sitemap">
 			<span>품목 관리  |</span>

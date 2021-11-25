@@ -8,6 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>입고 등록 수정</title>
+	
 	<style>
 		h1{
 		text-align:center;

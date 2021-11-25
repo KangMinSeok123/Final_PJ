@@ -8,7 +8,48 @@
 <head>
 <meta charset="UTF-8">
 <title>AS 접수 목록</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <style>
+.pagination {
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	border-radius: 0.25rem;
+	margin: 0 auto;
+}
+
+.p
+
+.page-item.active .page-link {
+	z-index: 1;
+	color: #fff;
+	background-color: #96B1D0;
+	border-color: #96B1D0;
+}
+
+li.page-item.disabled>.page-link {
+   color: black;
+   display: inline-block;
+   padding: 7px;
+   border: 1px solid #a9a9a9;
+   font-size: 13px;
+   cursor: pointer;
+}
+
+.page-item>a.page-link {
+   display: inline-block;
+   padding: 7px;
+   background: #ededed;
+   border: 1px solid #a9a9a9;
+   font-size: 13px;
+   cursor: pointer;
+}
+
+.pagination {
+	margin-top: 30px;
+	margin-left: 430px;
+}
+
 .body {
 	margin: 0;
 	padding: 0;
@@ -33,7 +74,7 @@ table {
 }
 
 th {
-	font-weight: bold;
+	font-weight: bold;	
 	background-color: rgba(150, 177, 208, 0.7);
 }
 
@@ -50,7 +91,13 @@ th:first-child, td:first-child {
 	position: relative;
 	width: 1000px;
 	margin: 0 auto;
+	margin-top: 80px;
 	z-index: 0;
+}
+
+footer {
+width:1000px;
+
 }
 
 body {
@@ -98,51 +145,34 @@ ul.tabs li.current {
 	display: inherit;
 }
 
-.pagination {
-	display: flex;
-	padding-left: 0;
-	list-style: none;
-	border-radius: 0.25rem;
-	margin: 0 auto;
+
+.search-option {
+width: 80px;
+height: 25px;
+text-align: left;
+border: 2px solid #999;
+
 }
 
-.page-item.active .page-link {
-	z-index: 1;
-	color: #fff;
-	background-color: #a9a9a9;
-	border-color: #a9a9a9;
+.search-input {
+width: 200px;
+height: 23px;
+border: 2px solid #999;
 }
+input:-ms-input-placeholder {color:#a8a8a8; } 
+input::-webkit-input-placeholder {color:#a8a8a8;} 
+input::-moz-placeholder {color:#a8a8a8;} 
 
-li.page-item.disabled>.page-link {
-	color: black;
-	display: inline-block;
-	padding: 7px;
-	margin-bottom: 5px;
-	border: 1px solid #a9a9a9;
-	font-size: 13px;
-	cursor: pointer;
-}
-
-.page-item>a.page-link {
-	display: inline-block;
-	padding: 7px;
-	margin-bottom: 5px;
-	border: 1px solid #a9a9a9;
-	font-size: 13px;
-	cursor: pointer;
-}
-
-.pagination {
-	margin-top: 30px;
-	margin-left: 805px;
-}
 </style>
 
+
+<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-	<br /><br />
+	<h1>A/S 관리</h1>
+
 	<div id="tabs">
 		<ul class="tabs">
 			<li class="tab-link current" data-tab="tab-1">전체</li>
@@ -152,18 +182,38 @@ li.page-item.disabled>.page-link {
 			<li class="tab-link" data-tab="tab-5">수리완료</li>
 			<li class="tab-link" data-tab="tab-6">전달완료</li>
 		</ul>
-
+		
 		<!-- AS 전체 -->
 		<div id="tab-1" class="tab-content current">
+		<form class="navbar-form">
+			<div class="form-group navbarleft">
+
+				<select class="search-option" name="key">
+					<%--페이지 이동시에도 옵션 유지 --%>
+					<option value="CODE" ${(key == "CODE")?"selected":"" }>품목코드</option>
+					<option value="NAME" ${(key == "NAME")?"selected":"" }>고객명</option>
+				</select> 
+				<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
+					   name="word" value="${word}">
+				<button class="search-btn" type="submit">
+					<i class="fas fa-search"></i>
+				</button>
+				<i class="glyphicon glyphicon-search"></i>
+			</div>
+			</button>
+		</form>
+		
+		
 			<p>총 접수 건수 : ${totalAS}건</p>
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<tr id="${AS.asCode}">
@@ -171,24 +221,25 @@ li.page-item.disabled>.page-link {
 						<td>${AS.customer}</td>
 						<td>${AS.proCode}</td>
 						<td>${AS.asTitle}</td>
+						<td>${AS.asContent}</td>
 						<td>${AS.asExpectedDate}</td>
 						<td>${AS.asStage}</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<c:out value="${pageBar}" escapeXml="false" />
 		</div>
 
 		<!-- 접수 대기 -->
 		<div id="tab-2" class="tab-content">
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<c:if test="${AS.asStage eq '접수 대기'}">
@@ -197,6 +248,7 @@ li.page-item.disabled>.page-link {
 							<td>${AS.customer}</td>
 							<td>${AS.proCode}</td>
 							<td>${AS.asTitle}</td>
+							<td>${AS.asContent}</td>
 							<td>${AS.asExpectedDate}</td>
 							<td>${AS.asStage}</td>
 						</tr>
@@ -209,12 +261,13 @@ li.page-item.disabled>.page-link {
 		<div id="tab-3" class="tab-content">
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<c:if test="${AS.asStage eq '접수 완료'}">
@@ -223,6 +276,7 @@ li.page-item.disabled>.page-link {
 							<td>${AS.customer}</td>
 							<td>${AS.proCode}</td>
 							<td>${AS.asTitle}</td>
+							<td>${AS.asContent}</td>
 							<td>${AS.asExpectedDate}</td>
 							<td>${AS.asStage}</td>
 						</tr>
@@ -235,12 +289,13 @@ li.page-item.disabled>.page-link {
 		<div id="tab-4" class="tab-content">
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<c:if test="${AS.asStage eq '수리 진행'}">
@@ -249,6 +304,7 @@ li.page-item.disabled>.page-link {
 							<td>${AS.customer}</td>
 							<td>${AS.proCode}</td>
 							<td>${AS.asTitle}</td>
+							<td>${AS.asContent}</td>
 							<td>${AS.asExpectedDate}</td>
 							<td>${AS.asStage}</td>
 						</tr>
@@ -261,12 +317,13 @@ li.page-item.disabled>.page-link {
 		<div id="tab-5" class="tab-content">
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<c:if test="${AS.asStage eq '수리 완료'}">
@@ -275,6 +332,7 @@ li.page-item.disabled>.page-link {
 							<td>${AS.customer}</td>
 							<td>${AS.proCode}</td>
 							<td>${AS.asTitle}</td>
+							<td>${AS.asContent}</td>
 							<td>${AS.asExpectedDate}</td>
 							<td>${AS.asStage}</td>
 						</tr>
@@ -287,12 +345,13 @@ li.page-item.disabled>.page-link {
 		<div id="tab-6" class="tab-content">
 			<table id="tbl-as" style="text-align: center">
 				<tr>
-					<th style="width: 200px">접수일</th>
-					<th style="width: 200px">고객명</th>
+					<th style="width: 180px">접수일</th>
+					<th style="width: 100px">고객명</th>
 					<th style="width: 200px">품목코드</th>
 					<th style="width: 200px">제목</th>
-					<th style="width: 200px">수리예정일</th>
-					<th style="width: 200px">접수현황(단계)</th>
+					<th style="width: 330px">접수내용</th>
+					<th style="width: 120px">수리예정일</th>
+					<th style="width: 180px">접수현황(단계)</th>
 				</tr>
 				<c:forEach items="${list}" var="AS">
 					<c:if test="${AS.asStage eq '전달 완료'}">
@@ -301,6 +360,7 @@ li.page-item.disabled>.page-link {
 							<td>${AS.customer}</td>
 							<td>${AS.proCode}</td>
 							<td>${AS.asTitle}</td>
+							<td>${AS.asContent}</td>
 							<td>${AS.asExpectedDate}</td>
 							<td>${AS.asStage}</td>
 						</tr>
@@ -310,32 +370,40 @@ li.page-item.disabled>.page-link {
 		</div>
 
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<!-- 사이드바 css -->
-		<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+
 
 		<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
-		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
-
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- 외부 아이콘 사용 -->
 		<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 		<!-- JS파일 불러오기 -->
 		<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/tab.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 		<script>
 			$(function() {
-				$("tr[id]").on("click",
-					function() {
+				$("tr[id]").on("click",function() {
 						var asCode = $(this).attr("id");
 						console.log("asCode=" + asCode);
 						location.href = "${pageContext.request.contextPath}/AS/ASView.do?asCode="
-							    	  + asCode;
-						});
+			        				  + asCode;
+				});
 			});
 		</script>
-
-		</script>
+		
+		<c:out value="${pageBar}" escapeXml="false" />
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 </body>
 </html>

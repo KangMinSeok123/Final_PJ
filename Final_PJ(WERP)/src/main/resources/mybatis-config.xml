@@ -14,6 +14,7 @@
  		<typeAlias alias="Member" type="com.kh.spring.member.model.vo.Member"/>
  		<typeAlias alias="PdVo" type="com.kh.spring.pd.model.vo.PdVo" />	
  		<typeAlias alias="InManagement" type="com.kh.spring.in.model.vo.InManagement" />	
+ 		<typeAlias alias="OutManagement" type="com.kh.spring.out.model.vo.OutManagement" />		
  		<typeAlias alias="ErrorP" type="com.kh.spring.errorP.model.vo.ErrorP" />		
  		<typeAlias alias="AS" type="com.kh.spring.AS.model.vo.AS" />
  		<typeAlias alias="MyTypeHandler" type="com.kh.spring.common.MyTypeHandler" />

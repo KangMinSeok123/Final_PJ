@@ -20,7 +20,6 @@ public interface ErrorPDAO {
 	
 	int insertAttachment(Attachment a);
 	
-
 	ErrorP selectOneErrorP(int errorpNo);
 
 	List<Attachment> selectAttachmentList(int errorpNo);

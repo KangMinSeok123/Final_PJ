@@ -9,6 +9,7 @@ import com.kh.spring.pd.model.vo.PdVo;
 import lombok.extern.log4j.Log4j;
 
 @Service
+
 public class PdServiceImpl implements PdService{
 
 	@Autowired

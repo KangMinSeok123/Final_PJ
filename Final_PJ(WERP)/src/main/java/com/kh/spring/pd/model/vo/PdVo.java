@@ -22,24 +22,24 @@ public class PdVo implements Serializable{
 	private static final long serialVersionUID = 79337L;
 
 	private String procode;
-	private int prono;
 	private String proname;
 	private String category;
 	private int inprice;
 	private int outprice;
+	private Date inputDate;
+	private int stock;
+	private int inNum;
+	private int outNum;
 	
-	
+	public PdVo(String procode, int inNum) {
+		this.procode = procode;
+		this.inNum = inNum;
+	}
 	public String getProcode() {
 		return procode;
 	}
 	public void setProcode(String procode) {
 		this.procode = procode;
-	}
-	public int getProno() {
-		return prono;
-	}
-	public void setProno(int prono) {
-		this.prono = prono;
 	}
 	public String getProname() {
 		return proname;
@@ -65,12 +65,35 @@ public class PdVo implements Serializable{
 	public void setOutprice(int outprice) {
 		this.outprice = outprice;
 	}
+	public Date getInputDate() {
+		return inputDate;
+	}
+	public void setInputDate(Date inputDate) {
+		this.inputDate = inputDate;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public int getInNum() {
+		return inNum;
+	}
+	public void setInNum(int inNum) {
+		this.inNum = inNum;
+	}
+	public int getOutNum() {
+		return outNum;
+	}
+	public void setOutNum(int outNum) {
+		this.outNum = outNum;
+	}
 	@Override
 	public String toString() {
-		return "PdVo [procode=" + procode + ", prono=" + prono + ", proname=" + proname + ", category=" + category
-				+ ", inprice=" + inprice + ", outprice=" + outprice + "]";
+		return "PdVo [procode=" + procode + ", proname=" + proname + ", category=" + category + ", inprice=" + inprice
+				+ ", outprice=" + outprice + ", inputDate=" + inputDate + ", stock=" + stock + ", inNum=" + inNum
+				+ ", outNum=" + outNum + "]";
 	}
-	
-	
 	
 }

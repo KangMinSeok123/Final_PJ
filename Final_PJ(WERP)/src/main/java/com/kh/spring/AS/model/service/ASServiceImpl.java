@@ -12,46 +12,37 @@ import com.kh.spring.AS.model.vo.AS;
 
 @Service
 public class ASServiceImpl implements ASService {
-	
-	@Autowired
-	ASDAO asDAO;
+   
+   @Autowired
+   ASDAO asDAO;
 
-	@Override
-	public List<Map<String, String>> selectASList() {
-		
-		return asDAO.selectASList();
-	}
+   @Override
+   public List<Map<String, String>> selectASList(int cPage, int numPerPage, String key, String word) {
+      
+      return asDAO.selectASList(cPage, numPerPage, key, word);
+   }
 
-	@Override
-	public int selectTotalAS() {
-		
-		return asDAO.selectTotalAS();
-	}
+   @Override
+   public int selectTotalAS(String key, String word) {
+      
+      return asDAO.selectTotalAS(key, word);
+   }
 
-	@Override
-	public AS selectOneAS(int asCode) {
-		
-		return asDAO.selectOneAS(asCode);
-	}
+   @Override
+   public AS selectOneAS(int asCode) {
+      
+      return asDAO.selectOneAS(asCode);
+   }
 
-	@Override
-	public int updateStage(AS as) {
-		
-		return asDAO.updateStage(as);
-	}
-	
-	@Override
-	public int updateExpectedDate(AS as) {
-		
-		return asDAO.updateExpectedDate(as);
-	}
-
-	@Override
-	public int deleteAS(int asCode) {
-		
-		return asDAO.deleteAS(asCode);
-	}
-
-	
-
+   @Override
+   public int updateAS(AS as) {
+      
+      return asDAO.updateAS(as);
+   }
+   
+   @Override
+   public int deleteAS(int asCode) {
+      
+      return asDAO.deleteAS(asCode);
+   }
 }

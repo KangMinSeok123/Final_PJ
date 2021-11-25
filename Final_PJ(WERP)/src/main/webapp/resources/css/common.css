@@ -144,7 +144,6 @@ display: flex;
 #container{
      justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,.7);
     height: -webkit-fill-available;
     width: -webkit-fill-available;
     position: fixed;
