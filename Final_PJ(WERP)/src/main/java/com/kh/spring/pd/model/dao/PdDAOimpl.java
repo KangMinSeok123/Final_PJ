@@ -1,5 +1,11 @@
 package com.kh.spring.pd.model.dao;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.jdbc.SQL;
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,6 +15,11 @@ import com.kh.spring.pd.model.vo.PdVo;
 @Repository
 public class PdDAOimpl implements PdDAO{
 	
+
+	
+	//매퍼
+	private static String namespace = "pdSQL";
+	
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
@@ -17,4 +28,32 @@ public class PdDAOimpl implements PdDAO{
 		return sqlSession.insert("pdSQL.insertPd", pd);
 	}
 
+	@Override
+	public List<PdVo> pdlist() throws Exception {
+		return sqlSession.selectList("pdSQL.pdlist");
+	}
+	
+	// 품목 조회
+	@Override
+	public PdVo pdView(String procode) throws Exception {
+		return sqlSession.selectOne("pdSQL.pdview", procode);
+	}
+	
+	// 품목 수정 view
+//	@Override
+//	public void pdModify(PdVo pd) throws Exception {
+//		sqlSession.update("pdSQL.pdModify", pd);
+//	}
+	
+	// 품목 수정 update
+	@Override
+	public int pdUpdate(PdVo pd) throws Exception {
+		return sqlSession.update("pdSQL.pdModify", pd);
+	}
+	
+	// 품목 삭제
+	@Override
+	public int pdDelete(String procode) {
+		return sqlSession.delete("pdSQL.pdDelete", procode);
+	}
 }

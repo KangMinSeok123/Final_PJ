@@ -27,14 +27,7 @@
                     				<input name="procode">
                     			</div>
                     		</div>
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>품번</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="prono" value="0">
-                    			</div>
-                    		</div> 
+                    		
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>품목명</label>
@@ -66,37 +59,33 @@
                     			<div class="form_section_content">
                     				<input name="outprice">
                     			</div>
-                    		</div>          
-                    		              
+                    		</div>
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>입력일</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="inputdateStr" placeholder="yyyy-MM-dd 로 입력해주세요" value="0">
+                    			</div>
+                    		</div> 
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>재고수량</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="stock" value="0">
+                    			</div>
+                    		</div>             
+							<div class="inputArea">
+								<button type="submit" id="insert_Btn" class="btn btn_danger">등 록</button>
+							</div>
                     		
                    		</form>
-                   			<div class="btn_section">
-                   				<button id="cancelBtn" class="btn">취 소</button>
-	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
-	                    	</div> 
-                    </div>  
+	</div>  
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
-	<script>
-		let enrollForm = $("#enrollForm")
 
-		/* 취소 버튼 */
-		$("#cancelBtn").click(function() {
-
-			location.href = "/pd/pdManage"
-
-		});
-
-		/* 상품 등록 버튼 */
-		$("#enrollBtn").on("click", function(e) {
-
-			e.preventDefault();
-
-			enrollForm.submit();
-			
-		});
-	</script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- 외부 아이콘 사용 -->

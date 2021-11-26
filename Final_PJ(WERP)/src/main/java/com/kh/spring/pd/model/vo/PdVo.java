@@ -22,24 +22,18 @@ public class PdVo implements Serializable{
 	private static final long serialVersionUID = 79337L;
 
 	private String procode;
-	private int prono;
 	private String proname;
 	private String category;
 	private int inprice;
 	private int outprice;
-	
+	private Date inputdate;
+	private int stock;
 	
 	public String getProcode() {
 		return procode;
 	}
 	public void setProcode(String procode) {
 		this.procode = procode;
-	}
-	public int getProno() {
-		return prono;
-	}
-	public void setProno(int prono) {
-		this.prono = prono;
 	}
 	public String getProname() {
 		return proname;
@@ -65,12 +59,25 @@ public class PdVo implements Serializable{
 	public void setOutprice(int outprice) {
 		this.outprice = outprice;
 	}
+	public Date getInputdate() {
+		return inputdate;
+	}
+	public void setInputdate(Date inputdate) {
+		this.inputdate = inputdate;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 	@Override
 	public String toString() {
-		return "PdVo [procode=" + procode + ", prono=" + prono + ", proname=" + proname + ", category=" + category
-				+ ", inprice=" + inprice + ", outprice=" + outprice + "]";
+		return "PdVo [procode=" + procode + ", proname=" + proname + ", category=" + category + ", inprice=" + inprice
+				+ ", outprice=" + outprice + ", inputdate=" + inputdate + ", stock=" + stock + "]";
 	}
 	
 	
 	
+		
 }
