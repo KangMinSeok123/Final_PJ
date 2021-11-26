@@ -160,7 +160,7 @@ font-weight: bold;
 }
 
 #location-tag { 
-margin-top: 90px;
+margin-top: 20px;
 margin-left: 150px;
 
 }

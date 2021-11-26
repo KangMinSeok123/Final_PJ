@@ -44,7 +44,7 @@
                         <ul class="collapse__menu">
                              <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 등록</a>
                              <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 조회</a>
-                             <a href="${pageContext.request.contextPath}/errorP/qualityIList.do" class="collapse__sublink">- 품질검사 요청건</a>
+                             <a href="${pageContext.request.contextPath}/qualityI/qualityIList.do" class="collapse__sublink">- 품질검사 요청건</a>
                             
                         </ul>
                     </div>
@@ -61,18 +61,7 @@
                         </ul>
                     </div>
 
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">인사 관리</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">---</a>
-                            <a href="#" class="collapse__sublink">---</a>
-                         
-                        </ul>
-                    </div>
+                  
 
                 </div>
                 <a href="javascript:void(0)" class="nav__link" onclick="logout(); return false;">

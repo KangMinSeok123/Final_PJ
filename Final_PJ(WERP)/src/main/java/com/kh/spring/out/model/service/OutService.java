@@ -21,9 +21,6 @@ public interface OutService {
 
 	OutManagement updateView(String outcode);
 	
-	int updateList(OutManagement outNum);
-	
-	int deleteoutList(String outcode);
-
+	int deleteList(PdVo pd);
 	
 }

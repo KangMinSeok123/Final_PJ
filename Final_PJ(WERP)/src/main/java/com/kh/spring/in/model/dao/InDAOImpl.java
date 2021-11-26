@@ -40,26 +40,6 @@ public class InDAOImpl implements InDAO {
 		return sqlSession.selectOne("inSQL.selectTotalIn");
 	}
 
-	@Override
-	public InManagement updateView(String incode) {
-		
-		return sqlSession.selectOne("inSQL.updateView", incode);
-	}
-
-	
-	@Override
-	public int updateList(InManagement inNum) {
-		
-		return sqlSession.update("inSQL.updateList", inNum);
-	}
-
-
-	
-	@Override
-	public int deleteList(String incode) {
-		
-		return sqlSession.delete("inSQL.deleteList", incode);
-	}
 
 	@Override
 	public List<String> getProCodeList() {
@@ -79,12 +59,16 @@ public class InDAOImpl implements InDAO {
 		 return sqlSession.update("inSQL.updateStock", pd);
 	}
 
-
-
-
-
-
+	@Override
+	public int updateComback(PdVo pd) {
+		
+		return sqlSession.update("inSQL.updateComback", pd);
+	}
 	
-	
-	
+	@Override
+	public int deleteList(PdVo pd) {
+		
+		return sqlSession.delete("inSQL.deleteList", pd);
+	}
+
 }

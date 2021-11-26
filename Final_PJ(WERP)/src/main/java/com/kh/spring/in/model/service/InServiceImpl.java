@@ -43,25 +43,7 @@ public class InServiceImpl implements InService {
 		return result;
 	}
 
-	@Override
-	public InManagement updateView(String incode) {
-		
-		return inDAO.updateView(incode);
-	}
 	
-	@Override
-	public int updateList(InManagement inNum) {
-		
-		return inDAO.updateList(inNum);
-	}
-
-	
-	
-	@Override
-	public int deleteList(String incode) {
-		
-		return inDAO.deleteList(incode);
-	}
 
 	@Override
 	public List<String> getProCodeList() {
@@ -75,9 +57,21 @@ public class InServiceImpl implements InService {
 		return inDAO.selectOneInManagement(procode);
 	}
 
-
-
-	
+	@Override
+	public int deleteList(PdVo pd) {
+		
+		// 재고 복귀
+		int result = inDAO.updateComback(pd);
+				
+		if( result > 0) {
+			// 리스트 삭제
+			result = inDAO.deleteList(pd);
+		} else {
+			result = 0;
+		}
+				
+		return result;
+	}
 
 
 

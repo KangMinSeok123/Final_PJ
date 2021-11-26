@@ -99,12 +99,13 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
     position: fixed;
     margin-top:-31%;
 }
+/*left:18%, width :1000px*/
 .menu-content{
 	padding: 15px;
-    left: 18%;
+    left: 35%; 
     top: 10%;
     position: absolute;
-    width: 1000px;
+    width: 420px;
     height: 500px;
     display: grid;
     grid-template-rows: 0.2fr 1fr;
@@ -112,8 +113,8 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
 		
 }
 .menu-content .loginDiv,.menu-content .enrollDiv{
-	width: 300px;
-    height: 300px;
+	width: 180px;
+    height: 180px;
     background-color: rgb(255,255,255,.85);
     border-radius: 20px;
     transition: all .3s cubic-bezier(.67,.13,.1,.81), transform .15s cubic-bezier(.67,.13,.1,.81);
@@ -129,7 +130,7 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
 .menu-content #menu-item{
 	top: 10%;
     position: absolute;
-    width: 1000px;
+    width: 420px;
     height: 450px;
     display: flex;
     
@@ -156,23 +157,24 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
 }
 #enrollimg{
     position: absolute;
-	right:100px;
-	width:280px;
+	right: 20px;
+    width: 170px;
 	transition: all 1s ease-in;
 	
 }
  #loginimg{
- 	width: 265px;
+ 	width: 152px;
     position: absolute;
- 	left:110px;
-	transition: all 1s ease-in;
+    left: 25px;
+    transition: all 1s ease-in;
+    height: 145px;
  }
 #loginText, #enrollText{
 text-shadow: 14px 5px 13px black;
     color: black;
 position: relative;
-    top: 170px;
-font-size: 5vw;
+    top: 140px;
+    font-size: 3vw;
     opacity: 0;
    transition:all 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s, transform 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s ;
  }

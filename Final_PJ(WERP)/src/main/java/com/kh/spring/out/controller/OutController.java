@@ -109,19 +109,30 @@ public class OutController {
 		return "out/outUpdateView";
 	}
 
-	// 출고 등록 삭제 페이지
-	@RequestMapping("/out/deleteoutList.do")
-	public String updateOutManagement(@RequestParam String outcode, Model model) {
+	// 출고 등록 삭제 
+		@RequestMapping("/out/outDelete.do")
+		public String deleteOutManagement(String procode, int outcode, int outNum, Model model) {
 
-		int result = OutService.deleteoutList(outcode);
-
-		if (result > 0) {
-			System.out.println("삭제 성공!");
-		} else {
-			System.out.println("삭제 실패!");
+			 PdVo pdvo = new PdVo();
+			 
+			 pdvo.setProcode(procode);
+			 pdvo.setInNum(outNum);
+			 pdvo.setIncode(outcode);
+			 
+			int result = OutService.deleteList(pdvo);
+		
+			System.out.println("procode" + procode);
+			System.out.println("outNum: " + outNum);
+			System.out.println("outcode: " + outcode);
+			
+			if( result > 0 ) {
+				System.out.println("삭제 성공!");
+			} else {
+				System.out.println("삭제 실패!");
+			}
+			
+			
+			return "redirect:/in/inView.do";
 		}
-
-		return "redirect:/out/outView.do";
-	}
 
 }

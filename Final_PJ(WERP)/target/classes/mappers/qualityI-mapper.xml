@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qualityISQL">
+
+	<select id="selectQualityIList" resultType="com.kh.spring.qualityI.model.vo.QualityI">
+		SELECT * FROM QUALITYI
+	<include refid = "search" />
+		ORDER BY QUALITYIDATE DESC
+	</select>
+	
+<sql id = "search">
+<if test="word != null and word != ''.toString()">
+
+where 1 = 0
+<if test="key == 'DATE'">
+OR QUALITYIDATE like '%' || #{word} || '%'
+</if>
+
+<if test="key == 'MANAGER'">
+OR MANAGER like '%' || #{word} || '%'
+</if>
+
+<if test="key == 'CODE'">
+OR QUALITYICODE like '%' || #{word} || '%'
+</if>
+
+<if test="key == 'NAME'">
+OR QUALITYINAME like '%' || #{word} || '%'
+</if>
+</if>
+</sql>
+	
+	<select id="selectQualityITotalContents" resultType="int">
+		SELECT COUNT(*) FROM QUALITYI
+		<include refid = "search" />
+	</select>
+	
+	<insert id="insertQualityI" parameterType="QualityI">
+		INSERT INTO QualityI (MANAGER, QUALITYICODE, QUALITYINAME, QUALITYICOUNT)
+		VALUES (#{ manager }, #{ qualityiCode }, #{ qualityiName }, #{ qualityiCount })
+		
+	</insert>
+	
+	
+	
+	<update id="updateCount" parameterType="QualityI">
+		UPDATE QualityI SET QualityICOUNT = QualityICOUNT + #{ errorpCount } WHERE
+		QualityICODE = #{ errorpCode }
+	</update>
+
+	
+	<select id="selectOneQualityI" parameterType="int" resultType="QualityI">
+		SELECT * FROM QualityI WHERE QualityINO = #{ errorpNo }
+	</select>
+	
+	
+	
+	<update id="updateQualityI" parameterType="QualityI">
+		UPDATE QualityI SET QualityICODE = #{ errorpCode }, ERRORPNAME = #{ errorpName }, 
+		QualityICONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
+		WHERE ERRORPNO = #{ errorpNo }
+	</update>
+	
+	<delete id="deleteQualityI">
+		DELETE FROM ERRORP WHERE ERRORPNO = #{ errorpNo }
+	</delete>
+	
+	<delete id="AlldeleteQualityI">
+		DELETE FROM QualityI WHERE QualityINO > 0
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

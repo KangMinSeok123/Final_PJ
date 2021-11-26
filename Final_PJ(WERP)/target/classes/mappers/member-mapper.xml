@@ -32,4 +32,23 @@
 		{ CALL ID_DUP_CHECK(#{userId,mode=IN, jdbcType=VARCHAR}, 
 											#{result,mode=OUT, jdbcType=NUMERIC, javaType=integer}) }
 	</select>
+	
+	<select id="selectMemberList" resultType="com.kh.spring.member.model.vo.Member">
+		SELECT * FROM MEMBER
+	<include refid = "search" /> 		
+		ORDER BY EMP_NAME DESC
+	</select>
+	
+<sql id = "search">
+<if test="word != null and word != ''.toString()">
+where 1 = 0
+<if test="key == 'NO'">
+OR EMP_NO like '%' || #{word} || '%'
+</if>
+
+<if test="key == 'NAME'">
+OR EMP_NAME like '%' || #{word} || '%'
+</if>
+</if>
+</sql>
 </mapper>

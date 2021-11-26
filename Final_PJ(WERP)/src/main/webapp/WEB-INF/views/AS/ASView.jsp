@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ASview 페이지 입니다</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <style>
 h1 {
    text-align: center;
@@ -15,9 +16,10 @@ h1 {
 
 #container {
 	position: relative;
-	width: 2000px;
-	margin: 0auto;
-}
+	width: 900px;
+	margin: 0 auto;
+   } 
+  
 
 .body {
    margin: 0;
@@ -27,19 +29,20 @@ h1 {
 
 table {
    border-collapse: collapse;
-   border-top: 2px solid #96B1D0;
-   width: 80%;
+   border-top: 2px solid #12192c;
+   width: 100%;
    border-left: none;
    border-right: none;
 }
 
 th {
    font-weight: bold;
-   background-color: rgba(150, 177, 208, 0.7);
+   background-color: #12192c;
+   color: white;
 }
 
 th, td {
-   border-bottom: 2px solid #96B1D0;
+   border-bottom: 2px solid #12192c;
    padding: 5px;
 }
 
@@ -52,23 +55,20 @@ body {
    margin-top: 200px;
    font-family: 'Trebuchet MS', serif;
    line-height: 1.6 text-align: center;
+
 }
 
-.div {
-   position: relative;
-   width: 1700px;
-   margin: 0 auto;
-   z-index: 0;
-}
+
 
 .btn {
-   width: 60px;
-   height: 27px;
+   width: 100px;
+   height: 30px;
    cursor: pointer;
    background-color: #1A1A3A;
    border : 0px;
    color: white;
    -webkit-border-radius: 13px;
+   margin-left:10px;
 }
 
 #deleteBtn {
@@ -81,12 +81,12 @@ body {
 }
 </style>
 
-<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 </head>
 <body>
    <%@ include file="/WEB-INF/views/common/header.jsp"%>
    <div id="container">
       <div id="update" class="div">
+      <br /><br /><br /><br />
          <p>AS 상세조회 > ${AS.customer}님</p>
          <table id="tbl-as" border="1" style="text-align: center">
             <tr>

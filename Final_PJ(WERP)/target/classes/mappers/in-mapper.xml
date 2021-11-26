@@ -33,17 +33,13 @@
 		SELECT COUNT(*) FROM IN_MANAGEMENT
 	</select>
 	
-	<select id="updateView" parameterType="string" resultType="InManagement">
-		SELECT * FROM IN_MANAGEMENT WHERE INCODE = #{ incode }
-	</select>
 	
-	<update id="updateList" parameterType="InManagement">
-		UPDATE IN_MANAGEMENT
-		SET PROCODE = #{ procode }, INNUM = #{ inNum }, INPUTDATE = SYSDATE
-		WHERE INCODE = #{ incode }
+	<update id="updateComback" parameterType="PdVo">
+	  UPDATE PRODUCT_MANAGEMENT 
+      SET STOCK = STOCK - #{ inNum } WHERE PROCODE = #{procode}
 	</update>
 	
-	<delete id="deleteList" parameterType="string">
-		DELETE FROM IN_MANAGEMENT WHERE INCODE = #{ incode }
+	<delete id="deleteList" parameterType="int">
+		DELETE FROM IN_MANAGEMENT WHERE INCODE = #{incode}
 	</delete>
 </mapper>

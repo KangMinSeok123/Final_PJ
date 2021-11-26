@@ -30,7 +30,6 @@
       SET STOCK = STOCK - #{ outNum } WHERE PROCODE = #{procode}
    </update>   
    
-	
 	<select id="selectTotalOut" resultType="int">
 		SELECT COUNT(*) FROM OUT_MANAGEMENT
 	</select>
@@ -39,14 +38,13 @@
 		SELECT * FROM OUT_MANAGEMENT WHERE OUTCODE = #{ outcode }
 	</select>
 	
-	<update id="updateList" parameterType="OutManagement">
-		UPDATE PRODUCT_MANAGEMENT
-		SET OUTNUM = #{ stock -= outNum }, INPUTDATE = SYSDATE
-		WHERE PROCODE = #{ procode }
+	<update id="updateComback" parameterType="PdVo">
+	  UPDATE PRODUCT_MANAGEMENT 
+      SET STOCK = STOCK + #{ inNum } WHERE PROCODE = #{procode}
 	</update>
 	
-	<delete id="deleteoutList" parameterType="string">
-		DELETE FROM OUT_MANAGEMENT WHERE OUTCODE = #{ outcode }
+	<delete id="deleteList" parameterType="int">
+		DELETE FROM OUT_MANAGEMENT WHERE OUTNUM = #{outNum}
 	</delete>
-	
+
 </mapper>

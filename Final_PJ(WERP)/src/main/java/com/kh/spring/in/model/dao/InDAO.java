@@ -22,12 +22,10 @@ public interface InDAO {
 	int selectTotalIn();
 	
 	int updateStock(PdVo pd);
-
-	InManagement updateView(String incode);
 	
-	int updateList(InManagement inNum);
+	int updateComback(PdVo pd);
 	
-	int deleteList(String incode);
+	int deleteList(PdVo pd);
 	
 	
 }

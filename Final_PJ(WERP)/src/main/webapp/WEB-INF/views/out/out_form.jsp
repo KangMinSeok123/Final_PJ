@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>출고 관리</title>
+ <link rel="stylesheet" href="/spring/resources/css/common.css">
 <style>
 h1 {
    position: relative;
@@ -32,7 +33,8 @@ h1 {
    width: 100px;
    height: 40px;
    font-size: 15px;
-   background-color: #96B1D0;
+   background-color: #12192c;
+   color: white;
    border: 0;
    outline: 0;
    float: bottom;
@@ -53,27 +55,27 @@ h1 {
 
 table {
    border-collapse: collapse;
-   border-top: 2px solid #96B1D0;
-   border-bottom: 2px solid #96B1D0;
+   border-top: 2px solid #12192c;
+   border-bottom: 2px solid #12192c;
    width: 80%;
 }
 
 th {
    font-weight: bold;
-   background-color: rgba(150, 177, 208, 0.7);
+   background-color: #12192c;
+   color: white;
    width: 170px;
 }
 
 th, td {
-   border-bottom: 2px solid #96B1D0;
+   border-bottom: 2px solid #12192c;
    padding: 5px;
 }
-
 
 body {
    margin-top: 200px;
    font-family: 'Trebuchet MS', serif;
-   line-height: 1.6 text-align: center;
+   line-height: 1.6;
 }
 </style>
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">

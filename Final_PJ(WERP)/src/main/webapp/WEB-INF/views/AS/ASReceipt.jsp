@@ -18,42 +18,46 @@
 	margin: 0 auto;
 }
 
-.p
-
 .page-item.active .page-link {
 	z-index: 1;
-	color: #fff;
-	background-color: #96B1D0;
-	border-color: #96B1D0;
+	color: #12192c;
+	background-color: #fff;
+	border-color: #12192c;
 }
 
 li.page-item.disabled>.page-link {
-   color: black;
+   color: #fff;
    display: inline-block;
+   background : #12192c;
    padding: 7px;
-   border: 1px solid #a9a9a9;
+   border: 1px solid #12192c;
    font-size: 13px;
    cursor: pointer;
 }
 
 .page-item>a.page-link {
+   color: #fff;
    display: inline-block;
    padding: 7px;
-   background: #ededed;
-   border: 1px solid #a9a9a9;
+   background: #12192c;
+   border: 1px solid #12192c;
    font-size: 13px;
    cursor: pointer;
 }
 
 .pagination {
 	margin-top: 30px;
-	margin-left: 430px;
+	margin-left: 400px;
 }
 
 .body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+}
+
+h1 {
+	text-align: center;
 }
 
 div {
@@ -70,16 +74,20 @@ tr:nth-child(n+2):hover {
 
 table {
 	border-collapse: collapse;
-	border-top: 2px solid #96B1D0;
+    border-top: 2px solid #12192c;
+    width: 100%;
+    border-left: none;
+    border-right: none;
 }
 
 th {
 	font-weight: bold;	
-	background-color: rgba(150, 177, 208, 0.7);
+	background-color: #12192c;
+	color: white;
 }
 
 th, td {
-	border-bottom: 2px solid #96B1D0;
+	border-bottom: 2px solid #12192c;
 	padding: 5px;
 }
 
@@ -88,16 +96,11 @@ th:first-child, td:first-child {
 }
 
 #tabs {
-	position: relative;
+	
 	width: 1000px;
 	margin: 0 auto;
-	margin-top: 80px;
+	margin-top: 20px;
 	z-index: 0;
-}
-
-footer {
-width:1000px;
-
 }
 
 body {
@@ -106,9 +109,10 @@ body {
 	line-height: 1.6;
 }
 
-.container {
-	width: 500px;
-	margin: 0 auto;
+#container {
+	  position: relative;
+      width: 700px;
+      margin: 0 auto;
 }
 
 ul.tabs {
@@ -121,13 +125,23 @@ ul.tabs li {
 	cursor: pointer;
 	width: 100px;
 	display: inline-block;
-	background-color: #96B1D0;
+	background-color: #12192c;
 	color: white;
 	text-align: center;
 	transition: .25s ease;
 	border: none;
 	padding: 10px;
 	border-radius: 12px 12px 0 0;
+}
+
+ul.tabs li:hover {
+	background: #424242;
+	color: #fff;
+}
+
+ul.tabs li.current {
+	background: #ededed;
+	color: #222;
 }
 
 ul.tabs li.current {
@@ -147,17 +161,17 @@ ul.tabs li.current {
 
 
 .search-option {
-width: 80px;
-height: 25px;
-text-align: left;
-border: 2px solid #999;
+	width: 80px;
+	height: 25px;
+	text-align: left;
+	border: 2px solid #999;
 
 }
 
 .search-input {
-width: 200px;
-height: 23px;
-border: 2px solid #999;
+	width: 200px;
+	height: 23px;
+	border: 2px solid #999;
 }
 input:-ms-input-placeholder {color:#a8a8a8; } 
 input::-webkit-input-placeholder {color:#a8a8a8;} 
@@ -170,9 +184,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-
-	<h1>A/S 관리</h1>
-
+	<h1>A/S 조회</h1>
+	<br />
 	<div id="tabs">
 		<ul class="tabs">
 			<li class="tab-link current" data-tab="tab-1">전체</li>
@@ -395,15 +408,5 @@ input::-moz-placeholder {color:#a8a8a8;}
 		
 		<c:out value="${pageBar}" escapeXml="false" />
 		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
 </body>
 </html>

@@ -51,21 +51,6 @@ public class OutServiceImpl implements OutService {
 		return outDAO.updateView(outcode);
 	}
 	
-	
-	@Override
-	public int updateList(OutManagement outNum) {
-		
-		return outDAO.updateList(outNum);
-	}
-
-	
-	
-	
-	@Override
-	public int deleteoutList(String outcode) {
-		
-		return outDAO.deleteoutList(outcode);
-	}
 
 	@Override
 	public List<String> getProCodeList() {
@@ -78,6 +63,22 @@ public class OutServiceImpl implements OutService {
 	public PdVo selectOneOutManagement(String procode) {
 		
 		return outDAO.selectOneOutManagement(procode);
+	}
+
+	
+	@Override
+	public int deleteList(PdVo pd) {
+		// 재고 복귀
+		int result = outDAO.updateComback(pd);
+						
+		if( result > 0) {
+			// 리스트 삭제
+			result = outDAO.deleteList(pd);
+		} else {
+			result = 0;
+		}
+						
+		return result;
 	}
 
 	

@@ -1,6 +1,8 @@
 package com.kh.spring.member.model.service;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +40,16 @@ public class MemberServiceImpl implements MemberService {
 		HashMap<String, Object> hmap = new HashMap<String, Object>();
 		hmap.put("userId", userId);
 		return memberDAO.checkIdDuplicate(hmap);
+	}
+	
+	@Override
+	public List<Map<String, String>> selectMemberList(int cPage, int numPerPage, String key, String word) {
+		
+		return memberDAO.selectMemberIList(cPage, numPerPage, key, word);
+	}
+	@Override
+	public int selectMemberTotalContents(String key, String word) {
+		
+		return memberDAO.selectMemberTotalContents(key,word);
 	}
 }

@@ -44,20 +44,7 @@ public class InController {
 		return "in/in_form";
 	}
 	
-	// 등록한 정보 저장
-	@RequestMapping("/in/inFormEnd.do")
-	public String insertForm(InManagement inNum) {
-		/*
-		 * System.out.println("받아온 정보 확인 : " + inNum);
-		 * 
-		 * int result = InService.insertIn(inNum);
-		 * 
-		 * if(result > 0) System.out.println("result > 0");
-		 * 
-		 */
-		return "in/inView";
-		
-	}
+	
 	
 	// 입고 현황 조회 페이지
 	@RequestMapping("/in/inView.do")
@@ -99,18 +86,6 @@ public class InController {
 	      return "in/in_form";
 	   }
 	
-	// 입고 등록 수정 조회 페이지
-	@RequestMapping("/in/inUpdateView.do")
-	public String updateList(String incode, Model model) {
-		
-		
-		InManagement origininNum = InService.updateView(incode);
-		
-		model.addAttribute("origininNum", origininNum);
-		
-		return "in/inUpdateView";
-	}
-	
 	
 	 // 입고 수정(수량)
 	 @RequestMapping("/in/inUpdate.do")
@@ -131,16 +106,20 @@ public class InController {
          return "redirect:/in/inView.do";      
       }
 
-	
+	// 입고 등록 삭제 
+	@RequestMapping("/in/inDelete.do")
+	public String deleteInManagement(String procode, int incode, int inNum, Model model) {
 
+		 PdVo pdvo = new PdVo();
+		 
+		 pdvo.setProcode(procode);
+		 pdvo.setInNum(inNum);
+		 pdvo.setIncode(incode);
+		 
+		int result = InService.deleteList(pdvo);
 	
-	// 입고 등록 삭제 페이지
-	@RequestMapping("/in/deleteList.do")
-	public String updateInManagement(@RequestParam("incode") String incode, Model model) {
-
-		
-		int result = InService.deleteList(incode);
-	
+		System.out.println("procode" + procode);
+		System.out.println("inNum: " + inNum);
 		System.out.println("incode: " + incode);
 		
 		if( result > 0 ) {

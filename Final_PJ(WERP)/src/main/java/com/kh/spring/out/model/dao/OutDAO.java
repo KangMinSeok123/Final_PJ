@@ -22,8 +22,8 @@ public interface OutDAO {
 
 	OutManagement updateView(String outcode);
 	
-	int updateList(OutManagement outNum);
+	int updateComback(PdVo pd);
 	
-	int deleteoutList(String outcode);
+	int deleteList(PdVo pd);
 
 }

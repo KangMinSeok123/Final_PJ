@@ -29,7 +29,7 @@ public class QualityIDAOImpl implements QualityIDAO {
 	@Override
 	public int selectQualityITotalContents(String key, String word) {
 		Utils utils = new Utils(key, word);
-		return sqlSession.selectOne("qualityISQL.selectErrorPTotalContents", utils);
+		return sqlSession.selectOne("qualityISQL.selectQualityITotalContents", utils);
 	}
 	
 	@Override

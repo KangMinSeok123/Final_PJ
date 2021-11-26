@@ -48,21 +48,6 @@ public class OutDAOImpl implements OutDAO {
 		return sqlSession.selectOne("outSQL.updateView", outcode);
 	}
 
-	
-	@Override
-	public int updateList(OutManagement outNum) {
-		
-		return sqlSession.update("outSQL.updateList", outNum);
-	}
-
-
-	
-	@Override
-	public int deleteoutList(String outcode) {
-		
-		return sqlSession.delete("outSQL.deleteoutList", outcode);
-	}
-
 	@Override
 	public List<String> getProCodeList() {
 		
@@ -74,6 +59,18 @@ public class OutDAOImpl implements OutDAO {
 	public PdVo selectOneOutManagement(String procode) {
 		
 		return sqlSession.selectOne("outSQL.selectOneOutManagement", procode);
+	}
+
+	@Override
+	public int updateComback(PdVo pd) {
+		
+		return sqlSession.update("outSQL.updateComback", pd);
+	}
+
+	@Override
+	public int deleteList(PdVo pd) {
+		
+		return sqlSession.delete("outSQL.deleteList", pd);
 	}
 
 

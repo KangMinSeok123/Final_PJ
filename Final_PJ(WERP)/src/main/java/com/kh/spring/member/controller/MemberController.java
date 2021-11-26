@@ -1,6 +1,7 @@
 package com.kh.spring.member.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.kh.spring.common.Utils;
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
 
@@ -85,6 +87,37 @@ public class MemberController {
 				model.addAttribute("msg",msg);
 				
 			return "common/msg";
+	}
+	
+	@RequestMapping("/member/memberList.do")
+	public String memberList(@RequestParam (value="cPage", required=false, defaultValue="1") int cPage, 
+											@RequestParam(value= "key", required=false, defaultValue="") String key,
+											@RequestParam(value= "word", required=false, defaultValue="") String word,
+												Model model) {
+		
+				// 한 페이지당 게시글 수
+				int numPerPage = 7;
+				
+				// 현재 페이지의 게시글 수
+				List<Map<String, String>> list = memberService.selectMemberList(cPage, numPerPage, key, word);
+										
+				// 전체 게시글 수
+				int totalContents = memberService.selectMemberTotalContents(key, word);
+				
+				// 페이지 처리 Utils 사용하기
+				String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "memberList.do", key, word);	
+				
+				model.addAttribute("list", list);
+				model.addAttribute("totalContents");
+				model.addAttribute("numPerPage", numPerPage);
+				model.addAttribute("pageBar", pageBar);
+				
+				model.addAttribute("word", word);
+				
+				System.out.println(model);
+				return "member/memberList";
+		
+
 	}
 	
 	@RequestMapping("/Login.do")

@@ -18,11 +18,7 @@ public interface InService {
 	
 	int updateStock(PdVo pd);
 	
-	InManagement updateView(String incode);
 	
-	int updateList(InManagement inNum);
-
-	
-	int deleteList(String incode);
+	int deleteList(PdVo pd);
 
 }

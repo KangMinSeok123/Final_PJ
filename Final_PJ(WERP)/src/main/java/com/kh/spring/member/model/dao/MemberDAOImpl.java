@@ -1,11 +1,15 @@
 package com.kh.spring.member.model.dao;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.common.Utils;
 import com.kh.spring.member.model.vo.Member;
 
 
@@ -48,5 +52,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int checkIdDuplicate(String userId) {
 		return sqlSession.selectOne("memberSQL.checkIdDuplicate", userId);
+	}
+	@Override
+	public List<Map<String, String>> selectMemberIList(int cPage, int numPerPage, String key, String word) {
+		RowBounds rows = new RowBounds((cPage - 1)* numPerPage, numPerPage);
+		Utils utils = new Utils(key, word);
+		return sqlSession.selectList("memberSQL.selectMemberList", utils, rows);
+	}
+	@Override
+	public int selectMemberTotalContents(String key, String word) {
+		Utils utils = new Utils(key, word);
+		return sqlSession.selectOne("qualityISQL.selectQualityITotalContents", utils);
 	}
 }

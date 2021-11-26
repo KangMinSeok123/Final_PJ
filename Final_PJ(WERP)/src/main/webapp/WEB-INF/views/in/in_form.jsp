@@ -31,7 +31,8 @@
       width: 100px;
       height : 40px;
       font-size : 15px;
-      background-color: #96B1D0;
+      background-color: #12192c;
+      color : white;
       border : 0;
       outline : 0;
       float : bottom;
@@ -47,21 +48,22 @@
    
    table {
          border-collapse: collapse;
-         border-top: 2px solid #96B1D0;
+         border-top: 2px solid #12192c;
          width: 80%;
          border-left : none;
-      border-right : none;
+         border-right : none;
       
    }
 
    th {
-        font-weight: bold;
-         background-color: rgba(150, 177, 208, 0.7);
+         font-weight: bold;
+         background-color: #12192c;
+         color : white;
          width : 200px;
    }
 
    th, td {
-         border-bottom: 2px solid #96B1D0;
+         border-bottom: 2px solid #12192c;
          padding: 5px;
    }
    
