@@ -63,6 +63,10 @@ OR ERRORPNAME like '%' || #{word} || '%'
 		SELECT *FROM ATTACHMENT WHERE ERRORPNO = #{ errorpNo }
 	</select>
 	
+		<select id="checkErrorP" resultType="int" >
+		SELECT COUNT(*) FROM ERRORP WHERE ERRORPCODE = #{ errorpCode }
+		</select>
+	
 	<update id="updateErrorP" parameterType="ErrorP">
 		UPDATE ERRORP SET ERRORPCODE = #{ errorpCode }, ERRORPNAME = #{ errorpName }, 
 		ERRORPCONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
