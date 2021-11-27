@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.spring.AS.model.service.ASService;
 import com.kh.spring.AS.model.vo.AS;
 import com.kh.spring.common.Utils;
+import com.kh.spring.pd.model.vo.PdVo;
 
 @Controller
 public class ASController {
@@ -23,10 +24,10 @@ public class ASController {
    // AS 조회 페이지 이동 및 조회 메소드
    @RequestMapping("/AS/ASReceipt.do")
    public String selectASList(
-		   @RequestParam(value="cPage", required=false, defaultValue="1") int cPage, 
-		   @RequestParam(value= "key", required=false, defaultValue="") String key,
-		   @RequestParam(value= "word", required=false, defaultValue="") String word,
-		   Model model) {
+         @RequestParam(value="cPage", required=false, defaultValue="1") int cPage, 
+         @RequestParam(value= "key", required=false, defaultValue="") String key,
+         @RequestParam(value= "word", required=false, defaultValue="") String word,
+         Model model) {
       
       int numPerPage = 10;
       
@@ -38,7 +39,7 @@ public class ASController {
       // 전체 AS 수 조회
       int totalAS = asService.selectTotalAS(key, word);
       
-      String pageBar = Utils.getPageBar(totalAS, cPage, numPerPage, "ASReceipt.do");
+      String pageBar = Utils.getPageBar(totalAS, cPage, numPerPage, "ASReceipt.do", key, word);
 
       model.addAttribute("list", list);
       model.addAttribute("totalAS", totalAS);
@@ -99,6 +100,25 @@ public class ASController {
          System.out.println("삭제 실패");
       }
       
-      return "redirect:/AS/ASReceipt.do";
+      return "redirect:/AS/ASView.do";
    }      
+   
+   // 상품 정보 조회
+   @RequestMapping("AS/productInfo.do")
+   public String productInfo(@RequestParam String proCode, @RequestParam int asCode, Model model) {
+      
+      PdVo pdvo = asService.productInfo(proCode);
+      
+      String msg = "상품명 : " + pdvo.getProname() + 
+                   "\n품목 코드 : " + pdvo.getProcode() + 
+                   "\n카테고리 : " + pdvo.getCategory() + 
+                   "\n재고수량 : " + pdvo.getStock();
+      String loc = "/AS/ASView.do?asCode="+asCode;
+      
+      model.addAttribute("PdVo", pdvo);
+      model.addAttribute("msg", msg);
+      model.addAttribute("loc", loc);
+      
+      return "common/msg";
+   }
 }

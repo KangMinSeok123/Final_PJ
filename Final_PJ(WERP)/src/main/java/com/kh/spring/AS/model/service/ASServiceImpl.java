@@ -1,6 +1,5 @@
 package com.kh.spring.AS.model.service;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.spring.AS.model.dao.ASDAO;
 import com.kh.spring.AS.model.vo.AS;
+import com.kh.spring.pd.model.vo.PdVo;
 
 @Service
 public class ASServiceImpl implements ASService {
@@ -45,4 +45,11 @@ public class ASServiceImpl implements ASService {
       
       return asDAO.deleteAS(asCode);
    }
+   
+   @Override
+   public PdVo productInfo(String proCode) {
+
+      return asDAO.productInfo(proCode);
+   }
+
 }

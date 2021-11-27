@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.kh.spring.AS.model.vo.AS;
+import com.kh.spring.pd.model.vo.PdVo;
 
 public interface ASService {
 
@@ -16,5 +17,7 @@ public interface ASService {
 	int updateAS(AS as);
 
 	int deleteAS(int asCode);
+	
+	PdVo productInfo(String proCode);
 
 }

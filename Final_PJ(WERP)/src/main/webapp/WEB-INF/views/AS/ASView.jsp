@@ -15,9 +15,9 @@ h1 {
 }
 
 #container {
-	position: relative;
-	width: 900px;
-	margin: 0 auto;
+   position: relative;
+   width: 900px;
+   margin: 0 auto;
    } 
   
 
@@ -58,10 +58,8 @@ body {
 
 }
 
-
-
 .btn {
-   width: 100px;
+   width: 85px;
    height: 30px;
    cursor: pointer;
    background-color: #1A1A3A;
@@ -77,7 +75,27 @@ body {
 }
 
 .btn:hover {
-   background-color: rgb(137, 174, 217, 0.7);
+   background-color: rgb(26, 26, 58, 0.7);
+}
+
+td:nth-child(3):hover {
+   cursor: pointer;
+   background: #d3d3d3;
+}
+
+.productInfoBtn {
+   width: 130px;
+   height: 30px;
+   cursor: pointer;
+   background-color: #1A1A3A;
+   border : 0px;
+   color: white;
+   -webkit-border-radius: 13px;
+   margin-left:10px;
+}
+
+.productInfoBtn:hover {
+   background-color: rgb(26, 26, 58, 0.7);
 }
 </style>
 
@@ -88,49 +106,54 @@ body {
       <div id="update" class="div">
       <br /><br /><br /><br />
          <p>AS 상세조회 > ${AS.customer}님</p>
-         <table id="tbl-as" border="1" style="text-align: center">
-            <tr>
-               <th style="width: 180px">접수일</th>
-               <th style="width: 100px">고객명</th>
-               <th style="width: 200px">품목코드</th>
-               <th style="width: 200px">제목</th>
-               <th style="width: 330px">접수내용</th>
-               <th style="width: 120px">수리예정일</th>
-               <th style="width: 230px">접수현황(단계)</th>
-            </tr>
-            <tr id="${AS.asCode}">
-               <td>${AS.asDate}</td>
-               <td>${AS.customer}</td>
-               <td>${AS.proCode}</td>
-               <td>${AS.asTitle}</td>
-               <td>${AS.asContent}</td>
-               <td>
-                  <form action="${pageContext.request.contextPath}/AS/updateAS.do" method="post">
-                  
-                     <input type="hidden" name="asCode" value="${AS.asCode}" /> 
+         <form action="${pageContext.request.contextPath}/AS/updateAS.do" method="post">
+         
+            <input type="hidden" name="asCode" value="${AS.asCode}" /> 
+            <table id="tbl-as" border="1" style="text-align: center">
+               <tr>
+                  <th style="width: 180px">접수일</th>
+                  <th style="width: 100px">고객명</th>
+                  <th style="width: 200px">품목코드</th>
+                  <th style="width: 200px">제목</th>
+                  <th style="width: 330px">접수내용</th>
+                  <th style="width: 120px">수리예정일</th>
+                  <th style="width: 230px">접수현황(단계)</th>
+               </tr>
+               <tr id="${AS.asCode}">
+                  <td>${AS.asDate}</td>
+                  <td>${AS.customer}</td>
+                  <td>
+                        ${AS.proCode}
+                  </td>
+                  <td>${AS.asTitle}</td>
+                  <td>${AS.asContent}</td>
+                  <td>
                      <input type="date" name="date" value="${AS.asExpectedDate}" />
-               </td>
-               <td>                   
-                     <input type="hidden" name="asCode" value="${AS.asCode}" /> 
-                     <select name="stage">
-                        <option value="접수 대기">접수 대기</option>
-                        <option value="접수 완료">접수 완료</option>
-                        <option value="수리 진행">수리 진행</option>
-                        <option value="수리 완료">수리 완료</option>
-                        <option value="전달 완료">전달 완료</option>
-                     </select>
-               </td>
-            </tr>
-         </table>
-         		<br />
-               <input type="submit" class="btn" value="수정" /> 
-               </form>
-               <input type="button" class="btn" id="deleteBtn" value="삭제"
-                      onclick="location.href='${pageContext.request.contextPath}/AS/deleteAS.do?asCode=${AS.asCode}'" />
+                  </td>
+                  <td>                   
+                        <select name="stage">
+                           <option value="접수 대기">접수 대기</option>
+                           <option value="접수 완료">접수 완료</option>
+                           <option value="수리 진행">수리 진행</option>
+                           <option value="수리 완료">수리 완료</option>
+                           <option value="전달 완료">전달 완료</option>
+                        </select>
+                  </td>
+               </tr>
+            </table>
+            <br />
+      <input type="button" class="productInfoBtn" id="productInfoBtn" value="상품 정보 확인"
+            onclick="location.href='${pageContext.request.contextPath}/AS/productInfo.do?proCode=${AS.proCode}' + '&' + 'asCode=${AS.asCode}'" />
+                  <input type="submit" class="btn" value="수정" /> 
+          <input type="button" class="btn" id="deleteBtn" value="삭제"
+                 onclick="location.href='${pageContext.request.contextPath}/AS/deleteAS.do?asCode=${AS.asCode}'" />
+          </form>
+          <br />
       </div>
    </div>
 
 
+   
 
    <%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
    <%@ include file="/WEB-INF/views/common/footer.jsp"%>
