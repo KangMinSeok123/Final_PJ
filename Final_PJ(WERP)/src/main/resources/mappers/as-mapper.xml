@@ -40,4 +40,10 @@
    <delete id="deleteAS" parameterType="int">
       DELETE FROM AS_MANAGEMENT WHERE ASCODE = #{asCode}
    </delete>
+   
+   <select id="productInfo" parameterType="string" resultType="PdVo">
+      SELECT * FROM PRODUCT_MANAGEMENT
+      WHERE PROCODE = #{ procode }
+   </select>
+   
 </mapper>

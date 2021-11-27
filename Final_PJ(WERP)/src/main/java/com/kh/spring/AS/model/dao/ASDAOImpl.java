@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.spring.AS.model.vo.AS;
 import com.kh.spring.common.Utils;
+import com.kh.spring.pd.model.vo.PdVo;
 
 @Repository
 public class ASDAOImpl implements ASDAO {
@@ -22,7 +23,7 @@ public class ASDAOImpl implements ASDAO {
 
 		RowBounds rows = new RowBounds((cPage - 1) * numPerPage, numPerPage);
 		Utils utils = new Utils(key, word);
-		
+
 		return sqlSession.selectList("asSQL.selectASList", utils, rows);
 	}
 
@@ -30,7 +31,7 @@ public class ASDAOImpl implements ASDAO {
 	public int selectTotalAS(String key, String word) {
 
 		Utils utils = new Utils(key, word);
-		
+
 		return sqlSession.selectOne("asSQL.selectTotalAS", utils);
 	}
 
@@ -51,4 +52,11 @@ public class ASDAOImpl implements ASDAO {
 
 		return sqlSession.delete("asSQL.deleteAS", asCode);
 	}
+
+	@Override
+	public PdVo productInfo(String proCode) {
+
+		return sqlSession.selectOne("asSQL.productInfo", proCode);
+	}
+
 }
