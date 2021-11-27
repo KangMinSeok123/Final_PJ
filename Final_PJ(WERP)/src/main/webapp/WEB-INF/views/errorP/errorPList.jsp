@@ -231,6 +231,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 	
 	<script>
 		function fn_goErrorPForm(){
+			
+			
 			var url = "${pageContext.request.contextPath}/errorP/errorPForm.do";
 			var name = "popup";
 		    var _width = '840';
@@ -346,8 +348,6 @@ input::-moz-placeholder {color:#a8a8a8;}
 
 	
 		
-			
-		
 	</script>
 	
 </head>
@@ -410,8 +410,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 					<tr class="even">
 					<td><input type="checkbox" class="chk" name="cchk" onclick="cchkClicked()" value="${b.errorpNo}"></td>
 						<td id="${b.errorpNo}" class="errorpNo">${b.errorpNo}</td>
-						<td>${b.errorpCode}</td>
-						<td>${b.errorpName}</td>
+						<td>${b.procode}</td>
+						<td>${b.proname}</td>
 						<td>${b.errorpContent}</td>
 						<td>${b.errorpCount}</td>
 						<td>${b.inputDate}</td>

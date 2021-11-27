@@ -203,7 +203,36 @@ height:20px;
 		
 	}
 	
+	function procodeButton() {
+		var url = "${pageContext.request.contextPath}/errorP/proCodeList.do";
+		var name = "popup1";
+	    var _width = '350';
+	    var _height = '500';				 			    
+	    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 			
+		window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top, );
+		
+		
+	}
+	
+	function goSubmit() {
+		var procode = $("[name=procode]").val();
+
+		if(procode=="") {
+			alert("다시 입력해주세요.");
+		}
+		else {
+		window.opener.name = "listForm";
+		document.qualityiFrm.target = "listForm";
+		document.qualityiFrm.action="${pageContext.request.contextPath}/qualityI/qualityIFormEnd.do"
+		alert("등록완료");
+		document.qualityiFrm.submit();
+		
+		self.close();
+		}
+	}
 				
+
 
 	</script>
 </head>
@@ -220,7 +249,7 @@ height:20px;
 
 
 <br>
-<form id="Frm" name="boardFrm" action="${pageContext.request.contextPath}/qualityI/qualityIFormEnd.do" method="post"  enctype="multipart/form-data" >
+<form id="Frm" name="qualityiFrm" method="post"  enctype="multipart/form-data" >
 <table classpacing='0'>
 				<colgroup>
 				<col width="25%">
@@ -233,20 +262,22 @@ height:20px;
 				</colgroup>
 				
 					<tr class="top">
-					 <td>담당자
-					 <button class="search-btn" onclick="managerButton();"><i class="fas fa-search" ></i>	</button>
-     				  <i class="glyphicon glyphicon-search"></i>
-      					 </td>
-						<td><input type="text" class="form-control" name="manager" id="manager" required style="text-align:center; width:160px; height:20px;"></td>
-						<td>품목코드</td>
-						<td><input type="text" class="form-control"  name="qualityiCode" id="qualityiCode" required style="text-align:center; width:160px; height:20px;"></td>				
+						<td>품목코드
+						 <button class="search-btn" onclick="procodeButton();"><i class="fas fa-search"></i>	</button>
+     				  <i class="glyphicon glyphicon-search"></i></td>
+						<td><input type="text" class="form-control"  name="procode" id="procode" required style="text-align:center; width:160px; height:20px;" readonly ></td>				
+						<td>품목명</td>
+						<td><input type="text" class="form-control" name="proname" id="proname" required style="text-align:center; width:160px; height:20px;" readonly> </td>
 						</tr>
 						
 						<tr>
-						<td>품목명</td>
-						<td><input type="text" class="form-control" name="qualityiName" id="qualityiName" required style="text-align:center; width:160px; height:20px;"></td>
 						<td>품목개수</td>
 						<td><input type="text" class="form-control" name="qualityiCount" required style="text-align:center; width:160px; height:20px;"></td>
+						 <td>담당자
+					 <button class="search-btn" onclick="managerButton();"><i class="fas fa-search" ></i>	</button>
+     				  <i class="glyphicon glyphicon-search"></i>
+      				 </td>
+      				 <td><input type="text" class="form-control" name="manager" id="manager" required style="text-align:center; width:160px; height:20px;"  ></td>
 						</tr>
 						
 					
@@ -261,7 +292,7 @@ height:20px;
  			  <input type="file" class="custom-file-input" name="upFile" id="upFile1" 
  			  data-width="300" data-height="300" accept="image/*" onchange="setThumbnail(event);" multiple>
  			 <label class="custom-file-label" for="upFile1">업로드</label>
- 			 <input type="submit" id="form_submit" name="form_submit" class="btn btn-outline-success" value="저장" >
+ 			 <input type="submit" id="form_submit" name="form_submit" class="btn btn-outline-success" value="저장" onclick="goSubmit();">
  			 <label class="custom-file-label" for="form_submit">저장</label>
 			</div>
 				</form>

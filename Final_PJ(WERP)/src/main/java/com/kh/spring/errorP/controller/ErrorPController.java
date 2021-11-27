@@ -66,6 +66,38 @@ public class ErrorPController {
 		
 	}
 	
+	@RequestMapping("/errorP/proCodeList.do")
+	public String selectproCodeList(
+			@RequestParam(value="cPage", required=false, defaultValue="1") int cPage,
+			@RequestParam(value= "key", required=false, defaultValue="") String key,
+			@RequestParam(value= "word", required=false, defaultValue="") String word,
+			Model model	
+			) {
+		
+		// 한 페이지당 게시글 수
+		int numPerPage = 7;
+		
+		// 현재 페이지의 게시글 수
+		List<Map<String, String>> list = errorPService.selectProCodeList(cPage, numPerPage, key, word);
+		
+		// 전체 게시글 수
+		int totalContents = errorPService.selectProCodeTotalContents(key,word);
+		
+		// 페이지 처리 Utils 사용하기
+		String pageBar = Utils.getPageBar(totalContents, cPage, numPerPage, "proCodeList.do", key, word);	
+		
+		model.addAttribute("list", list);
+		model.addAttribute("totalContents", totalContents);
+		model.addAttribute("numPerPage", numPerPage);
+		model.addAttribute("pageBar", pageBar);
+		model.addAttribute("key", key);
+		model.addAttribute("word", word);
+		
+		System.out.println(model);
+		return "errorP/proCodeList";
+		
+	}
+	
 	
 	
 	
@@ -80,7 +112,7 @@ public class ErrorPController {
 		
 	@RequestMapping("/errorP/errorPFormEnd.do")
 	public String insertErrorP(ErrorP errorP, Model model,
-							@RequestParam(value="errorpCode", required=false) String errorpCode,
+							@RequestParam(value="proCode", required=false) String proCode,
 							HttpServletRequest request, HttpServletRequest req,
 							  @RequestParam(value="upFile", required=false) MultipartFile[] upFiles)
 												{
@@ -114,7 +146,7 @@ public class ErrorPController {
 			}
 		}
 		// 6. 게시글 DB에 등록
-		int check = errorPService.checkErrorP(errorpCode);
+		int check = errorPService.checkErrorP(proCode);
 		int result, result2;
 		String loc = "/errorP/errorPList.do";
 		String msg = "";
@@ -252,8 +284,8 @@ public class ErrorPController {
 		
 		ErrorP originBoard = errorPService.updateView(errorpNo);
 		
-		originBoard.setErrorpCode( errorP.getErrorpCode() );
-		originBoard.setErrorpName( errorP.getErrorpName() );
+		originBoard.setProcode( errorP.getProcode() );
+		originBoard.setProname( errorP.getProname() );
 		originBoard.setErrorpContent( errorP.getErrorpContent() );
 		originBoard.setErrorpCount( errorP.getErrorpCount() );
 	
@@ -342,21 +374,22 @@ public class ErrorPController {
 	@ResponseBody
 	@RequestMapping("/errorP/errorPDelete.do")
 	public void errorPDelete(
-								@RequestParam(value="cchk[]") List<String> errorpNo,
+								@RequestParam(value="cchk[]") List<String> errorpNoList,					
 								ErrorP errorP,
 								HttpServletRequest request
 								) {
-	
+				
 	int result = 0;
 	int errorpNoNum = 0;
 		
 		// 첨부파일삭제 명단
-		for(String i : errorpNo) {
+		for(String i : errorpNoList) {
 		// 게시글 삭제
 			errorpNoNum = Integer.parseInt(i);
 			errorP.setErrorpNo(errorpNoNum);
-			errorPService.deleteErrorP(errorP); // 서비스 이동~!
-			
+			errorPService.deleteErrorP(errorP);
+		
+					
 		}	
 	
 		

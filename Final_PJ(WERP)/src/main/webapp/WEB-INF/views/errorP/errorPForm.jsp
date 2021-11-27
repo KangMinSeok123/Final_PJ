@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -191,12 +192,12 @@ background: #f6f6f6;
 	
 	
 	function checkErrorP() {
-		var id = $("[name=errorpCode]").val();
+		var id = $("[name=procode]").val();
 			$.ajax ({
 				type : 'post',
 				url : "${pageContext.request.contextPath}/errorP/errorPCheck.do",
 				dataType : 'text',
-				data : {errorpCode : id},
+				data : {procode : id},
 				success : function(data) {
 						if(data == 0) {	
 							document.getElementById('Frm').submit();
@@ -207,17 +208,12 @@ background: #f6f6f6;
 							
 							
 						}
-						
-					
-				
-						
-					
+										
 				}
 			});	
 			
 	}
-				
-	
+					
 	/*부트스트랩 : file 변경시 파일명 보이기 */
 	$(function(){
 		$('[name=upFile]').on('change',function(){
@@ -245,6 +241,35 @@ background: #f6f6f6;
 		}
 	}
 	
+	function procodeButton() {
+		var url = "${pageContext.request.contextPath}/errorP/proCodeList.do";
+		var name = "popup1";
+	    var _width = '350';
+	    var _height = '500';				 			    
+	    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 			
+		window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top, );
+		
+		
+	}
+	
+	function goSubmit() {
+	var procode = $("[name=procode]").val();
+
+	if(procode=="") {
+		alert("다시 입력해주세요.");
+	}
+	else {
+	window.opener.name = "listForm";
+	document.errorpFrm.target = "listForm";
+	document.errorpFrm.action="${pageContext.request.contextPath}/errorP/errorPFormEnd.do";
+	alert("등록완료");
+	document.errorpFrm.submit();
+	
+	self.close();
+	}
+		
+	}
 	</script>
 </head>
 <body>
@@ -260,7 +285,7 @@ background: #f6f6f6;
 
 
 <br>
-<form id="Frm" name="boardFrm" action="${pageContext.request.contextPath}/errorP/errorPFormEnd.do" method="post"  enctype="multipart/form-data" >
+<form id="Frm" name="errorpFrm" method="post"  enctype="multipart/form-data" >
 <table classpacing='0'>
 				<colgroup>
 				<col width="25%">
@@ -273,17 +298,20 @@ background: #f6f6f6;
 				</colgroup>
 				
 					<tr class="top">
-					 <td>상품코드</td>
-						<td><input type="text" class="form-control" name="errorpCode" id="errorpCode" required style="text-align:center; width:160px; height:20px;"></td>
+					 <td>상품코드
+					 <button class="search-btn" onclick="procodeButton();"><i class="fas fa-search" ></i>	</button>
+     				  <i class="glyphicon glyphicon-search"></i>
+					 </td>
+						<td><input type="text" class="form-control" name="procode" id="procode" required style="text-align:center; width:160px; height:20px;" readonly></td>
 						<td>상품명</td>
-						<td><input type="text" class="form-control" name="errorpName" id="errorpName" required style="text-align:center; width:160px; height:20px;"></td>
+						<td><input type="text" class="form-control" name="proname" id="proname" required style="text-align:center; width:160px; height:20px;" readonly></td>
 						</tr>
 						
 						<tr>
-						<td>상품개수</td>
-						<td><input type="text" class="form-control"  name="errorpCount" id="errorpCount" required style="text-align:center; width:160px; height:20px;"></td>				
 						<td>내용</td>
 						<td><input type="text" class="form-control" name="errorpContent" required style="text-align:center; width:160px; height:20px;"></textarea></td>
+						<td>상품개수</td>
+						<td><input type="text" class="form-control"  name="errorpCount" id="errorpCount" required style="text-align:center; width:160px; height:20px;"></td>				
 						</tr>
 		
 				</table>
@@ -295,51 +323,12 @@ background: #f6f6f6;
  			  <input type="file" class="custom-file-input" name="upFile" id="upFile1" 
  			  data-width="300" data-height="300" accept="image/*" onchange="setThumbnail(event);" multiple>
  			 <label class="custom-file-label" for="upFile1">업로드</label>
- 			 <input type="submit" id="form_submit" name="form_submit" class="btn btn-outline-success" value="저장" >
+ 			 <input type="submit" id="form_submit" name="form_submit" class="btn btn-outline-success" value="저장" onclick="goSubmit();" >
  			 <label class="custom-file-label" for="form_submit">저장</label>
 			</div>
 				</form>
 	
 				   
 				
-				
-				 
-				
-				
-	<%--
-	<div id="container">
-		<c:import url="../common/sidebar.jsp"/>
-		<div id="board-container">
-			<form id="Frm" name="boardFrm" action="${pageContext.request.contextPath}/errorP/errorPFormEnd.do" method="post"  enctype="multipart/form-data" >
-				<input type="text" class="form-control" placeholder="상품코드" name="errorpCode" id="errorpCode" required>
-				<input type="text" class="form-control" placeholder="상품명" name="errorpName" id="errorpName" required>
-				input type="text" class="form-control" name="errorpContent" placeholder="내용" required></textarea>
-				<input type="text" class="form-control" placeholder="상품갯수" name="errorpCount" id="errorpCount" required>
-				
-				<div class="input-group mb-3" style="padding:0px;">
-				  <div class="input-group-prepend" style="padding:0px;">
-				    <span class="input-group-text">첨부파일1</span>
-				  </div>
-				  <div class="custom-file">
-				    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-				    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
-				  </div>
-				</div>
-				<div class="input-group mb-3" style="padding:0px;">
-				  <div class="input-group-prepend" style="padding:0px;">
-				    <span class="input-group-text">첨부파일2</span>
-				  </div>
-				  <div class="custom-file">
-				    <input type="file" class="custom-file-input" name="upFile" id="upFile2">
-				    <label class="custom-file-label" for="upFile2">파일을 선택하세요</label>
-				  </div>
-				</div>
-			   
-				<input type="submit" class="btn btn-outline-success" value="저장" onclick=" >
-			</form>
-		</div>
-		<c:import url="../common/footer.jsp"/>
-	</div>
-	--%>
 </body>
 </html>

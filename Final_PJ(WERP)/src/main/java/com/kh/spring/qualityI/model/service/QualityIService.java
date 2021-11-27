@@ -23,7 +23,7 @@ public interface QualityIService {
 	
 	int updateQualityI(QualityI qualityI);
 
-	int deleteQualityI(Date qualityiDate);
+	void deleteQualityI(QualityI qualityI);
 
 	void AlldeleteQualityI();
 

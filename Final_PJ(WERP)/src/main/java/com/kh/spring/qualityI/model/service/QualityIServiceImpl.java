@@ -74,9 +74,9 @@ public class QualityIServiceImpl implements QualityIService {
 
 	
 	@Override
-	public int deleteQualityI(Date qualityiDate) {
+	public void deleteQualityI(QualityI qualityi) {
 		
-		 return qualityIDAO.deleteQualityI(qualityiDate);
+		 qualityIDAO.deleteQualityI(qualityi);
 		}
 		
 	

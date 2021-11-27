@@ -8,11 +8,11 @@ import com.kh.spring.errorP.model.vo.ErrorP;
 
 
 public interface ErrorPDAO {
-	List<Map<String, String>> selectBoardList(int cPage, int numPerPage, String key, String word);
+	List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word);
 
 	int selectErrorPTotalContents(String key, String word);
 	
-	int checkErrorP(String errorpCode);
+	int checkErrorP(String procode);
 
 	int insertErrorP(ErrorP errorP);
 
@@ -35,6 +35,10 @@ public interface ErrorPDAO {
 	int deleteFile(int attNo);
 
 	void AlldeleteErrorP();
+
+	List<Map<String, String>> selectProCodeList(int cPage, int numPerPage, String key, String word);
+
+	int selectProCodeTotalContents(String key, String word);
 	
 
 

@@ -15,24 +15,35 @@
 
 where 1 = 0
 <if test="key == 'CODE'">
-OR ERRORPCODE like '%' || #{word} || '%'
+OR PROCODE like '%' || #{word} || '%'
 </if>
 
 <if test="key == 'NAME'">
-OR ERRORPNAME like '%' || #{word} || '%'
+OR proname like '%' || #{word} || '%'
 </if>
 
 </if>
 </sql>
+	
+	<select id="selectProCodeList" resultType="com.kh.spring.pd.model.vo.PdVo">
+		SELECT * FROM PRODUCT_MANAGEMENT
+	<include refid = "search" />
+		ORDER BY PROCODE DESC
+	</select>
 	
 	<select id="selectErrorPTotalContents" resultType="int">
 		SELECT COUNT(*) FROM ERRORP
 		<include refid = "search" />
 	</select>
 	
+	<select id="selectProCodeTotalContents" resultType="int">
+		SELECT COUNT(*) FROM PRODUCT_MANAGEMENT
+		<include refid = "search" />
+	</select>
+	
 	<insert id="insertErrorP" parameterType="ErrorP">
-		INSERT INTO ERRORP (ERRORPNO, ERRORPCODE, ERRORPNAME, ERRORPCONTENT, ERRORPCOUNT)
-		VALUES (SEQ_ERRORPNO.NEXTVAL, #{ errorpCode }, #{ errorpName }, #{ errorpContent }, #{ errorpCount })
+		INSERT INTO ERRORP (ERRORPNO, PROCODE, proname, ERRORPCONTENT, ERRORPCOUNT)
+		VALUES (SEQ_ERRORPNO.NEXTVAL, #{ procode }, #{ proname }, #{ errorpContent }, #{ errorpCount })
 		<!-- <selectKey keyProperty="boardNo" resultType="_int" order="AFTER">
 			SELECT SEQ_BOARDNO.CURRVAL FROM DUAL
 		</selectKey> -->
@@ -51,7 +62,7 @@ OR ERRORPNAME like '%' || #{word} || '%'
 	
 	<update id="updateCount" parameterType="ErrorP">
 		UPDATE ERRORP SET ERRORPCOUNT = ERRORPCOUNT + #{ errorpCount } WHERE
-		ERRORPCODE = #{ errorpCode }
+		PROCODE = #{ procode }
 	</update>
 
 	
@@ -64,11 +75,11 @@ OR ERRORPNAME like '%' || #{word} || '%'
 	</select>
 	
 		<select id="checkErrorP" resultType="int" >
-		SELECT COUNT(*) FROM ERRORP WHERE ERRORPCODE = #{ errorpCode }
+		SELECT COUNT(*) FROM ERRORP WHERE PROCODE = #{ procode }
 		</select>
 	
 	<update id="updateErrorP" parameterType="ErrorP">
-		UPDATE ERRORP SET ERRORPCODE = #{ errorpCode }, ERRORPNAME = #{ errorpName }, 
+		UPDATE ERRORP SET PROCODE = #{ procode }, proname = #{ proname }, 
 		ERRORPCONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
 		WHERE ERRORPNO = #{ errorpNo }
 	</update>

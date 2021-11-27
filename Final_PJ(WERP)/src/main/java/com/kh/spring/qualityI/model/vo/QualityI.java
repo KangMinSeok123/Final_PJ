@@ -22,8 +22,8 @@ public class QualityI implements Serializable {
 	
 	private Date qualityiDate;
 	private String manager;
-	private String qualityiCode;
-	private String qualityiName;
+	private String procode;
+	private String proname;
 	private int qualityiCount;
 	private String state;
 	

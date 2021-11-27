@@ -117,7 +117,7 @@ table tr{
 	padding-left:20px;
 }
 
-.qualityiNo {
+.procode {
 color: blue;
 cursor : pointer;
 }
@@ -244,8 +244,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 		
 		$(function(){
 			$("td[id]").on("click",function(){
-				var qualityiNo = $(this).attr("id");
-				var url = "${pageContext.request.contextPath}/qualityi/qualityiView.do?qualityiNo="+qualityiNo;
+				var procode = $(this).attr("id");
+				var url = "${pageContext.request.contextPath}/qualityi/qualityiView.do?procode="+procode;
 				var name = "popup";
 			    var _width = '900';
 			    var _height = '500';				 			    
@@ -294,18 +294,18 @@ input::-moz-placeholder {color:#a8a8a8;}
 		function SelectDelete(){
 			
 			
-			var qualityiNo = new Array();
+			var procode = new Array();
 			$("input:checkbox[name='cchk']:checked").each(function() {
-				qualityiNo.push($(this).val());
+				procode.push($(this).val());
 			});
-			console.log(qualityiNo);
-			if( qualityiNo.length >= 1 ) {
+			console.log(procode);
+			if( procode.length >= 1 ) {
 			if(confirm("삭제하시겠습니까?")){
 				
 				$.ajax({
 			        type : 'post'
-			       ,url : '${pageContext.request.contextPath}/qualityi/qualityiDelete.do'
-			        ,data : { cchk : qualityiNo }
+			       ,url : '${pageContext.request.contextPath}/qualityI/qualityIDelete.do'
+			        ,data : { cchk : procode }
 			       ,dataType : 'text'
 			       ,success : function(data) {
 						
@@ -329,7 +329,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 			if(confirm("삭제하시겠습니까?")) {
 			$.ajax({
 				type : 'post',
-				url : '${pageContext.request.contextPath}/qualityi/qualityiAlldelete.do',			
+				url : '${pageContext.request.contextPath}/qualityI/qualityIAlldelete.do',			
 				dataType : 'text',
 				success : function(data) {
 					
@@ -389,7 +389,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 				<table classpacing='0'>
 				<colgroup>
 				<col width="50px">
-				<col width="80px">
+				<col width="150px">
 				<col width="200px">
 				<col width="200px">
 				<col width="220px">
@@ -411,11 +411,11 @@ input::-moz-placeholder {color:#a8a8a8;}
 				
 					<c:forEach items="${list}" var="b"> 
 					<tr class="even">
-					<td><input type="checkbox" class="chk" name="cchk" onclick="cchkClicked()" value="${b.qualityiDate}"></td>
+					<td><input type="checkbox" class="chk" name="cchk" onclick="cchkClicked()" value="${b.procode}"></td>
 						<td id="${b.qualityiDate}" class="qualityiDate">${b.qualityiDate}</td>
 						<td>${b.manager}</td>
-						<td>${b.qualityiCode}</td>
-						<td>${b.qualityiName}</td>
+						<td>${b.procode}</td>
+						<td>${b.proname}</td>
 						<td>${b.qualityiCount}</td>
 						<td>${b.state}</td>
 					

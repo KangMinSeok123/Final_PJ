@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.spring.common.Utils;
 import com.kh.spring.errorP.model.dao.ErrorPDAO;
 import com.kh.spring.errorP.model.vo.Attachment;
 import com.kh.spring.errorP.model.vo.ErrorP;
@@ -19,7 +20,7 @@ public class ErrorPServiceImpl implements ErrorPService {
 	@Override
 	public List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word) {
 		
-		return errorPDAO.selectBoardList(cPage, numPerPage, key, word);
+		return errorPDAO.selectErrorPList(cPage, numPerPage, key, word);
 		
 	}
 
@@ -30,9 +31,9 @@ public class ErrorPServiceImpl implements ErrorPService {
 	}
 
 	@Override
-	public int checkErrorP(String errorpCode) {
+	public int checkErrorP(String procode) {
 		
-		return errorPDAO.checkErrorP(errorpCode);
+		return errorPDAO.checkErrorP(procode);
 	}
 	
 	@Override
@@ -132,6 +133,20 @@ public class ErrorPServiceImpl implements ErrorPService {
 	public 	void AlldeleteErrorP() {
 		
 		errorPDAO.AlldeleteErrorP();
+	}
+
+	@Override
+	public List<Map<String, String>> selectProCodeList(int cPage, int numPerPage, String key, String word) {
+		
+		
+		
+		return errorPDAO.selectProCodeList(cPage, numPerPage, key, word);
+	}
+
+	@Override
+	public int selectProCodeTotalContents(String key, String word) {
+		
+		return errorPDAO.selectProCodeTotalContents(key, word);
 	}
 
 }

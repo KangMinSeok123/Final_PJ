@@ -111,7 +111,7 @@ public class MemberController {
 				model.addAttribute("totalContents");
 				model.addAttribute("numPerPage", numPerPage);
 				model.addAttribute("pageBar", pageBar);
-				
+				model.addAttribute("key", key);
 				model.addAttribute("word", word);
 				
 				System.out.println(model);

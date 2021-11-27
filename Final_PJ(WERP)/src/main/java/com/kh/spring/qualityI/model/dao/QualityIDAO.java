@@ -22,7 +22,7 @@ public interface QualityIDAO {
 	
 	int updateQualityI(QualityI qualityI);
 
-	int deleteQualityI(Date qualityiDate);
+	int deleteQualityI(QualityI qualityi);
 
 	void AlldeleteQualityI();
 	

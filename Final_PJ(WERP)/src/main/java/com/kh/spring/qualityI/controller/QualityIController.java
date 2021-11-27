@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.kh.spring.common.Utils;
+import com.kh.spring.errorP.model.vo.Attachment;
+import com.kh.spring.errorP.model.vo.ErrorP;
 import com.kh.spring.qualityI.model.service.QualityIService;
 import com.kh.spring.qualityI.model.vo.QualityI;
 
@@ -138,8 +140,8 @@ public class QualityIController {
 		QualityI originBoard = qualityIService.updateView(qualityiDate);
 		
 		originBoard.setManager( qualityI.getManager() );
-		originBoard.setQualityiCode( qualityI.getQualityiCode() );
-		originBoard.setQualityiName( qualityI.getQualityiName() );
+		originBoard.setProcode( qualityI.getProcode() );
+		originBoard.setProname( qualityI.getProname() );
 		originBoard.setQualityiCount( qualityI.getQualityiCount() );
 		originBoard.setState( qualityI.getState() );
 	
@@ -165,27 +167,26 @@ public class QualityIController {
 	
 	@ResponseBody
 	@RequestMapping("/qualityI/qualityIDelete.do")
-	public String qualityIDelete(
-								@RequestParam Date qualityiDate,
-								HttpServletRequest request,
-								Model model) {																																														
-		int result = qualityIService.deleteQualityI(qualityiDate); // 서비스 이동~!
+	public void qualityIDelete(
+									@RequestParam(value="cchk[]") List<String> procode,
+									QualityI qualityI,
+									HttpServletRequest request) {																																														
 		
-		String loc = "/board/boardList.do";
-		String msg = "";
 		
-		if( result > 0 ) {
-			msg = "삭제 완료!";
+		
+		int result = 0;
+		String procodeNum= "";
+		
+		// 첨부파일삭제 명단
+				for(String i : procode) {
+				// 게시글 삭제
+					procodeNum = i;
+					qualityI.setProcode(procodeNum);
+					qualityIService.deleteQualityI(qualityI);
+				
+				}	
 			
-			
-		} else {
-			msg = "삭제 실패!";
-		}
 		
-		model.addAttribute("loc", loc);
-		model.addAttribute("msg", msg);
-		
-		return "common/msg";
 					
 	}
 	

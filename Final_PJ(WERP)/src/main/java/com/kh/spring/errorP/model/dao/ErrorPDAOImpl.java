@@ -19,7 +19,7 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<Map<String, String>> selectBoardList(int cPage, int numPerPage, String key, String word) {
+	public List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word) {
 		// 데이터베이스에서 특정 갯수의 행만 가져오는 객체
 				RowBounds rows = new RowBounds((cPage - 1)* numPerPage, numPerPage);
 				Utils utils = new Utils(key, word);
@@ -33,9 +33,9 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 	}
 	
 	@Override
-	public int checkErrorP(String errorpCode) {
+	public int checkErrorP(String procode) {
 		
-		return sqlSession.selectOne("errorPSQL.checkErrorP",errorpCode);
+		return sqlSession.selectOne("errorPSQL.checkErrorP",procode);
 	}
 
 	@Override
@@ -106,6 +106,20 @@ public class ErrorPDAOImpl implements ErrorPDAO {
 		
 		sqlSession.delete("errorPSQL.AlldeleteErrorP");
 		
+	}
+
+	@Override
+	public List<Map<String, String>> selectProCodeList(int cPage, int numPerPage, String key, String word) {
+		RowBounds rows = new RowBounds((cPage - 1)* numPerPage, numPerPage);
+		Utils utils = new Utils(key, word);
+		return sqlSession.selectList("errorPSQL.selectProCodeList", utils, rows );
+	}
+
+	@Override
+	public int selectProCodeTotalContents(String key, String word) {
+		
+		Utils utils = new Utils(key, word);
+		return sqlSession.selectOne("errorPSQL.selectProCodeTotalContents", utils);
 	}
 
 }

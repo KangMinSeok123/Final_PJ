@@ -58,9 +58,9 @@ public class QualityIDAOImpl implements QualityIDAO {
 	}
 
 	@Override
-	public int deleteQualityI(Date qualityiDate) {
+	public int deleteQualityI(QualityI qualityI) {
 		
-		return sqlSession.delete("qualityISQL.deleteQualityI", qualityiDate);
+		return sqlSession.delete("qualityISQL.deleteQualityI", qualityI);
 	}
 	
 	@Override

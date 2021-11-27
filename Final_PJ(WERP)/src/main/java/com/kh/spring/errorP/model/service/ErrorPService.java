@@ -11,8 +11,11 @@ public interface ErrorPService {
 	List<Map<String, String>> selectErrorPList(int cPage, int numPerPage, String key, String word);
 
 	int selectErrorPTotalContents(String key, String word);
+	
+	int selectProCodeTotalContents(String key, String word);
+	
 
-	int checkErrorP(String errorpCode);
+	int checkErrorP(String procode);
 
 	int insertErrorP(ErrorP errorP, List<Attachment> attachList);
 
@@ -31,6 +34,9 @@ public interface ErrorPService {
 	void deleteErrorP(ErrorP errorP);
 
 	void AlldeleteErrorP();
+
+	List<Map<String, String>> selectProCodeList(int cPage, int numPerPage, String key, String word);
+
 
 
 

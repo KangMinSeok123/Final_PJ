@@ -90,8 +90,8 @@
 		<div id="board-container">
 			<form name="errorPFrm" action="${pageContext.request.contextPath}/errorP/errorPUpdate.do" method="post" onsubmit="return validate();" enctype="multipart/form-data">
 				<input type="hidden" id="errorp" name="errorpNo" value="${ errorP.errorpNo }" />
-					<input type="text" class="form-control" placeholder="상품코드" name="errorpCode" id="errorpCode" value="${ errorP.errorpCode }" required>
-				<input type="text" class="form-control" placeholder="상품명" name="errorpName" id="errorpName" value="${ errorP.errorpName }" required>
+					<input type="text" class="form-control" placeholder="상품코드" name="procode" id="procode" value="${ errorP.procode }" required>
+				<input type="text" class="form-control" placeholder="상품명" name="proname" id="proname" value="${ errorP.proname }" required>
 				 <input type="text" class="form-control" name="errorpContent" placeholder="내용" value="${ errorP.errorpContent }" required></textarea>
 				<input type="text" class="form-control" placeholder="상품갯수" name="errorpCount" id="errorpCount" value="${ errorP.errorpCount }" required>
 				<c:forEach items="${attachmentList}" var="a" varStatus="vs">

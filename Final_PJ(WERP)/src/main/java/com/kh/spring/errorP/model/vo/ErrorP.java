@@ -18,8 +18,8 @@ public class ErrorP implements Serializable {
 	private static final long serialVersionUID = 79337L;
 	
 	private int errorpNo;
-	private String errorpCode;
-	private String errorpName;
+	private String procode;
+	private String proname;
 	private String errorpContent;
 	private String errorpCount;
 	private Date inputDate;

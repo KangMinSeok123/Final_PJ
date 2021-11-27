@@ -14,7 +14,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>사원 검색</title>
+	<title>품목 검색</title>
 	<link rel="stylesheet" href="/spring/resources/css/common.css">
 
 	<style>
@@ -146,7 +146,7 @@ width: 33px;
 height: 33px;
 }
 
-#empNo {
+.procode {
 color: blue;
 }
 input:-ms-input-placeholder {color:#a8a8a8; } 
@@ -158,14 +158,28 @@ input::-moz-placeholder {color:#a8a8a8;}
 		
 		$(function(){
 			$("tr[id]").on("click",function(){
-				var empName = $(this).attr("id");
-				opener.document.getElementById("manager").value = empName;
-				close();
-							
+			   var tr = $(this);
+			   var td = tr.children();
+			 
+				var procode = $(this).attr("id");
+			    var proname = td.eq(1).text();
+			    
+				 	
+				opener.document.getElementById("procode").value = procode;
+				opener.document.getElementById("proname").value = proname;
+				close();				
 				
 			});
 		});
-						
+		
+
+
+
+	
+	
+		
+			
+		
 	</script>
 	
 </head>
@@ -173,11 +187,11 @@ input::-moz-placeholder {color:#a8a8a8;}
 	
 	
 	<%-- 검색 jsp --%> 
-<form class="navbar-form">
+	<form class="navbar-form">
   <div class="form-group navbarleft">
     <select class= "search-option" name="key">
-    <option value="NO" ${(key == "NO")?"selected":"" }>사원번호</option> 
-	<option value="NAME" ${(key == "NAME")?"selected":"" }>사원명</option>
+    <option value="CODE" ${(key == "NO")?"selected":"" }>품목코드</option> 
+	<option value="NAME" ${(key == "NAME")?"selected":"" }>품목명</option>
 	</select>
    <input type="text" id="search-input" class="search-input" placeholder="검색어를 입력해주세요." name="word" value="${word}">
     <button class="search-btn" type="submit"><i class="fas fa-search" ></i>	</button>
@@ -199,21 +213,20 @@ input::-moz-placeholder {color:#a8a8a8;}
 				
 					<tr class="top">
 					
-						<td>사원번호</td>
-						<td>사원명</td>
+						<td>상품코드</td>
+						<td>상품명</td>
+					
 						
 					</tr>
-					
-					<c:forEach items="${list}" var="b"> 
-					
-					<tr id="${b.empName}" class="even">
 				
-						<td id="empNo">${b.empNo}</td>
-						<td>${b.empName}</td>
+					<c:forEach items="${list}" var="b"> 
+					<tr id="${b.procode}" class="even">
+				
+						<td class="procode">${b.procode}</td>
+						<td id="${b.proname}" class= "proname">${b.proname}</td>
 							
 				
 					</tr>
-					
 					</c:forEach>
 					
 				</table>

@@ -55,7 +55,7 @@
 					
 					<tr style="text-align: center">
 						<th>상품명</th>
-						<td>${errorP.errorpName }</td>
+						<td>${errorP.proname }</td>
 						<th>작성일</th>
 						<td>${errorP.inputDate }</td>					
 					</tr>				

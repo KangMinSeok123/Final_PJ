@@ -22,11 +22,11 @@ OR MANAGER like '%' || #{word} || '%'
 </if>
 
 <if test="key == 'CODE'">
-OR QUALITYICODE like '%' || #{word} || '%'
+OR PROCODE like '%' || #{word} || '%'
 </if>
 
 <if test="key == 'NAME'">
-OR QUALITYINAME like '%' || #{word} || '%'
+OR proname like '%' || #{word} || '%'
 </if>
 </if>
 </sql>
@@ -37,37 +37,37 @@ OR QUALITYINAME like '%' || #{word} || '%'
 	</select>
 	
 	<insert id="insertQualityI" parameterType="QualityI">
-		INSERT INTO QualityI (MANAGER, QUALITYICODE, QUALITYINAME, QUALITYICOUNT)
-		VALUES (#{ manager }, #{ qualityiCode }, #{ qualityiName }, #{ qualityiCount })
+		INSERT INTO QualityI (MANAGER, PROCODE, PRONAME, QUALITYICOUNT)
+		VALUES (#{ manager }, #{ procode }, #{ proname }, #{ qualityiCount })
 		
 	</insert>
 	
 	
 	
 	<update id="updateCount" parameterType="QualityI">
-		UPDATE QualityI SET QualityICOUNT = QualityICOUNT + #{ errorpCount } WHERE
-		QualityICODE = #{ errorpCode }
+		UPDATE QualityI SET QualityICOUNT = QualityICOUNT + #{ qualityiCount } WHERE
+		PROCODE = #{ procode }
 	</update>
 
 	
 	<select id="selectOneQualityI" parameterType="int" resultType="QualityI">
-		SELECT * FROM QualityI WHERE QualityINO = #{ errorpNo }
+		SELECT * FROM QualityI WHERE QualityINO = #{ qualityiNo }
 	</select>
 	
 	
 	
 	<update id="updateQualityI" parameterType="QualityI">
-		UPDATE QualityI SET QualityICODE = #{ errorpCode }, ERRORPNAME = #{ errorpName }, 
-		QualityICONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
-		WHERE ERRORPNO = #{ errorpNo }
+		UPDATE QualityI SET PROCODE = #{ qualityiCode }, proname = #{ proname }, 
+		QualityICONTENT = #{ qualityiContent }, QUALITYICOUNT = #{ qualityiCount }
+		WHERE QUALITYINO = #{ qualityiNo }
 	</update>
 	
 	<delete id="deleteQualityI">
-		DELETE FROM ERRORP WHERE ERRORPNO = #{ errorpNo }
+		DELETE FROM QUALITYI WHERE PROCODE = #{ procode }
 	</delete>
 	
 	<delete id="AlldeleteQualityI">
-		DELETE FROM QualityI WHERE QualityINO > 0
+		DELETE FROM QUALITYI WHERE PROCODE IS NOT NULL
 	</delete>
 	
 </mapper>
