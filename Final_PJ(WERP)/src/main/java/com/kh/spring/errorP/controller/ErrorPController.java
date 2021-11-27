@@ -284,8 +284,6 @@ public class ErrorPController {
 		
 		ErrorP originBoard = errorPService.updateView(errorpNo);
 		
-		originBoard.setProcode( errorP.getProcode() );
-		originBoard.setProname( errorP.getProname() );
 		originBoard.setErrorpContent( errorP.getErrorpContent() );
 		originBoard.setErrorpCount( errorP.getErrorpCount() );
 	

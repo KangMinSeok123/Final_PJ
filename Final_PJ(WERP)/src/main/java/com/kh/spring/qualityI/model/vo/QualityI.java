@@ -20,6 +20,7 @@ public class QualityI implements Serializable {
 
 	private static final long serialVersionUID = 79337L;
 	
+	private int qualityiNo;
 	private Date qualityiDate;
 	private String manager;
 	private String procode;

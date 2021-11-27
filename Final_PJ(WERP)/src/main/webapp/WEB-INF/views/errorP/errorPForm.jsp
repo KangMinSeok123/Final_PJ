@@ -275,7 +275,7 @@ background: #f6f6f6;
 <body>
 <div class="top-div">
 <div style="display: inline-block">
-<img src="${pageContext.request.contextPath }/resources/images/logo2.png" width="168" height="82"/>
+<img src="${pageContext.request.contextPath }/resources/images/logo.png" width="168" height="82"/>
 </div>
 
 <div class="top-text">

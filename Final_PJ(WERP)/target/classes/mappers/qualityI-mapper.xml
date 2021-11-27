@@ -37,8 +37,8 @@ OR proname like '%' || #{word} || '%'
 	</select>
 	
 	<insert id="insertQualityI" parameterType="QualityI">
-		INSERT INTO QualityI (MANAGER, PROCODE, PRONAME, QUALITYICOUNT)
-		VALUES (#{ manager }, #{ procode }, #{ proname }, #{ qualityiCount })
+		INSERT INTO QualityI (QUALITYINO, MANAGER, PROCODE, PRONAME, QUALITYICOUNT)
+		VALUES (SEQ_QUALITYINO.NEXTVAL,#{ manager }, #{ procode }, #{ proname }, #{ qualityiCount })
 		
 	</insert>
 	
@@ -63,7 +63,7 @@ OR proname like '%' || #{word} || '%'
 	</update>
 	
 	<delete id="deleteQualityI">
-		DELETE FROM QUALITYI WHERE PROCODE = #{ procode }
+		DELETE FROM QUALITYI WHERE QUALITYINO = #{ qualityiNo }
 	</delete>
 	
 	<delete id="AlldeleteQualityI">

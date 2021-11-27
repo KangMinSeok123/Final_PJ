@@ -17,9 +17,9 @@ public interface QualityIService {
 
 	int updateCount(QualityI qualityI);
 
-	QualityI selectOneQualityI(Date qualityiDate);
+	QualityI selectOneQualityI(int qualityiNo);
 
-	QualityI updateView(Date qualityiDate);
+	QualityI updateView(int qualityiNo);
 	
 	int updateQualityI(QualityI qualityI);
 

@@ -69,6 +69,10 @@ table th{
 font-size: 14px;
 }
 
+table td{
+height: 38px;
+}
+
 table tr td {
 	padding:12px;
 	border-top: 1px solid #ffffff;
@@ -80,6 +84,7 @@ table tr td {
 	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
 	font-weight: bold;
 }
+
 
 table tr:last-child td{
 	border-bottom:0;
@@ -239,7 +244,7 @@ height:20px;
 <body> 
 <div class="top-div">
 <div style="display: inline-block">
-<img src="${pageContext.request.contextPath }/resources/images/logo2.png" width="168" height="82"/>
+<img src="${pageContext.request.contextPath }/resources/images/logo.png" width="168" height="82"/>
 </div>
 
 <div class="top-text">
@@ -256,9 +261,8 @@ height:20px;
 				<col width="25%">
 				<col width="25%">
 				<col width="25%">
-				<col width="25%">
-				<col width="25%">
-				
+			
+		
 				</colgroup>
 				
 					<tr class="top">

@@ -46,16 +46,16 @@ public class QualityIServiceImpl implements QualityIService {
 
 
 	@Override
-	public QualityI selectOneQualityI(Date qualityiDate) {
-		QualityI qualityI = qualityIDAO.selectOneQualityI(qualityiDate);
+	public QualityI selectOneQualityI(int qualityiNo) {
+		QualityI qualityI = qualityIDAO.selectOneQualityI(qualityiNo);
 		return qualityI;
 	}
 
 
 	@Override
-	public QualityI updateView(Date qualityDate) {
+	public QualityI updateView(int qualityiNo) {
 
-		return qualityIDAO.selectOneQualityI(qualityDate);
+		return qualityIDAO.selectOneQualityI(qualityiNo);
 	
 	}
 	
@@ -74,9 +74,9 @@ public class QualityIServiceImpl implements QualityIService {
 
 	
 	@Override
-	public void deleteQualityI(QualityI qualityi) {
+	public void deleteQualityI(QualityI qualityI) {
 		
-		 qualityIDAO.deleteQualityI(qualityi);
+		 qualityIDAO.deleteQualityI(qualityI);
 		}
 		
 	

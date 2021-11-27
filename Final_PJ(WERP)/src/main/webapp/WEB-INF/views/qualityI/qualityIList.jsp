@@ -132,6 +132,7 @@ table tr td {
 	background: #fafafa;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
 	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+	cursor: pointer;
 }
 
 table tr:last-child td{
@@ -234,7 +235,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 			var url="${pageContext.request.contextPath}/qualityI/qualityIForm.do";
 			var name = "popup";
 			var _width = '840';
-		    var _height = '650';				 			    
+		    var _height = '680';				 			    
 		    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 		    var _top = Math.ceil(( window.screen.height - _height )/2); 			
 			window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
@@ -244,16 +245,15 @@ input::-moz-placeholder {color:#a8a8a8;}
 		
 		$(function(){
 			$("td[id]").on("click",function(){
-				var procode = $(this).attr("id");
-				var url = "${pageContext.request.contextPath}/qualityi/qualityiView.do?procode="+procode;
+				var qualityiNo = $(this).attr("id");
+				var url = "${pageContext.request.contextPath}/qualityI/qualityIView.do?qualityiNo="+qualityiNo;
 				var name = "popup";
-			    var _width = '900';
-			    var _height = '500';				 			    
+			    var _width = '840';
+			    var _height = '650';				 			    
 			    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 			    var _top = Math.ceil(( window.screen.height - _height )/2); 			
-				window.open(url,name,status=no ,location=no, menubar=no, 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+				window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
 
-						
 				
 			});
 		});
@@ -371,8 +371,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 <%--페이지 이동시에도 옵션 유지 --%>
 <option value="DATE" ${(key == "DATE")?"selected":"" }>날짜</option> 
 <option value="MANAGER" ${(key == "MANAGER")?"selected":"" }>담당자</option>
-<option value="CODE" ${(key == "CODE")?"selected":"" }>상품코드</option> 
-<option value="NAME" ${(key == "NAME")?"selected":"" }>품목</option>
+<option value="CODE" ${(key == "CODE")?"selected":"" }>품목코드</option> 
+<option value="NAME" ${(key == "NAME")?"selected":"" }>품목명</option>
 
 </select>
 
@@ -389,6 +389,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 				<table classpacing='0'>
 				<colgroup>
 				<col width="50px">
+				<col width="70px">	
 				<col width="150px">
 				<col width="200px">
 				<col width="200px">
@@ -400,6 +401,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 				
 					<tr class="top">
 					 <td><input type="checkbox" id="allCheckBox" class="chk" onclick="allChecked(this)"></td>
+						<td>번호</td>
 						<td>날짜</td>
 						<td>담당자</td>
 						<td>품목코드</td>
@@ -411,8 +413,9 @@ input::-moz-placeholder {color:#a8a8a8;}
 				
 					<c:forEach items="${list}" var="b"> 
 					<tr class="even">
-					<td><input type="checkbox" class="chk" name="cchk" onclick="cchkClicked()" value="${b.procode}"></td>
-						<td id="${b.qualityiDate}" class="qualityiDate">${b.qualityiDate}</td>
+					<td><input type="checkbox" class="chk" name="cchk" onclick="cchkClicked()" value="${b.qualityiNo}"></td>
+						<td id="${b.qualityiNo}" class="qualityiNo">${b.qualityiNo}</td>
+						<td>${b.qualityiDate}</td>
 						<td>${b.manager}</td>
 						<td>${b.procode}</td>
 						<td>${b.proname}</td>

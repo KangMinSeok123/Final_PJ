@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -112,9 +113,9 @@ public class QualityIController {
 
 	
 	@RequestMapping("/qualityI/qualityIView.do")
-	public String qualityIView(@RequestParam Date qualityiDate, Model model) {
+	public String qualityIView(@RequestParam int qualityiNo, Model model) {
 		
-		QualityI qualityI = qualityIService.selectOneQualityI(qualityiDate);
+		QualityI qualityI = qualityIService.selectOneQualityI(qualityiNo);
 		
 		model.addAttribute("qualityI", qualityI);
 		model.addAttribute("attachmentList");
@@ -124,20 +125,21 @@ public class QualityIController {
 	
 	
 	@RequestMapping("/qualityI/qualityIUpdateView.do")
-	public String qualityIUpdateView(@RequestParam Date qualityiDate, Model model) {
+	public String qualityIUpdateView(@RequestParam int qualityiNo, Model model) {
 		
-		QualityI qualityI = qualityIService.updateView(qualityiDate);
+		QualityI qualityI = qualityIService.updateView(qualityiNo);
 		model.addAttribute("qualityI", qualityI);
 		return "qualityI/qualityIUpdateView";		
 	}
 	
 	@RequestMapping("/qualityI/qualityIUpdate.do")
-	public String qualityIUpdate(QualityI qualityI, HttpServletRequest request, Model model)  
+	public String qualityIUpdate(QualityI qualityI, HttpServletRequest request, Model model
+						)  
 							  {
 		// 1. 원본 게시글 불러와 수정하기
-		Date qualityiDate = qualityI.getQualityiDate();
+		int qualityiNo = qualityI.getQualityiNo();
 		
-		QualityI originBoard = qualityIService.updateView(qualityiDate);
+		QualityI originBoard = qualityIService.updateView(qualityiNo);
 		
 		originBoard.setManager( qualityI.getManager() );
 		originBoard.setProcode( qualityI.getProcode() );
@@ -148,7 +150,7 @@ public class QualityIController {
 		
 		int result = qualityIService.updateQualityI(originBoard);  // 서비스 찾아가서 마저 구현해주기
 		
-		String loc = "/qualityI/qualityIView.do?qualityiDate="+qualityiDate;
+		String loc = "/qualityI/qualityIView.do?qualityiNo="+qualityiNo;
 		String msg = "";
 		
 		if( result > 0 ) {
@@ -168,21 +170,21 @@ public class QualityIController {
 	@ResponseBody
 	@RequestMapping("/qualityI/qualityIDelete.do")
 	public void qualityIDelete(
-									@RequestParam(value="cchk[]") List<String> procode,
-									QualityI qualityI,
+									@RequestParam(value="cchk[]") List<String> qualityiNo,
+									QualityI qualityi,
 									HttpServletRequest request) {																																														
 		
 		
 		
 		int result = 0;
-		String procodeNum= "";
+		int qualityiNoNum= 0;
 		
 		// 첨부파일삭제 명단
-				for(String i : procode) {
+				for(String i : qualityiNo) {
 				// 게시글 삭제
-					procodeNum = i;
-					qualityI.setProcode(procodeNum);
-					qualityIService.deleteQualityI(qualityI);
+					qualityiNoNum = Integer.parseInt(i);
+					qualityi.setQualityiNo(qualityiNoNum);
+					qualityIService.deleteQualityI(qualityi);
 				
 				}	
 			

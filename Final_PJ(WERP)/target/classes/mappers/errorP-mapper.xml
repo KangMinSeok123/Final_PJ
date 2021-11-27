@@ -79,8 +79,7 @@ OR proname like '%' || #{word} || '%'
 		</select>
 	
 	<update id="updateErrorP" parameterType="ErrorP">
-		UPDATE ERRORP SET PROCODE = #{ procode }, proname = #{ proname }, 
-		ERRORPCONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
+		UPDATE ERRORP SET ERRORPCONTENT = #{ errorpContent }, ERRORPCOUNT = #{ errorpCount }
 		WHERE ERRORPNO = #{ errorpNo }
 	</update>
 	

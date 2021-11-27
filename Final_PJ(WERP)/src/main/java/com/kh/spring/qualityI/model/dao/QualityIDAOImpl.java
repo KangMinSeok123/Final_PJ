@@ -45,9 +45,9 @@ public class QualityIDAOImpl implements QualityIDAO {
 	}
 
 	@Override
-	public QualityI selectOneQualityI(Date qualityDate) {
+	public QualityI selectOneQualityI(int qualityiNo) {
 		
-		return sqlSession.selectOne("qualityISQL.selectOneQualityI", qualityDate);
+		return sqlSession.selectOne("qualityISQL.selectOneQualityI", qualityiNo);
 	}
 
 	@Override

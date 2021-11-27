@@ -5,16 +5,152 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>게시글 수정</title>
-	<c:import url="../common/header.jsp"/>
+
 	<style>
 		div#board-container{width:400px; margin:0 auto; text-align:center;}
 		div#board-container input{margin-bottom:15px;}
 		/* 부트스트랩 : 파일라벨명 정렬*/
 		div#board-container label.custom-file-label{text-align:left;}
+	table {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#black;
+	font-size:13.5px;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	border:#ccc 1px solid;
+	margin-left: 15px;
+
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+		.top td {
+	padding:15px;
+ 	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+	text-align: center;
+	font-weight: bold;
+	font-size: 17px;
+	
+}
+.top td:first-child{
+	text-align: center;
+}
+table tr:first-child .top td:first-child{
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+
+}
+table tr:first-child .top td:last-child{
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+table tr{
+	text-align: center;
+	padding-left:20px;
+}
+
+table tr td {
+	padding:12px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+	text-align: center;
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+
+	
+}
+
+td {
+width: 100px;
+height: 40px;
+}
+
+
+table tr:last-child td{
+	border-bottom:0;
+}
+table tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+table tr:last-child td:last-child{
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+table tr:hover td{
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+td>input {
+background: #f6f6f6;
+border: 0;
+font-size: 14px;
+width: 140px;
+height: 40px;
+}
+
+p {
+font-size: 24px;
+text-align: center;
+}
+
+.top-text {
+width: 100%;
+display: inline-block;
+text-align: center;
+color: black;
+font-size: 24px;
+font-weight: bolder;
+}
+		
+.div-b {
+margin-top: 40px;
+margin-left: 385px;
+}
+.div-b>input {
+width: 200px;
+height: 80px;
+}
+		
+.div-b>input {
+width:70px;
+height:30px;
+border: 1px solid gray;
+background: #eaebec;
+margin-left: 5px;
+}
+
+#no {
+color: blue;
+}
+
+td>input {
+text-align: center;	
+}
+		
 	</style>
 	<script>
 	/* textarea에도 required속성을 적용가능하지만, 공백이 입력된 경우 대비 유효성검사를 실시함. */
@@ -85,15 +221,37 @@
 	</script>
 </head>
 <body>
-	<div id="container">
-		<c:import url="../common/sidebar.jsp"/>
-		<div id="board-container">
-			<form name="errorPFrm" action="${pageContext.request.contextPath}/errorP/errorPUpdate.do" method="post" onsubmit="return validate();" enctype="multipart/form-data">
-				<input type="hidden" id="errorp" name="errorpNo" value="${ errorP.errorpNo }" />
-					<input type="text" class="form-control" placeholder="상품코드" name="procode" id="procode" value="${ errorP.procode }" required>
-				<input type="text" class="form-control" placeholder="상품명" name="proname" id="proname" value="${ errorP.proname }" required>
-				 <input type="text" class="form-control" name="errorpContent" placeholder="내용" value="${ errorP.errorpContent }" required></textarea>
-				<input type="text" class="form-control" placeholder="상품갯수" name="errorpCount" id="errorpCount" value="${ errorP.errorpCount }" required>
+
+<div class="top-div">
+<div style="display: inline-block">
+<img src="${pageContext.request.contextPath }/resources/images/logo.png" width="168" height="82"/>
+</div>
+<div class="top-text">
+ 불량자재 조회
+</div>
+</div>
+<br>
+
+<form name="errorPFrm" action="${pageContext.request.contextPath}/errorP/errorPUpdate.do" method="post" onsubmit="return validate();" enctype="multipart/form-data">
+<table classpacing='0'>
+           	
+					<tr class="top">
+						<td>번호</td>
+						<td>상품코드</td>
+						<td>상품명</td>
+						<td>내용</td>
+						<td>상품갯수</td>
+						</tr>
+						
+						<tr class="bottom">					
+						<td id="no"><input type="text" id="errorpNo" name="errorpNo" value="${ errorP.errorpNo }" /></td>
+						<td><input type="text" class="form-control" placeholder="상품코드" name="procode" id="procode" value="${ errorP.procode }" required></td>		
+						<td><input type="text" class="form-control" placeholder="상품명" name="proname" id="proname" value="${ errorP.proname }" required></td>
+						<td><input type="text" class="form-control" name="errorpContent" placeholder="내용" value="${ errorP.errorpContent }" required></td>			
+					<td><input type="text" class="form-control" placeholder="상품갯수" name="errorpCount" id="errorpCount" value="${ errorP.errorpCount }" required></td>
+					</tr>																														
+				</table>
+				
 				<c:forEach items="${attachmentList}" var="a" varStatus="vs">
 					<div class="rows">
 						<button type="button" class="btn btn-outline-success col-8"
@@ -104,7 +262,7 @@
 							onclick="fileDelete(this, '${a.attachmentNo}', '${a.renamedFileName }');">파일 삭제</button>
 					</div>
 				</c:forEach>
-				
+				<br>
 				<div class="input-group mb-3" style="padding:0px;">
 				  <div class="input-group-prepend" style="padding:0px;">
 				    <span class="input-group-text">첨부파일1</span>
@@ -123,17 +281,17 @@
 				    <label class="custom-file-label" for="upFile2">파일을 선택하세요</label>
 				  </div>
 				</div>
-			   
-				<br />
-				<input type="submit" id="btn_modify" class="btn btn-outline-success" value="수정 완료" /> &nbsp;
-				<input type="button"  class="btn btn-outline-danger" value="삭제" onclick= "deleteCheck();"/>
-			</form>
-		</div>
-		<c:import url="../common/footer.jsp"/> 
-		
+				<br>
+		<div class="wrap">
+  		
 	</div>
-	
-	
+	<div class="div-b">
+   	 <input type="submit" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPUpdateView.do?errorpNo=${errorP.errorpNo}'" value="수정하기"></button>
+	 
+      </form>
+      </div>
+     
+
 	
 </body>
 </html>

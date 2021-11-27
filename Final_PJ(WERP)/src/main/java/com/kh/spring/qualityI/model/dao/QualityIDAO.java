@@ -18,11 +18,11 @@ public interface QualityIDAO {
 
 	int updateCount(QualityI qualityI);
 
-	QualityI selectOneQualityI(Date qualityIDate);
+	QualityI selectOneQualityI(int qualityiNo);
 	
 	int updateQualityI(QualityI qualityI);
 
-	int deleteQualityI(QualityI qualityi);
+	int deleteQualityI(QualityI qualityI);
 
 	void AlldeleteQualityI();
 	
