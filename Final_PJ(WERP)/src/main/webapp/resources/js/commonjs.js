@@ -148,8 +148,9 @@ function cancel(){
 	}
 }
 function Chat() {
-    	 alert("test");
-    	 
+		
+		window.open(getContextPath()+"/chat.go",'chatPop','width=350, height=650, menubar=no, status=no, toolbar=no, location=no,titlebar=no,resizable=no');
+ 
      }
      
      function Notifications() {

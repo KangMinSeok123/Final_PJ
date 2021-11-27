@@ -18,4 +18,10 @@ public class MainController {
 		
 		return "index";
 	}
+
+	@RequestMapping("/chat.go")
+	public String goChatting() {
+		logger.info("Chatting Page check");
+		return "common/chat";
+	}
 }
