@@ -132,7 +132,7 @@ public class OutController {
 			}
 			
 			
-			return "redirect:/in/inView.do";
+			return "redirect:/out/outView.do";
 		}
 
 }

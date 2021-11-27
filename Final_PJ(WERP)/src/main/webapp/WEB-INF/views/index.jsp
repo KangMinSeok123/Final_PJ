@@ -25,16 +25,17 @@
    width:500px !important;
    }
    .fc-day-sun{
-   color:red;
+   color:red !important;
    }
    .fc-day-sat{
-   color:navy;
+   color:navy !important;;
    }
    #calendar{
    width: 505px;
     font-size: 3px;
     height: 385px !important;
    }
+  
    .fc-view-harness{
    border: 2px solid lightgreen !important;
    }
@@ -47,6 +48,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: .15fr 10fr;
 }
+
 </style>
 
 <!-- fullcalendar CDN -->
