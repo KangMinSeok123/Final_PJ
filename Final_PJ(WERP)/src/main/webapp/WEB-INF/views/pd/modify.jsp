@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 	<style>
    h1{
@@ -41,12 +42,18 @@
    }
    
    #update_Btn, #back_Btn {
-      float: right;
+      border-radius: 5px;
       width: 100px;
-      height: 32px;
-      margin : auto;
-      background-color : #12192c;
+      height : 32px;
+      font-size : 15px;
+      background-color: #12192c;
       color : white;
+      border : 0;
+      outline : 0;
+      float : right;
+      display : inline-block;
+      margin-left: 20px;
+      margin-top: 30px;
     }
   
    
@@ -81,44 +88,47 @@
 	</style>
 
 
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 수정</h1>
+	<br /><br />
 	<div id="container">
 	<div class="admin_content_main">
 		<form name="pdupdateFrm" action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
-		<input type="hidden" name="n" value="${param.n}" />
+		<input type="hidden" name="n" value="${pd.procode}" />
+		
          
          <table>
          <tr>
          	<th>품목코드</th>
          	<td>
-         		<input type="text" class="form-control" id="procode" name="procode" value="${ procode }" />
+         		<input type="text" class="form-control" id="procode" name="procode" value="${ pd.procode }" />
          	</td>
          </tr>
          <tr>
          	<th>품목명</th>
          	<td>
-         		<input type="text" class="form-control" id="proname" name="proname" value="${ proname }" />
+         		<input type="text" class="form-control" id="proname" name="proname" value="${ pd.proname }" />
          	</td>
          </tr>
          <tr>
          	<th>카테고리</th>
          	<td>
-         		<input type="text" class="form-control" id="category" name="category" value="${ category }" />
+         		<input type="text" class="form-control" id="category" name="category" value="${ pd.category }" />
          	</td>
          </tr>
          <tr>
          	<th>입고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ inprice }" />
+         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ pd.inprice }" />
          	</td>
          </tr>
          <tr>
          	<th>출고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ outprice }" />
+         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ pd.outprice }" />
          	</td>
          </tr>
          <tr>
@@ -131,7 +141,7 @@
          <tr>
          	<th>재고수량</th>
          	<td>
-         		<input type="text" class="form-control" id="stock" name="stock" value="${ stock }" />
+         		<input type="text" class="form-control" id="stock" name="stock" value="${ pd.stock }" />
          	</td>
          </tr>
 				</table>			
@@ -160,6 +170,13 @@
 								  formObj.submit();
 								 }
 								});
+						
+						</script>
+						<script>
+							${document}.ready(function(){
+								
+								
+							});
 						</script>
 				
 	</form>

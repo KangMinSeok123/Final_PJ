@@ -8,9 +8,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>품목 관리</title>
-	<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
-
+	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+	<link rel="stylesheet" href="/spring/resources/css/common.css">
 	<style>
 	   h1{
       text-align:center;
@@ -49,14 +49,16 @@
       margin : auto;
     }
   
-   
+   #insertbtntd{
+   	border-bottom: none;
+   }
    table {
          border-collapse: collapse;
          border-top: 2px solid #12192c;
          width: 80%;
          border-left : none;
          border-right : none;
-      
+         
    }
 
    th {
@@ -85,6 +87,7 @@
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 등록</h1>
+	<br /><br />
 	<div id ="container">
 	<div id="indiv1">
 	 <div class="admin_content_main">
@@ -96,7 +99,7 @@
                     		</tr>
                     		<tr>
                     			<th>품목명</th>
-                    			<td><input name="proname" value="0" /></td>
+                    			<td><input name="proname"/></td>
                     		</tr>
                     		<tr>
                     			<th>카테고리</th>
@@ -112,18 +115,18 @@
                     		</tr>
                     		<tr>
                     			<th>입력일</th>
-                    			<td><input name="inputdateStr" placeholder="yyyy-MM-dd 로 입력해주세요" value="0" /></td>
+                    			<td><input name="inputdateStr" placeholder="yyyy-MM-dd 로 입력해주세요"/></td>
                     		</tr>
                     		<tr>
                     			<th>재고수량</th>
-                    			<td><input name="stock" value="0"/></td>
+                    			<td><input name="stock"/></td>
                     			 
                     		</tr>
                     		
                     		</table>
                     		<table>
                     		<tr></tr>
-                    			<td><input type="submit" class="inform" id="insert_Btn" value="등록" /></td>	
+                    			<td id=insertbtntd><input type="submit" class="inform" id="insert_Btn" value="등록" /></td>	
                     		</table>
                     		
                     		          

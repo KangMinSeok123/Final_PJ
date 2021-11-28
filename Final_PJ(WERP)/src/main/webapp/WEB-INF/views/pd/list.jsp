@@ -10,10 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
-<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
-
-
+<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 
 
 
@@ -28,7 +27,7 @@
    
    #container {
       position: relative;
-      width: 700px;
+      width: 1000px;
       margin: 0 auto;
   } 
    
@@ -61,7 +60,7 @@
    table {
          border-collapse: collapse;
          border-top: 2px solid #12192c;
-         width: 80%;
+         width: 100%;
          border-left : none;
          border-right : none;
       
@@ -87,10 +86,11 @@
       text-align : center;
    }
 </style>
-
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 조회</h1>
+	<br /><br />
+	<div id="container">
 	<div class="admin_content_main" id="container_box">
 		<form action="${pageContext.request.contextPath}/pd/list" method="post" id="enrollForm">
 			<table>
@@ -125,6 +125,7 @@
 
 		</form>
 
+	</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>

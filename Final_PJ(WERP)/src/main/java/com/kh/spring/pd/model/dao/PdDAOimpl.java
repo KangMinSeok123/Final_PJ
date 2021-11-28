@@ -2,10 +2,6 @@ package com.kh.spring.pd.model.dao;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.apache.ibatis.jdbc.SQL;
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,6 +29,8 @@ public class PdDAOimpl implements PdDAO{
 		return sqlSession.selectList("pdSQL.pdlist");
 	}
 	
+	
+	
 	// 품목 조회
 	@Override
 	public PdVo pdView(String procode) throws Exception {
@@ -40,10 +38,12 @@ public class PdDAOimpl implements PdDAO{
 	}
 	
 	// 품목 수정 view
-//	@Override
-//	public void pdModify(PdVo pd) throws Exception {
-//		sqlSession.update("pdSQL.pdModify", pd);
-//	}
+	@Override
+	public PdVo pdModify(String procode) throws Exception {
+		
+		System.out.println(procode);
+		return sqlSession.selectOne("pdSQL.pdview", procode);
+	}
 	
 	// 품목 수정 update
 	@Override

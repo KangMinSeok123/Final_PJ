@@ -40,7 +40,7 @@
 	
 	<update id="updateComback" parameterType="PdVo">
 	  UPDATE PRODUCT_MANAGEMENT 
-      SET STOCK = STOCK + #{ inNum } WHERE PROCODE = #{procode}
+      SET STOCK = STOCK + #{ outNum } WHERE PROCODE = #{procode}
 	</update>
 	
 	<delete id="deleteList" parameterType="int">

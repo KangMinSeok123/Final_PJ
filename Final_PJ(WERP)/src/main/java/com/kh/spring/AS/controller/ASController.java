@@ -94,13 +94,15 @@ public class ASController {
       
       int result = asService.deleteAS(asCode);     
       
+      System.out.println("asCode : " + asCode);
+      
       if(result > 0) {
          System.out.println("삭제 성공");
       } else {
          System.out.println("삭제 실패");
       }
       
-      return "redirect:/AS/ASView.do";
+      return "redirect:/AS/ASReceipt.do";
    }      
    
    // 상품 정보 조회
@@ -110,9 +112,8 @@ public class ASController {
       PdVo pdvo = asService.productInfo(proCode);
       
       String msg = "상품명 : " + pdvo.getProname() + 
-                   "\n품목 코드 : " + pdvo.getProcode() + 
-                   "\n카테고리 : " + pdvo.getCategory() + 
-                   "\n재고수량 : " + pdvo.getStock();
+                   "  카테고리 : " + pdvo.getCategory() + 
+                   "  재고수량 : " + pdvo.getStock();
       String loc = "/AS/ASView.do?asCode="+asCode;
       
       model.addAttribute("PdVo", pdvo);
@@ -121,4 +122,6 @@ public class ASController {
       
       return "common/msg";
    }
+   
+   
 }

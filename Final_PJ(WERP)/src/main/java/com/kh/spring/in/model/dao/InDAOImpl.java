@@ -71,4 +71,5 @@ public class InDAOImpl implements InDAO {
 		return sqlSession.delete("inSQL.deleteList", pd);
 	}
 
+
 }

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.spring.pd.model.service.PdService;
+
 import com.kh.spring.pd.model.vo.PdVo;
+
 
 @Controller
 public class PdController {
@@ -30,13 +32,15 @@ public class PdController {
 	public String pdManageGET() throws Exception{
 		// logger.info("상품 등록 페이지 접속");
 		
+		
+		
 		return "pd/pdView";
 	}
 	
     /* 상품 등록 */
 	@RequestMapping("/pd/pdEnroll")
 	public String pdPOST(PdVo pd,
-			@RequestParam String inputdateStr, RedirectAttributes rttr) {
+			@RequestParam String inputdateStr, RedirectAttributes rttr) throws Exception {
 		
 		pd.setInputdate(Date.valueOf(inputdateStr));
 		System.out.println(pd);
@@ -45,8 +49,14 @@ public class PdController {
 		
 		rttr.addFlashAttribute("enroll_result", pd.getProname());
 		
+		
+		
 		return "redirect:/pd/pdManage";
 	}
+	
+	
+	
+	
 	
 	/* 상품 목록 */
 	@RequestMapping(value = "/pd/list", method = RequestMethod.GET)
@@ -68,9 +78,10 @@ public class PdController {
 	   }
 
 	
+	
 	/* 품목 조회 */
 	@RequestMapping(value = "/pd/view", method = RequestMethod.GET)
-	public void getPdView(@RequestParam("n") String procode,  Model model) throws Exception {
+	public void getPdView(@RequestParam("n") String procode, Model model) throws Exception {
 		
 		
 		PdVo pd1 = pdService.pdView(procode);
@@ -79,21 +90,27 @@ public class PdController {
 	}
 	
 	/* 품목 수정 view */
-	@RequestMapping(value = "/pd/modify", method = RequestMethod.POST)
-	public String postPdModify(PdVo pd, @RequestParam("n") String n, Model model) throws Exception {
+	@RequestMapping(value = "/pd/modify", method = {RequestMethod.POST, RequestMethod.GET})
+	public void PdModify(PdVo pd, @RequestParam("n") String procode, Model model) throws Exception {
 		
 		
-//		pdService.pdModify(n);
-		model.addAttribute("procode", n);
 		
-//		pdService.pdModify(pd);
+		System.out.println(pd);
 		
-		return "/pd/modify";
+		PdVo pd2 = pdService.pdView(procode);
+		
+		model.addAttribute("pd", pd2);
+
+		
 	}
+	
+	
 	
 	/* 품목 수정 update */
 	@RequestMapping(value = "/pd/pdUpdate", method = RequestMethod.POST)
 	public String pdUpdate(PdVo pd, @RequestParam  String inputdateStr, HttpServletRequest request, Model model) throws Exception {
+		
+		
 		
 		pd.setInputdate(Date.valueOf(inputdateStr));
 		
