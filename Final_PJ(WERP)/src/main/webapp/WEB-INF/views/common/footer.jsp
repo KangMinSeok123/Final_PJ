@@ -9,8 +9,12 @@
 /* REMOVE THIS, USE YOUR OWN  */
 html,body {
  
-  font-family: Arial, Helvetica, Sans-serif;
+font-family:'Nanum Gothic', sans-serif;
   
+}
+.copyright{
+	font-family:'Nanum Gothic', sans-serif;
+	text-algin: center;
 }
 .dummy_page {
   height: 200px;

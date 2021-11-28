@@ -25,30 +25,40 @@
    width:500px !important;
    }
    .fc-day-sun{
-   color:red !important;
+   color:red;
    }
    .fc-day-sat{
-   color:navy !important;;
+   
    }
+   
+   th{
+   background: #12192c;
+   color: white;
+   }
+
    #calendar{
-   width: 505px;
+    width: 505px;
     font-size: 3px;
     height: 385px !important;
    }
-  
-   .fc-view-harness{
-   border: 2px solid lightgreen !important;
+   
+   #proStatus{
+    width: 505px;
+    font-size: 3px;
+    height: 385px !important;
+ 
    }
-   td{
-   background: linear-gradient(3deg, white,lightblue, transparent);
-}
+   
+   .fc-view-harness{
+   border: 2px solid #12192c; !important;
+   }
+
 #main{
    text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: .15fr 10fr;
 }
-
 </style>
 
 <!-- fullcalendar CDN -->
@@ -73,7 +83,102 @@
 	<div class="mainTitle">재고현황</div>
 	<div id="calendar" ></div>
 	<div id="proInOut"></div>
-	<div id="proStatus"></div>
+	<div id="proStatus">
+		<canvas id="canvas" height="385" width="505"></canvas>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+	<script>
+
+var chartLabels = [];
+
+var chartData = [];
+
+
+
+$.getJSON("http://localhost:8180/spring/index.do", function(data){
+
+	$.each(data, function(inx, obj){
+
+		chartLabels.push(obj.dd);
+
+		chartData.push(obj.income);
+
+	});
+
+	createChart();
+
+	console.log("create Chart")
+
+});
+
+
+
+var lineChartData = {
+
+		labels : chartLabels,
+
+		datasets : [
+
+			{
+
+				label : "Date Income",
+
+				fillColor : "rbga(151,187,205,0.2)",
+
+				strokeColor : "rbga(151,187,205,1)",
+
+				pointColor : "rbga(151,187,205,1)",
+
+				pointStrokeColor : "#fff",
+
+				pointHighlightFill : "#fff",
+
+				pointHighlightStroke : "rbga(151,187,205,1)",
+
+				data : chartData
+
+			
+
+		}
+
+			]
+
+}
+
+
+
+function createChart(){
+
+	var ctx = document.getElementById("canvas").getContext("2d");
+
+	LineChartDemo = Chart.Line(ctx,{
+
+		data : lineChartData,
+
+		options :{
+
+			scales : {
+
+				yAxes : [{
+
+					ticks :{
+
+						beginAtZero : true
+
+					}
+
+				}]
+
+			}
+
+		}
+
+	})
+
+}
+
+</script>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %> 
 <script>
@@ -129,4 +234,5 @@
 	});
 	})();
 </script>
+
 </html>
