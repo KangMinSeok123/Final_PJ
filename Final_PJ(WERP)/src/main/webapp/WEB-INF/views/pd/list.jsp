@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 
@@ -20,11 +21,76 @@
 #container_box table td {
 	width: 100px;
 }
+  h1{
+      text-align:center;
+   }
+   
+   #container {
+      position: relative;
+      width: 700px;
+      margin: 0 auto;
+  } 
+   
+   .body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+   }
+   
+   .inform{
+      border-radius: 5px;
+      width: 100px;
+      height : 40px;
+      font-size : 15px;
+      background-color: #12192c;
+      color : white;
+      border : 0;
+      outline : 0;
+      float : bottom;
+      display : inline-block;
+   }
+   
+   #confirminBtn, #insertinBtn{
+      float: right;
+      width: 100px;
+      height: 32px;
+    }
+  
+   
+   table {
+         border-collapse: collapse;
+         border-top: 2px solid #12192c;
+         width: 80%;
+         border-left : none;
+         border-right : none;
+      
+   }
+
+   th {
+         font-weight: bold;
+         background-color: #12192c;
+         color : white;
+         width : 200px;
+   }
+
+   th, td {
+         border-bottom: 2px solid #12192c;
+         padding: 5px;
+   }
+   
+
+   body {
+      margin-top: 200px;
+      font-family: 'Trebuchet MS', serif;
+      line-height: 1.6
+      text-align : center;
+   }
 </style>
 
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 조회</h1>
+	
 	<div class="admin_content_main" id="container_box">
 		<form action="${pageContext.request.contextPath}/pd/list" method="post" id="enrollForm">
 			<table>

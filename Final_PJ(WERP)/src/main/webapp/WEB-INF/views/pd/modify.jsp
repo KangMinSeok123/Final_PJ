@@ -8,51 +8,136 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+	<style>
+   h1{
+      text-align:center;
+   }
+   
+   #container {
+      position: relative;
+      width: 700px;
+      margin: 0 auto;
+  } 
+   
+   .body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+   }
+   
+   .inform{
+      border-radius: 5px;
+      width: 100px;
+      height : 40px;
+      font-size : 15px;
+      background-color: #12192c;
+      color : white;
+      border : 0;
+      outline : 0;
+      float : bottom;
+      display : inline-block;
+      
+   }
+   
+   #update_Btn, #back_Btn {
+      float: right;
+      width: 100px;
+      height: 32px;
+      margin : auto;
+      background-color : #12192c;
+      color : white;
+    }
+  
+   
+   table {
+         border-collapse: collapse;
+         border-top: 2px solid #12192c;
+         width: 80%;
+         border-left : none;
+         border-right : none;
+      
+   }
 
+   th {
+         font-weight: bold;
+         background-color: #12192c;
+         color : white;
+         width : 200px;
+   }
+
+   th, td {
+         border-bottom: 2px solid #12192c;
+         padding: 5px;
+   }
+   
+
+   body {
+      margin-top: 200px;
+      font-family: 'Trebuchet MS', serif;
+      line-height: 1.6
+      text-align : center;
+   }
+	</style>
 
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 수정</h1>
+	<div id="container">
 	<div class="admin_content_main">
-		<form action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
-		<input type="hidden" name="n" value="${param.n}" />
+		<form name="pdupdateFrm" action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
+		<input type="hidden" name="n" value="${pd.procode}" />
+		
          
-         <div class="inputArea">
-         	<label for="procode">상품코드</label>
-         	<input type="text" id="procode" name="procode" value="${ procode }" />
-         </div>
-         <div class="inputArea">
-         	<label for="proname">상품명 </label>
-         	<input type="text" id="proname" name="proname" value="${ pd.proname }" />
-         </div>
-         <div class="inputArea">
-         	<label for="category">카테고리 </label>
-         	<input type="text" id="category" name="category" value="${ pd.category }" />
-         </div>  
-         <div class="inputArea">
-         	<label for="inprice">입고단가 </label>
-         	<input type="text" id="inprice" name="inprice" value="${ pd.inprice }" />
-         </div>
-         <div class="inputArea">
-         	<label for="outprice">출고단가</label>
-         	<input type="text" id="outprice" name="outprice" value="${ pd.outprice }" />
-         </div>
-         <div class="inputArea">
-         	<label for="inputdateStr">입력일</label>
-         	<input type="text" id="inputdateStr" name="inputdateStr" 
+         <table>
+         <tr>
+         	<th>품목코드</th>
+         	<td>
+         		<input type="text" class="form-control" id="procode" name="procode" value="${ pd.procode }" />
+         	</td>
+         </tr>
+         <tr>
+         	<th>품목명</th>
+         	<td>
+         		<input type="text" class="form-control" id="proname" name="proname" value="${ pd.proname }" />
+         	</td>
+         </tr>
+         <tr>
+         	<th>카테고리</th>
+         	<td>
+         		<input type="text" class="form-control" id="category" name="category" value="${ pd.category }" />
+         	</td>
+         </tr>
+         <tr>
+         	<th>입고단가</th>
+         	<td>
+         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ pd.inprice }" />
+         	</td>
+         </tr>
+         <tr>
+         	<th>출고단가</th>
+         	<td>
+         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ pd.outprice }" />
+         	</td>
+         </tr>
+         <tr>
+         	<th>입력일</th>
+         	<td>
+         		<input type="text" calss="form-control" id="inputdateStr" name="inputdateStr" 
          	       placeholder="yyyy-MM-dd 로 입력해주세요"value="${ pd.inputdate }" />
-         </div>
-         <div class="inputArea">
-         	<label for="stock">재고수량</label>
-         	<input type="text" id="stock" name="stock" value="${ pd.stock }" />
-         </div> 
-                 	
-			
-							
-						<button type="submit" id="update_Btn" class="btn btn-warning">완 료</button>
+         	</td>
+         </tr>
+         <tr>
+         	<th>재고수량</th>
+         	<td>
+         		<input type="text" class="form-control" id="stock" name="stock" value="${ pd.stock }" />
+         	</td>
+         </tr>
+				</table>			
+						<button type="submit" id="update_Btn" class="btn btn-warning" >완 료</button>
 						<button type="button" id="back_Btn" class="btn btn-danger" onclick="backPd();">취 소</button>
 
 						<script>
@@ -67,10 +152,29 @@
 							function backPd() {
 								location.href = '${pageContext.request.contextPath}/pd/list?n=${pd.procode}';
 							};
+							
+							$("#update_Btn").click(function(){
+								 
+								 var con = confirm("정말로 수정하시겠습니까?");
+								 
+								 if(con) {      
+								  formObj.attr("action", "/pd/pdUpdate");
+								  formObj.submit();
+								 }
+								});
+						
+						</script>
+						<script>
+							${document}.ready(function(){
+								
+								
+							});
 						</script>
 				
 	</form>
 	</div>
+	</div>        	
+			
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 

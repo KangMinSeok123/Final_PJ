@@ -5,13 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kh.spring.errorP.model.vo.Attachment;
 import com.kh.spring.pd.model.dao.PdDAO;
-import com.kh.spring.pd.model.vo.PdVo;
 
-import lombok.extern.log4j.Log4j;
+import com.kh.spring.pd.model.vo.PdVo;
 @Service
-@Log4j
+// @Log4j
+
 public class PdServiceImpl implements PdService{
 
 	@Autowired
@@ -25,6 +24,7 @@ public class PdServiceImpl implements PdService{
 	public int pdEnroll(PdVo pd) {
 		return pdDAO.insertPd(pd);
 	}
+	
 	
 	// 품목 목록
 	@Override
@@ -40,10 +40,12 @@ public class PdServiceImpl implements PdService{
 	}
 	
 	// 품목 수정 view
-//	@Override
-//	public void pdModify(PdVo pd) throws Exception{
-//		pdDAO.pdModify(pd);
-//	}
+	@Override
+	public PdVo pdModify(String procode) throws Exception{
+		System.out.println(procode);
+		
+		return pdDAO.pdModify(procode);
+	}
 	
 	// 품목 수정 Update
 	@Override

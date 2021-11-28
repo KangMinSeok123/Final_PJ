@@ -10,7 +10,112 @@
 <meta charset="UTF-8">
 <title>품목 관리</title>
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+<link rel="stylesheet" href="/spring/resources/css/common.css">
+<style>
+.pagination {
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	border-radius: 0.25rem;
+	margin: 0 auto;
+}
 
+.page-item.active .page-link {
+	z-index: 1;
+	color: #12192c;
+	background-color: #fff;
+	border-color: #12192c;
+}
+
+li.page-item.disabled>.page-link {
+   color: #fff;
+   display: inline-block;
+   background : #12192c;
+   padding: 7px;
+   border: 1px solid #12192c;
+   font-size: 13px;
+   cursor: pointer;
+}
+
+.page-item>a.page-link {
+   color: #fff;
+   display: inline-block;
+   padding: 7px;
+   background: #12192c;
+   border: 1px solid #12192c;
+   font-size: 13px;
+   cursor: pointer;
+}
+
+.pagination {
+	margin-top: 30px;
+	margin-left: 800px;
+}
+
+h1 {
+	text-align: center;
+}
+
+#container {
+	position: relative;
+	width: 700px;
+	margin: 0 auto;
+}
+
+#modify_Btn, #delete_Btn {
+      float: right;
+      width: 100px;
+      height: 32px;
+      margin : auto;
+      background-color : #12192c;
+      color : white;
+}
+    
+.body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+div {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 13px;
+	border-bottom-left-radius: 13px;
+	border-bottom-right-radius: 13px;
+}
+
+tr:nth-child(n+2):hover {
+	background-color: #d3d3d3;
+	cursor: pointer;
+}
+
+table {
+	border-collapse: collapse;
+	border-top: 2px solid #12192c;
+	width: 100%;
+	border-left: none;
+	border-right: none;
+}
+
+th {
+	font-weight: bold;
+	background-color: #12192c;
+	color : white;
+}
+
+th, td {
+	border-bottom: 2px solid #12192c;
+	padding: 5px;
+	border-left: none;
+	border-right: none;
+}
+
+body {
+	margin-top: 200px;
+	font-family: 'Trebuchet MS', serif;
+	line-height: 1.6 text-align: center;
+}
+</style>
 
 
 </head>
@@ -18,45 +123,46 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품 목</h1>
 	<div class="admin_content_main">
-		
+	<div id ="container">
+	<div id="indiv1" class="in-view-content">	
 		
 			<div class="form_section">
 				<form role="form" action="${pageContext.request.contextPath}/pd/modify" 
 				      method="post" autocomplete="off">
-				<input type="hidden" name="n" value="${param.n}" />
-				
-					<div class="inputArea">
-						<label for="procode">품목코드</label> 
-						<span>${pd.procode}</span>
-					</div>
-
-					<div class="inputArea">
-						<label for="proname">품목명</label> 
-						<span>${pd.proname}</span>
-					</div>
-					<div class="inputArea">
-						<label for="category">카테고리</label> 
-						<span>${pd.category}</span>
-					</div>
-
-					<div class="inputArea">
-						<label for="inprice">입고단가</label> 
-						<span><fmt:formatNumber value="${pd.inprice}" pattern="###,###,###" /></span>
-					</div>
-					<div class="inputArea">
-						<label for="outprice">출고단가</label> 
-						<span><fmt:formatNumber value="${pd.outprice}" pattern="###,###,###" /></span>
-					</div>
-					<div class="inputArea">
-						<label for="inputdate" placeholder="yyyy-MM-dd 로 입력해주세요">입력일</label> 
-						<span>${pd.inputdate}</span>
-					</div>
-					<div class="inputArea">
-						<label for="stock">재고 수량</label> 
-						<span>${pd.stock}</span>
-					</div>
-
-
+				<input type="hidden" name="n" value="${pd.procode}" />
+				<table id="in-tbl" border="1" style="text-align : center">
+				<tr>
+					<th>품목코드</th>
+					<td><span>${pd.procode}</span></td>
+					
+				</tr>
+				<tr>
+					<th>품목명</th>
+					<td><span>${pd.proname}</span></td>
+					
+				</tr>
+				<tr>
+					<th>카테고리</th>
+					<td><span>${pd.category}</span></td>
+					
+				</tr>
+				<tr>
+					<th><label for="inprice">입고단가</label></th> 
+					<td><span><fmt:formatNumber value="${pd.inprice}" pattern="###,###,###원" /></span></td>
+					
+				</tr>
+				<tr>
+					<th><label for="outprice">출고단가</label></th> 
+					<td><span><fmt:formatNumber value="${pd.outprice}" pattern="###,###,###원" /></span></td>
+					
+				</tr>
+				<tr>
+					<th>재고수량</th>
+					<td><span>${pd.stock}</span></td>
+					
+				</tr>
+				</table>
+	
 					<div class="inputArea">
 						<button type="submit" id="modify_Btn" class="btn btn-warning">수 정</button>
 						<button type="button" id="delete_Btn" class="btn btn-danger" onclick="deletePd();">삭 제</button>
@@ -90,6 +196,8 @@
 			</div>
 
 		
+	</div>
+	</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>

@@ -2,7 +2,7 @@ package com.kh.spring.pd.model.service;
 
 import java.util.List;
 
-import com.kh.spring.errorP.model.vo.Attachment;
+
 import com.kh.spring.pd.model.vo.PdVo;
 
 public interface PdService {
@@ -10,6 +10,8 @@ public interface PdService {
 	/* 상품 등록 */
 	/*public int pdEnroll(PdVo pd);*/
 
+	// 
+	
 	int insertPd(PdVo pd);
 
 	int pdEnroll(PdVo pd);
@@ -21,7 +23,7 @@ public interface PdService {
 	public PdVo pdView(String procode) throws Exception;
 	
 	// 품목 수정 view
-//	public void pdModify(PdVo pd) throws Exception;
+	public PdVo pdModify(String procode) throws Exception;
 	
 	// 품목 수정 update
 	int pdUpdate(PdVo pd) throws Exception;
