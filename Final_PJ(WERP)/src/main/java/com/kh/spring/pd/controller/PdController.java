@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.spring.pd.model.service.PdService;
@@ -56,6 +57,15 @@ public class PdController {
 		model.addAttribute("list", list);
 	}
 	
+	//재고수량 및 이름 조회   
+	   @RequestMapping(value = "/pd/list.li", method = RequestMethod.POST)
+	   @ResponseBody
+	   public List getList(Model model) throws Exception {
+	      
+	      List<PdVo> list = pdService.pdlist();
+	      
+	      return list;
+	   }
 
 	
 	/* 품목 조회 */

@@ -20,7 +20,7 @@
 	background: #E2E2E2;
 	}
 	table {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:'Nanum Gothic', sans-serif;
 	color:#black;
 	font-size:13.5px;
 	text-shadow: 1px 1px 0px #fff;

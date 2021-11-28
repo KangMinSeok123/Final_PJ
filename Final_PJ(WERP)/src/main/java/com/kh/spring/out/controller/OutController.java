@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.spring.common.Utils;
 import com.kh.spring.in.model.vo.InManagement;
@@ -97,6 +98,35 @@ public class OutController {
 
 		return "out/outView";
 	}
+	
+	@RequestMapping("/out/outList.do")
+	@ResponseBody
+	public List selectoutList1(@RequestParam(value = "cPage", required = false, defaultValue = "1") int cPage,
+			Model model) {
+
+		// 한 페이지당 게시글 수
+		int numPerPage = 10;
+
+		// 현재 페이지의 게시글 수
+		List<Map<String, String>> outlist = OutService.selectoutList(cPage, numPerPage);
+
+		// 전체 게시글 수
+		int totalOut = OutService.selectTotalOut();
+
+		// 페이지 처리 Utils 사용하기
+		String pageBar = Utils.getPageBar(totalOut, cPage, numPerPage, "outView.do");
+
+		model.addAttribute("outlist", outlist);
+		model.addAttribute("totalOut", totalOut);
+		model.addAttribute("numPerPage", numPerPage);
+		model.addAttribute("pageBar", pageBar);
+
+		System.out.println("totalOut : " + totalOut);
+		System.out.println("pageBar : " + pageBar);
+
+		return outlist;
+	}
+
 
 	// 출고 등록 수정 조회 페이지
 	@RequestMapping("/out/outUpdateView.do")

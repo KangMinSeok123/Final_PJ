@@ -18,6 +18,9 @@
 	<link rel="stylesheet" href="/spring/resources/css/common.css">
 
 	<style>
+	body {
+	font-family:'Nanum Gothic', sans-serif;
+	}
 	li {
     display: list-item;
     text-align: -webkit-match-parent;
@@ -69,7 +72,7 @@ margin-left: 705px;
 }
 
 table {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:'Nanum Gothic', sans-serif;
 	color:black;
 	font-size:13.5px;
 	text-shadow: 1px 1px 0px #fff;
@@ -226,6 +229,10 @@ input::-moz-placeholder {color:#a8a8a8;}
 color: red;
 
 
+}
+
+.qualityiNo {
+color: blue;
 }
 
 

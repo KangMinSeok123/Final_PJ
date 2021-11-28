@@ -168,7 +168,7 @@ margin-left:30px;
   
 <div class="clearfix"></div>
  <div class="copyright">
-     © Copyright 2021 35s2 Class | Education | KH Academy reserved by 1조<br>
+     © Copyright 2021 352 Class | Education | KH Academy reserved by 1조<br>
      			   | 강민석 |  김경식 |  박찬혁 |  조희연 |  최정윤 | 
    </div>
    

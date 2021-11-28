@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.spring.common.Utils;
 import com.kh.spring.in.model.service.InService;
-import com.kh.spring.in.model.vo.InManagement;
 import com.kh.spring.pd.model.vo.PdVo;
 
 @Controller
@@ -72,6 +73,42 @@ public class InController {
 		
 		return "in/inView";
 	}
+	
+	// 입고 현황 조회 페이지
+	@RequestMapping(value= "/in/inList.do", method = RequestMethod.POST)
+	@ResponseBody
+	public List selectinList1(@RequestParam(value="cPage", required=false, defaultValue="1")int cPage, Model model) throws Exception  {
+		
+		// 한 페이지당 게시글 수 
+		int numPerPage = 10;
+		
+		// 현재 페이지의 게시글 수 
+		List<Map<String, String>> inlist = InService.selectinList(cPage, numPerPage);
+		
+		// 전체 게시글 수 
+		int totalIn = InService.selectTotalIn();
+
+		// 페이지 처리 Utils 사용하기
+		String pageBar = Utils.getPageBar(totalIn, cPage, numPerPage, "inView.do");
+		
+		model.addAttribute("inlist", inlist);
+		model.addAttribute("totalIn", totalIn);
+		model.addAttribute("numPerPage", numPerPage);
+		model.addAttribute("pageBar", pageBar);
+		
+		System.out.println("totalIn : " + totalIn);
+		System.out.println("pageBar : " + pageBar);
+		
+		return inlist;
+	}
+	
+	@RequestMapping("/in/inList1.do")
+	public String g(){
+		return "in/chart";
+		
+	}
+	
+	
 	
 	// 상품 코드 조회
 	   @RequestMapping("/in/getProCode.do")

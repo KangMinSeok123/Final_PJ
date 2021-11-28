@@ -37,7 +37,7 @@
                     </div>
                     <div href="#" class="nav__link collapse">
                         <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">품질 관리</span>
+                        <span class="nav_name" onclick="errorp();">품질 관리</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
@@ -45,6 +45,8 @@
                              <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 등록</a>
                              <a href="${pageContext.request.contextPath}/errorP/errorPList.do" class="collapse__sublink">- 불량자재 조회</a>
                              <a href="${pageContext.request.contextPath}/qualityI/qualityIList.do" class="collapse__sublink">- 품질검사 요청건</a>
+                              
+                              
                             
                         </ul>
                     </div>
@@ -71,9 +73,15 @@
             
         </nav>
     </div>
-
+<script>
+function errorp() {
+	location.href= "${pageContext.request.contextPath}/errorP/errorPList.do";
+	
+}
+</script>
     <!-- 외부 아이콘 사용 -->
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js">
+    </script>
     <!-- JS파일 불러오기 -->
     <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 </body>
