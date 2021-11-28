@@ -26,6 +26,6 @@ public interface InDAO {
 	int updateComback(PdVo pd);
 	
 	int deleteList(PdVo pd);
-	
+
 	
 }

@@ -42,4 +42,5 @@
 	<delete id="deleteList" parameterType="int">
 		DELETE FROM IN_MANAGEMENT WHERE INCODE = #{incode}
 	</delete>
+	
 </mapper>
