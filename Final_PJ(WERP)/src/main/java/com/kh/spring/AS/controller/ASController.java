@@ -110,8 +110,8 @@ public class ASController {
       PdVo pdvo = asService.productInfo(proCode);
       
       String msg = "상품명 : " + pdvo.getProname() + 
-                   "\n카테고리 : " + pdvo.getCategory() + 
-                   "\n재고수량 : " + pdvo.getStock();
+                   "  카테고리 : " + pdvo.getCategory() + 
+                   "  재고수량 : " + pdvo.getStock();
       String loc = "/AS/ASView.do?asCode="+asCode;
       
       model.addAttribute("PdVo", pdvo);
@@ -120,4 +120,6 @@ public class ASController {
       
       return "common/msg";
    }
+   
+   
 }

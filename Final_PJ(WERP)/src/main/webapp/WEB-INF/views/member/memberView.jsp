@@ -22,6 +22,7 @@
 			<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/memberUpdate.do" method="post" onsubmit="return fn_update_validate();" id="updateForm" >
 				<table id="updateTable">
 					<thead>
+					
 						<th>${member.empName} 님의 정보
 					</thead>
 					<tr>
