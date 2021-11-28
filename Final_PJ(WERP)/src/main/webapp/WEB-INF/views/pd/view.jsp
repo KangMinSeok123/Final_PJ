@@ -11,47 +11,7 @@
 <title>품목 관리</title>
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <link rel="stylesheet" href="/spring/resources/css/common.css">
-
 <style>
-.pagination {
-	display: flex;
-	padding-left: 0;
-	list-style: none;
-	border-radius: 0.25rem;
-	margin: 0 auto;
-}
-
-.page-item.active .page-link {
-	z-index: 1;
-	color: #12192c;
-	background-color: #fff;
-	border-color: #12192c;
-}
-
-li.page-item.disabled>.page-link {
-   color: #fff;
-   display: inline-block;
-   background : #12192c;
-   padding: 7px;
-   border: 1px solid #12192c;
-   font-size: 13px;
-   cursor: pointer;
-}
-
-.page-item>a.page-link {
-   color: #fff;
-   display: inline-block;
-   padding: 7px;
-   background: #12192c;
-   border: 1px solid #12192c;
-   font-size: 13px;
-   cursor: pointer;
-}
-
-.pagination {
-	margin-top: 30px;
-	margin-left: 800px;
-}
 
 h1 {
 	text-align: center;
@@ -64,12 +24,18 @@ h1 {
 }
 
 #modify_Btn, #delete_Btn {
-      float: right;
+      border-radius: 5px;
       width: 100px;
-      height: 32px;
-      margin : auto;
-      background-color : #12192c;
+      height : 32px;
+      font-size : 15px;
+      background-color: #12192c;
       color : white;
+      border : 0;
+      outline : 0;
+      float : right;
+      display : inline-block;
+      margin-left: 30px;
+      margin-top: 30px;
 }
     
 .body {
@@ -77,6 +43,11 @@ h1 {
 	padding: 0;
 	height: 100%;
 }
+
+.inputArea{
+	magin-top: 500px;
+}
+
 
 div {
 	border-top-left-radius: 0px;
@@ -122,7 +93,8 @@ body {
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	<h1>품 목</h1>
+	<h1>품목 상세조회</h1>
+	<br /><br />
 	<div class="admin_content_main">
 	<div id ="container">
 	<div id="indiv1" class="in-view-content">	
@@ -148,13 +120,13 @@ body {
 					
 				</tr>
 				<tr>
-					<th>입고단가</th>
-					<td><span><fmt:formatNumber value="${pd.inprice}" pattern="###,###,###" />${pd.inprice}</span></td>
+					<th><label for="inprice">입고단가</label></th> 
+					<td><span><fmt:formatNumber value="${pd.inprice}" pattern="###,###,###원" /></span></td>
 					
 				</tr>
 				<tr>
-					<th>출고단가</th>
-					<td><span><fmt:formatNumber value="${pd.outprice}" pattern="###,###,###" />${pd.outprice}</span></td>
+					<th><label for="outprice">출고단가</label></th> 
+					<td><span><fmt:formatNumber value="${pd.outprice}" pattern="###,###,###원" /></span></td>
 					
 				</tr>
 				<tr>
@@ -167,16 +139,17 @@ body {
 					<div class="inputArea">
 						<button type="submit" id="modify_Btn" class="btn btn-warning">수 정</button>
 						<button type="button" id="delete_Btn" class="btn btn-danger" onclick="deletePd();">삭 제</button>
-
+					</div>
+					
 						<script>
 							var formObj = $("form[role='form']");
-
+/* 
 							$("#modify_Btn").click(function() {
 								formObj.attr("action", "${pageContext.request.contextPath}/pd/modify");
 								formObj.attr("method", "get");
 								formObj.submit();
 							});
-
+ */
 							function deletePd() {
 								location.href = '${pageContext.request.contextPath}/pd/delete?n=${pd.procode}';
 							};
@@ -191,7 +164,7 @@ body {
 								 }
 								});
 						</script>
-					</div>
+					
 
 				</form>
 			</div>

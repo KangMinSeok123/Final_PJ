@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
+<link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 	<style>
    h1{
@@ -41,12 +42,18 @@
    }
    
    #update_Btn, #back_Btn {
-      float: right;
+      border-radius: 5px;
       width: 100px;
-      height: 32px;
-      margin : auto;
-      background-color : #12192c;
+      height : 32px;
+      font-size : 15px;
+      background-color: #12192c;
       color : white;
+      border : 0;
+      outline : 0;
+      float : right;
+      display : inline-block;
+      margin-left: 20px;
+      margin-top: 30px;
     }
   
    
@@ -85,10 +92,12 @@
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 수정</h1>
+	<br /><br />
 	<div id="container">
 	<div class="admin_content_main">
 		<form name="pdupdateFrm" action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
 		<input type="hidden" name="n" value="${param.n}" />
+		<input type="hidden" name="n2" value="${param.n2}" />
          
          <table>
          <tr>
@@ -134,10 +143,12 @@
          		<input type="text" class="form-control" id="stock" name="stock" value="${ stock }" />
          	</td>
          </tr>
-				</table>			
+				</table>		
+				
+				<div class="updateArea">	
 						<button type="submit" id="update_Btn" class="btn btn-warning" >완 료</button>
 						<button type="button" id="back_Btn" class="btn btn-danger" onclick="backPd();">취 소</button>
-
+				</div>
 						<script>
 							var formObj = $("form[role='form']");
 /* 
@@ -160,6 +171,13 @@
 								  formObj.submit();
 								 }
 								});
+						
+						</script>
+						<script>
+							${document}.ready(function(){
+								
+								
+							});
 						</script>
 				
 	</form>
