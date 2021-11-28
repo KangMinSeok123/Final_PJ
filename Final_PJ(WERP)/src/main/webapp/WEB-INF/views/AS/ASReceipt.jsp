@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>AS 접수 목록</title>
+<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 <link rel="stylesheet" href="/spring/resources/css/common.css">
 <style>
 .pagination {
@@ -390,6 +391,6 @@ input::-moz-placeholder {color:#a8a8a8;}
       <br />
       <br />
       <br />
-      <%@ include file="/WEB-INF/views/common/footer1.jsp"%>
+      <%@ include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>

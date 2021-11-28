@@ -8,6 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>출고 등록 수정</title>
+	<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 	<style>
 	h1{
 		text-align:center;

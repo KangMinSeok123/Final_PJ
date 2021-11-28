@@ -44,7 +44,8 @@
 	</update>
 	
 	<delete id="deleteList" parameterType="int">
-		DELETE FROM OUT_MANAGEMENT WHERE OUTNUM = #{outNum}
+		DELETE FROM OUT_MANAGEMENT WHERE OUTCODE = #{outcode}
 	</delete>
+
 
 </mapper>

@@ -364,7 +364,7 @@ public class ErrorPController {
 			goodbye.delete();
 			
 			return true;
-		} else {
+		} else {						
 			return false;
 		}
 	}

@@ -10,8 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>품목 관리</title>
+<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
-<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+
+
 
 
 

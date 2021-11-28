@@ -15,6 +15,9 @@
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/jquery.backstretch.min.js"></script>
 <style>
+body{
+	font-family:'Nanum Gothic', sans-serif;
+}
  a{
  	text-decoration:none;
  }
@@ -26,27 +29,29 @@
 	-webkit-box-sizing:border-box; 
  }
  #wrap{
- text-align: center;
+ 	text-align: center;
     position: relative;
     margin-top: -10%;
 }
  #startPage{
     text-align: center;
     position: relative;
-    margin-top:30%;
+    margin-top:39%;
     padding: 10px;
  }
 .startBtn{
+  font-family:'Nanum Gothic', sans-serif;
   position: absolute;
   top: calc(50% - 30px);
   right: calc(50% - 115px);
-  width: 230px;
+  width: 200px;
   height: 60px;
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.6), rgba(255,255,255,.9));
-  background-image: linear-gradient(to top, rgba(0,0,0,.6), rgba(255,255,255,.9));
-    box-shadow: inset 0 -1px 0 rgba(0,0,0,.09),inset 0 1px 0 rgba(255,255,255,.04), 0 0 1px rgba(0,0,0,.3), 0 0 10px rgba(0,0,0,.1);
-  border-radius: 100px;
-  color: rgba(0,0,0,.9);
+  background: #12192c;
+  box-shadow: 1px 2px 2px 1px;
+  font-weight: bold;
+  border: 0;
+  color: white;
+  border-radius: 30px;
   line-height: 60px;
   text-align: center;
   letter-spacing: 5px;
@@ -57,9 +62,11 @@
 
 .startBtn:hover{
 	right: calc(50% - 200px);
-	 width: 400px;
-background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
-    box-shadow: 1px 5px 5px 1px inset;
+	width: 400px;
+	background: #12192c;
+	box-shadow: 1px 2px 2px 1px;
+  	border: 0;
+    color: white;
 }
 .startBtn:active{
 	transform: translateY(3px);
@@ -74,10 +81,14 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
   transition: all .3s cubic-bezier(.67,.13,.1,.81);
 }
 .startBtn:before {
-  content: 'Start WERP';
+  font-family:'Nanum Gothic', sans-serif;
+  font-size: 18px;
+  content: 'START WERP';
 }
 .startBtn:after {
-  content: 'Click to select Menu';
+  font-family:'Nanum Gothic', sans-serif;
+  content: 'CLICK TO SELECT MENU';
+  font-size: 18px;
   top: -60px;
   opacity: 0;
 }
@@ -109,7 +120,7 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
     height: 500px;
     display: grid;
     grid-template-rows: 0.2fr 1fr;
-    background-color: rgba(240,230,190,.9);
+    background-color: #12192c;
 		
 }
 .menu-content .loginDiv,.menu-content .enrollDiv{
@@ -121,11 +132,11 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
 }
 .menu-content .loginDiv:hover{
 	transform:scale(1.1);
-	background-color: #88cefa4f;
+	background-color: #424242;
 }
 .menu-content .enrollDiv:hover{
 	transform:scale(1.1);
-	background-color: #88cefa4f;
+	background-color: #424242;
 }
 .menu-content #menu-item{
 	top: 10%;
@@ -170,13 +181,13 @@ background-image: linear-gradient(to top, rgba(0,0,0,.8), rgba(255,255,255,.5));
     height: 145px;
  }
 #loginText, #enrollText{
-text-shadow: 14px 5px 13px black;
-    color: black;
-position: relative;
+    color: white;
+	position: relative;
     top: 140px;
-    font-size: 3vw;
+    font-size: 30px;
+    font-family:'Nanum Gothic', sans-serif;
     opacity: 0;
-   transition:all 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s, transform 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s ;
+    transition:all 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s, transform 1.25s cubic-bezier(0.49, 1.53, 1, 0.99) 0.25s ;
  }
  .menu-content .loginDiv:hover #loginText, .menu-content .enrollDiv:hover #enrollText{
  	opacity:1;
@@ -184,7 +195,6 @@ position: relative;
  }
 </style>
 </head>
-<c:import url="views/common/header.jsp"/>
 <body>
 	<div id="wrap">
 		<div id="startPage">
@@ -206,7 +216,7 @@ position: relative;
 	$(function(){
 		$.backstretch([
 			"/spring/resources/image/ERP.JPG","/spring/resources/image/ERP2.JPG","/spring/resources/image/ERP3.JPG"
-		],{duration:3500,fade:750});
+		],{duration:3000,fade:750});
 	});
 	
 	

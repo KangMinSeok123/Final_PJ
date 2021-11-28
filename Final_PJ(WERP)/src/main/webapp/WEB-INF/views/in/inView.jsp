@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>입고 현황 조회</title>
+<script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
 <link rel="stylesheet" href="/spring/resources/css/common.css">
 <style>
 .pagination {

@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>

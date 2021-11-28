@@ -72,8 +72,6 @@ public class OutDAOImpl implements OutDAO {
 		
 		return sqlSession.delete("outSQL.deleteList", pd);
 	}
-
-
 	
 
 	

@@ -68,20 +68,19 @@ public class OutServiceImpl implements OutService {
 	
 	@Override
 	public int deleteList(PdVo pd) {
+		
 		// 재고 복귀
 		int result = outDAO.updateComback(pd);
-						
+				
 		if( result > 0) {
 			// 리스트 삭제
 			result = outDAO.deleteList(pd);
 		} else {
 			result = 0;
 		}
-						
+				
 		return result;
 	}
-
-	
 
 
 
