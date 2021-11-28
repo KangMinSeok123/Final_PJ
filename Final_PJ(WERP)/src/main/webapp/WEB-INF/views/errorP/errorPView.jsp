@@ -143,6 +143,52 @@ margin-left: 5px;
 color: blue;
 }
 
+.filebox {
+
+background: f6f6f6;
+height: 300px;
+background: #f6f6f6;
+
+
+}
+
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #5cb85c;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  margin-top: 320px;
+  margin-left: 0;
+}
+
+.filebox label:hover {
+  background-color: #6ed36e;
+}
+
+.filebox label:active {
+  background-color: #367c36;
+}
+
+.filebox input[type="file"], .filebox input[type="button"]  {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
 	</style>
 	<script>
 		function fileDownload(oName, rName){
@@ -196,11 +242,15 @@ color: blue;
 		<div class="wrap">
   		
 	</div>
-	<div class="div-b">
-   	 <input type="button" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPUpdateView.do?errorpNo=${errorP.errorpNo}'" value="수정"></button>
-	 <input type="button" value="삭제"
-      />
-      </div>
+	<div class="filebox" id="image_container" >
+ 			  <input type="file" class="custom-file-input" name="upFile" id="upFile1" 
+ 			  data-width="300" data-height="300" accept="image/*" onchange="setThumbnail(event);" multiple>
+ 			 <label class="custom-file-label" for="upFile1">업로드</label>
+ 			 <input type="button" id="form_submit" name="form_submit" class="btn btn-outline-success" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPUpdateView.do?errorpNo=${errorP.errorpNo}'" value="수정" >
+ 			 <label class="custom-file-label" for="form_submit">수정</label>
+			</div>
+			
+
      
 
 	

@@ -31,11 +31,11 @@
  }
  function fn7(){
  	var contextpath=getContextPath();
- 	window.location.href=contextpath+'/errorP/errorPForm.do';
+ 	window.location.href=contextpath+'/errorP/errorPList.do';
  }
  function fn8(){
  	var contextpath=getContextPath();
- 	window.location.href=contextpath+'/errorP/errorPList.do';
+ 	window.location.href=contextpath+'/qualityI/qualityIList.do';
  }
  function fn9(){
  	var contextpath=getContextPath();

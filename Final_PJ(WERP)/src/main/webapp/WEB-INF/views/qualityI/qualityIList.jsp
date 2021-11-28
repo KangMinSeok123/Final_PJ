@@ -58,18 +58,19 @@ height:40px;
     border: 1px solid #999;
     font-size: 12px;
     cursor: pointer;
+    height: 40px;
 }
 
 .pagination  {       
 
 margin-top: 5px; 
-margin-left: 665px;
+margin-left: 705px;
 
 }
 
 table {
 	font-family:Arial, Helvetica, sans-serif;
-	color:#black;
+	color:black;
 	font-size:13.5px;
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
@@ -221,7 +222,11 @@ input:-ms-input-placeholder {color:#a8a8a8; }
 input::-webkit-input-placeholder {color:#a8a8a8;} 
 input::-moz-placeholder {color:#a8a8a8;} 
 
+#state-color {
+color: red;
 
+
+}
 
 
 	</style>
@@ -235,7 +240,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 			var url="${pageContext.request.contextPath}/qualityI/qualityIForm.do";
 			var name = "popup";
 			var _width = '840';
-		    var _height = '680';				 			    
+		    var _height = '690';				 			    
 		    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 		    var _top = Math.ceil(( window.screen.height - _height )/2); 			
 			window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
@@ -420,7 +425,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 						<td>${b.procode}</td>
 						<td>${b.proname}</td>
 						<td>${b.qualityiCount}</td>
-						<td>${b.state}</td>
+						<td id="state-color">${b.state}</td>
 					
 				
 					</tr>

@@ -390,6 +390,6 @@ input::-moz-placeholder {color:#a8a8a8;}
       <br />
       <br />
       <br />
-      <%@ include file="/WEB-INF/views/common/footer.jsp"%>
+      <%@ include file="/WEB-INF/views/common/footer1.jsp"%>
 </body>
 </html>

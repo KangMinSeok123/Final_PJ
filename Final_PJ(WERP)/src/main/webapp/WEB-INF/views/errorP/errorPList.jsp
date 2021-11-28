@@ -35,6 +35,7 @@
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+    height: 40px;
 }
 
 li.page-item.disabled>.page-link {
@@ -63,7 +64,7 @@ height:40px;
 .pagination  {       
 
 margin-top: 5px; 
-margin-left: 665px;
+margin-left: 705px;
 
 }
 
@@ -250,7 +251,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 				var url = "${pageContext.request.contextPath}/errorP/errorPView.do?errorpNo="+errorpNo;
 				var name = "popup";
 			    var _width = '900';
-			    var _height = '500';				 			    
+			    var _height = '700';				 			    
 			    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 			    var _top = Math.ceil(( window.screen.height - _height )/2); 			
 				window.open(url,name,'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);

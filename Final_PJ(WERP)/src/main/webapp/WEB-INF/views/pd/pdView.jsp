@@ -9,94 +9,133 @@
 	<meta charset="UTF-8">
 	<title>품목 관리</title>
 	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
-	<link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 
+	<style>
+	   h1{
+      text-align:center;
+   }
+   
+   #container {
+      position: relative;
+      width: 700px;
+      margin: 0 auto;
+  } 
+   
+   .body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+   }
+   
+   .inform{
+      border-radius: 5px;
+      width: 100px;
+      height : 40px;
+      font-size : 15px;
+      background-color: #12192c;
+      color : white;
+      border : 0;
+      outline : 0;
+      float : bottom;
+      display : inline-block;
+      
+   }
+   
+   #insert_Btn{
+      float: right;
+      width: 100px;
+      height: 32px;
+      margin : auto;
+    }
+  
+   
+   table {
+         border-collapse: collapse;
+         border-top: 2px solid #12192c;
+         width: 80%;
+         border-left : none;
+         border-right : none;
+      
+   }
+
+   th {
+         font-weight: bold;
+         background-color: #12192c;
+         color : white;
+         width : 200px;
+   }
+
+   th, td {
+         border-bottom: 2px solid #12192c;
+         padding: 5px;
+   }
+   
+
+   body {
+      margin-top: 200px;
+      font-family: 'Trebuchet MS', serif;
+      line-height: 1.6
+      text-align : center;
+   }
+	</style>
 
 	
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 등록</h1>
+	<div id ="container">
+	<div id="indiv1">
 	 <div class="admin_content_main">
                     	<form action="${pageContext.request.contextPath}/pd/pdEnroll" method="post" id="enrollForm">
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>품목코드</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="procode">
-                    			</div>
-                    		</div>
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>품번</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="prono" value="0">
-                    			</div>
-                    		</div> 
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>품목명</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="proname" value="0">
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>카테고리</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="category">
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>입고단가</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="inprice">
-                    			</div>
-                    		</div>             
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>출고단가</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="outprice">
-                    			</div>
-                    		</div>          
-                    		              
+                    		<table>
+                    		<tr>
+                    			<th>품목코드</th>
+                    			<td><input name="procode"/></td>
+                    		</tr>
+                    		<tr>
+                    			<th>품목명</th>
+                    			<td><input name="proname" value="0" /></td>
+                    		</tr>
+                    		<tr>
+                    			<th>카테고리</th>
+                    			<td><input name="category" /></td>
+                    		</tr>
+                    		<tr>
+                    			<th>입고단가</th>
+                    			<td><input name="inprice" /></td>
+                    		</tr>
+                    		<tr>
+                    			<th>출고단가</th>
+                    			<td><input name="outprice" /></td>
+                    		</tr>
+                    		<tr>
+                    			<th>입력일</th>
+                    			<td><input name="inputdateStr" placeholder="yyyy-MM-dd 로 입력해주세요" value="0" /></td>
+                    		</tr>
+                    		<tr>
+                    			<th>재고수량</th>
+                    			<td><input name="stock" value="0"/></td>
+                    			 
+                    		</tr>
+                    		
+                    		</table>
+                    		<table>
+                    		<tr></tr>
+                    			<td><input type="submit" class="inform" id="insert_Btn" value="등록" /></td>	
+                    		</table>
+                    		
+                    		          
+							
                     		
                    		</form>
-                   			<div class="btn_section">
-                   				<button id="cancelBtn" class="btn">취 소</button>
-	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
-	                    	</div> 
-                    </div>  
+	</div>
+	</div>
+	</div>  
 	<%@ include file="/WEB-INF/views/common/sidebar.jsp"%>
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
-	<script>
-		let enrollForm = $("#enrollForm")
 
-		/* 취소 버튼 */
-		$("#cancelBtn").click(function() {
-
-			location.href = "/pd/pdManage"
-
-		});
-
-		/* 상품 등록 버튼 */
-		$("#enrollBtn").on("click", function(e) {
-
-			e.preventDefault();
-
-			enrollForm.submit();
-			
-		});
-	</script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- 외부 아이콘 사용 -->

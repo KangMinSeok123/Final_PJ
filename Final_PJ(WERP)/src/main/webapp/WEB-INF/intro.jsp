@@ -311,5 +311,5 @@ position: relative;
 		
 	</script>
 </body>
-<!--<c:import url="views/common/footer.jsp"/>-->
+
 </html>

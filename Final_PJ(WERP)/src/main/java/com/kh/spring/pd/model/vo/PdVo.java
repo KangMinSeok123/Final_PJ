@@ -26,7 +26,7 @@ public class PdVo implements Serializable{
    private String category;
    private int inprice;
    private int outprice;
-   private Date inputDate;
+   private Date inputdate;
    private int stock;
    private int inNum;
    private int outNum;
@@ -67,11 +67,11 @@ public class PdVo implements Serializable{
    public void setOutprice(int outprice) {
       this.outprice = outprice;
    }
-   public Date getInputDate() {
-      return inputDate;
+   public Date getInputdate() {
+      return inputdate;
    }
-   public void setInputDate(Date inputDate) {
-      this.inputDate = inputDate;
+   public void setInputdate(Date inputdate) {
+      this.inputdate = inputdate;
    }
    public int getStock() {
       return stock;
@@ -109,7 +109,7 @@ public class PdVo implements Serializable{
    @Override
    public String toString() {
       return "PdVo [procode=" + procode + ", proname=" + proname + ", category=" + category + ", inprice=" + inprice
-            + ", outprice=" + outprice + ", inputDate=" + inputDate + ", stock=" + stock + ", inNum=" + inNum
+            + ", outprice=" + outprice + ", inputDate=" + inputdate + ", stock=" + stock + ", inNum=" + inNum
             + ", outNum=" + outNum + "]";
    }
    

@@ -20,7 +20,7 @@
 	table {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#black;
-	font-size:13.5px;sss
+	font-size:13.5px;
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
 	border:#ccc 1px solid;
@@ -151,7 +151,7 @@ margin-left: 5px;
 <body>
 <div class="top-div">
 <div style="display: inline-block">
-<img src="${pageContext.request.contextPath }/resources/images/logo2.png" width="168" height="82"/>
+<img src="${pageContext.request.contextPath }/resources/images/logo.png" width="168" height="82"/>
 </div>
 
 <div class="top-text">

@@ -107,7 +107,7 @@ public class QualityIController {
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 		
-		return "common/msg";
+		return "common/msg1";
 	}
 	
 
@@ -162,7 +162,7 @@ public class QualityIController {
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 		
-		return "common/msg";
+		return "common/msg1";
 	}
 
 	

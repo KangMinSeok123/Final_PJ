@@ -5,7 +5,43 @@
 
 	<!-- 품목 등록 -->
   	<insert id="insertPd" parameterType="PdVo">
-		INSERT INTO PRODUCT_MANAGEMENT (PROCODE, PRONO, PRONAME, CATEGORY, INPRICE, OUTPRICE)
-		VALUES (#{ procode }, #{ prono }, #{ proname }, #{ category }, #{ inprice }, #{ outprice })
+		INSERT INTO PRODUCT_MANAGEMENT (PROCODE, PRONAME, CATEGORY, INPRICE, OUTPRICE, INPUTDATE, STOCK)
+		VALUES (#{ procode }, #{ proname }, #{ category }, #{ inprice }, #{ outprice }, #{ inputdate }, #{ stock })
 	</insert>
+	
+	<!-- 품목 조회 -->
+	<select id="pdlist" resultType="PdVo">
+		SELECT PROCODE, PRONAME, CATEGORY, INPRICE, OUTPRICE, INPUTDATE, STOCK
+		FROM PRODUCT_MANAGEMENT
+		ORDER BY PROCODE DESC
+	</select>
+	
+	<!-- 품목 조회 -->
+	<select id="pdview" resultType="PdVo">
+		SELECT PROCODE, PRONAME, CATEGORY, INPRICE, OUTPRICE, INPUTDATE, STOCK
+		FROM PRODUCT_MANAGEMENT
+		WHERE PROCODE = #{procode}
+	</select>
+	
+	<!-- 품목 수정 -->
+
+	<update id="pdModify">
+		UPDATE PRODUCT_MANAGEMENT
+			SET
+				PROCODE = #{procode},
+				PRONAME = #{proname},
+				CATEGORY = #{category},
+				INPRICE = #{inprice},
+				OUTPRICE = #{outprice},
+				INPUTDATE = #{inputdate},
+				STOCK = #{stock}
+			WHERE PROCODE = #{procode}
+	</update>
+	
+	<!-- 품목 삭제 -->
+	<delete id="pdDelete">
+		DELETE PRODUCT_MANAGEMENT
+		WHERE PROCODE = #{procode}
+	</delete>
   </mapper>
+  

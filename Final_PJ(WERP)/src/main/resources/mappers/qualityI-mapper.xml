@@ -6,7 +6,7 @@
 	<select id="selectQualityIList" resultType="com.kh.spring.qualityI.model.vo.QualityI">
 		SELECT * FROM QUALITYI
 	<include refid = "search" />
-		ORDER BY QUALITYIDATE DESC
+		ORDER BY QUALITYINO DESC
 	</select>
 	
 <sql id = "search">
@@ -57,8 +57,8 @@ OR proname like '%' || #{word} || '%'
 	
 	
 	<update id="updateQualityI" parameterType="QualityI">
-		UPDATE QualityI SET PROCODE = #{ qualityiCode }, proname = #{ proname }, 
-		QualityICONTENT = #{ qualityiContent }, QUALITYICOUNT = #{ qualityiCount }
+		UPDATE QualityI SET MANAGER = #{ manager }, PROCODE = #{ procode }, proname = #{ proname }, 
+		 QUALITYICOUNT = #{ qualityiCount }
 		WHERE QUALITYINO = #{ qualityiNo }
 	</update>
 	
@@ -67,7 +67,7 @@ OR proname like '%' || #{word} || '%'
 	</delete>
 	
 	<delete id="AlldeleteQualityI">
-		DELETE FROM QUALITYI WHERE PROCODE IS NOT NULL
+		DELETE FROM QUALITYI WHERE QUALITYINO > 0
 	</delete>
 	
 </mapper>

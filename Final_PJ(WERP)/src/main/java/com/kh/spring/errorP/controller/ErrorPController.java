@@ -177,7 +177,7 @@ public class ErrorPController {
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 		
-		return "common/msg";
+		return "common/msg1";
 	}
 	
 	public String fileNameChanger(String oldName) {
@@ -344,7 +344,7 @@ public class ErrorPController {
 		model.addAttribute("loc", loc);
 		model.addAttribute("msg", msg);
 		
-		return "common/msg";
+		return "common/msg1";
 	}
 
 	@RequestMapping("/errorP/fileDelete.do")

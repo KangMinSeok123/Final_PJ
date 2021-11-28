@@ -150,6 +150,50 @@ color: blue;
 td>input {
 text-align: center;	
 }
+
+.filebox {
+
+
+height: 100px;
+
+
+
+}
+
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #5cb85c;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  margin-left: 25px;	
+}
+
+.filebox label:hover {
+  background-color: #6ed36e;
+}
+
+.filebox label:active {
+  background-color: #367c36;
+}
+
+.filebox input[type="file"], .filebox input[type="submit"]  {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 		
 	</style>
 	<script>
@@ -254,6 +298,7 @@ text-align: center;
 				
 				<c:forEach items="${attachmentList}" var="a" varStatus="vs">
 					<div class="rows">
+					<br>
 						<button type="button" class="btn btn-outline-success col-8"
 							onclick="fileDownload('${a.originalFileName}','${a.renamedFileName }');" download>
 						첨부파일${vs.count} - ${a.originalFileName }
@@ -269,7 +314,7 @@ text-align: center;
 				  </div>
 				  <div class="custom-file">
 				    <input type="file" class="custom-file-input" name="upFile" id="upFile1" multiple>
-				    <label class="custom-file-label" for="upFile1">파일을 선택하세요</label>
+				    <label class="custom-file-label" for="upFile1">파일을 선택해주세요</label>
 				  </div>
 				</div>
 				<div class="input-group mb-3" style="padding:0px;">
@@ -278,7 +323,7 @@ text-align: center;
 				  </div>
 				  <div class="custom-file">
 				    <input type="file" class="custom-file-input" name="upFile" id="upFile2">
-				    <label class="custom-file-label" for="upFile2">파일을 선택하세요</label>
+				    <label class="custom-file-label" for="upFile2">파일을 선택해주세요</label>
 				  </div>
 				</div>
 				<br>
@@ -286,9 +331,11 @@ text-align: center;
   		
 	</div>
 	<div class="div-b">
-   	 <input type="submit" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPUpdateView.do?errorpNo=${errorP.errorpNo}'" value="수정하기"></button>
-	 
+	<div class="filebox" id="image_container" >
+   	 <input type="submit" id="form_submit" name="form_submit" class="btn btn-outline-success" onclick="location.href='${pageContext.request.contextPath}/errorP/errorPUpdateView.do?errorpNo=${errorP.errorpNo}'" value="수정하기"></button>
+	  <label class="custom-file-label" for="form_submit">저장</label>
       </form>
+      </div>
       </div>
      
 

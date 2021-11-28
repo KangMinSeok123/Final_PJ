@@ -66,7 +66,7 @@ public class QualityIDAOImpl implements QualityIDAO {
 	@Override
 	public void AlldeleteQualityI() {
 		
-		sqlSession.delete("QualityISQL.AlldeleteQualityI");
+		sqlSession.delete("qualityISQL.AlldeleteQualityI");
 		
 	}
 
