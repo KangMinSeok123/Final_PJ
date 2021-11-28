@@ -58,6 +58,12 @@ public class PdServiceImpl implements PdService{
 	public int pdDelete(String procode) throws Exception {
 		return pdDAO.pdDelete(procode);
 	}
+
+	@Override
+	public List<PdVo> getProductList() {
+		
+		return pdDAO.getProductList();
+	}
 	
 
 }

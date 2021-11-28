@@ -23,6 +23,10 @@
 		WHERE PROCODE = #{procode}
 	</select>
 	
+	<select id="getProductList" resultType="PdVo">
+		SELECT * FROM PRODUCT_MANAGEMENT
+	</select>
+	
 	<!-- 품목 수정 -->
 
 	<update id="pdModify">

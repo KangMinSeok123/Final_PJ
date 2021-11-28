@@ -15,7 +15,7 @@ public interface PdDAO {
 	
 	// 품목 수정 view
 //	public void pdModify(PdVo pd) throws Exception;
-
+	List<PdVo> getProductList();
 
 	// 품목 수정 update
 	int pdUpdate(PdVo pd) throws Exception;

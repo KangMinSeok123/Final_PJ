@@ -56,4 +56,10 @@ public class PdDAOimpl implements PdDAO{
 	public int pdDelete(String procode) {
 		return sqlSession.delete("pdSQL.pdDelete", procode);
 	}
+
+	@Override
+	public List<PdVo> getProductList() {
+		
+		return sqlSession.selectList("pdSQL.getProductList");
+	}
 }

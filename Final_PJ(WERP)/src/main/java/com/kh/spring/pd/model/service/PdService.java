@@ -30,6 +30,8 @@ public interface PdService {
 	// 품목 삭제
 	public int pdDelete(String procode) throws Exception;
 
+	List<PdVo> getProductList();
+
 
 
 }

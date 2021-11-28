@@ -96,14 +96,13 @@
 	<div id="container">
 	<div class="admin_content_main">
 		<form name="pdupdateFrm" action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
-		<input type="hidden" name="n" value="${param.n}" />
-		<input type="hidden" name="n2" value="${param.n2}" />
          
          <table>
          <tr>
+          <input type="hidden" name="procodeList" value="${productList}" />
          	<th>품목코드</th>
          	<td>
-         		<input type="text" class="form-control" id="procode" name="procode" value="${ procode }" />
+         		${PdVo.procode }
          	</td>
          </tr>
          <tr>
@@ -115,32 +114,32 @@
          <tr>
          	<th>카테고리</th>
          	<td>
-         		<input type="text" class="form-control" id="category" name="category" value="${ category }" />
+         		<input type="text" class="form-control" id="category" name="category" value="${ PdVo.category }" />
          	</td>
          </tr>
          <tr>
          	<th>입고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ inprice }" />
+         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ PdVo.inprice }" />
          	</td>
          </tr>
          <tr>
          	<th>출고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ outprice }" />
+         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ PdVo.outprice }" />
          	</td>
          </tr>
          <tr>
          	<th>입력일</th>
          	<td>
          		<input type="text" calss="form-control" id="inputdateStr" name="inputdateStr" 
-         	       placeholder="yyyy-MM-dd 로 입력해주세요"value="${ pd.inputdate }" />
+         	       placeholder="yyyy-MM-dd 로 입력해주세요"value="${ PdVo.inputdate }" />
          	</td>
          </tr>
          <tr>
          	<th>재고수량</th>
          	<td>
-         		<input type="text" class="form-control" id="stock" name="stock" value="${ stock }" />
+         		<input type="text" class="form-control" id="stock" name="stock" value="${ PdVo.stock }" />
          	</td>
          </tr>
 				</table>		

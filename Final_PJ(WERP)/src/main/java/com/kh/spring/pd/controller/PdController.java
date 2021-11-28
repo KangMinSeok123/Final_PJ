@@ -70,12 +70,16 @@ public class PdController {
 	
 	/* 품목 수정 view */
 	@RequestMapping(value = "/pd/modify", method = RequestMethod.POST)
-	public String postPdModify(PdVo pd, @RequestParam("n") String n, Model model) throws Exception {
+	public String postPdModify(PdVo pd, Model model) throws Exception {
 		
 		
 //		pdService.pdModify(n);
-		model.addAttribute("procode", n);
 		
+		 List<PdVo> productList = pdService.getProductList();
+		
+		 System.out.println("productList : " + productList);
+		
+		 model.addAttribute("productList", productList);
 //		pdService.pdModify(pd);
 		
 		return "/pd/modify";
