@@ -48,7 +48,7 @@ li.page-item.disabled>.page-link {
 
 .pagination {
    margin-top: 30px;
-   margin-left: 370px;
+   margin-left: 410px;
 }
 
 h1 {

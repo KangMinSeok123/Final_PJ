@@ -94,13 +94,15 @@ public class ASController {
       
       int result = asService.deleteAS(asCode);     
       
+      System.out.println("asCode : " + asCode);
+      
       if(result > 0) {
          System.out.println("삭제 성공");
       } else {
          System.out.println("삭제 실패");
       }
       
-      return "redirect:/AS/ASView.do";
+      return "redirect:/AS/ASReceipt.do";
    }      
    
    // 상품 정보 조회
