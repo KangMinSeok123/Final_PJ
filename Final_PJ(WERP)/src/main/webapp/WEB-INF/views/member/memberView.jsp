@@ -12,7 +12,31 @@
 	sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 </script>
 <script type="text/javascript" src="/spring/resources/js/commonjs.js" ></script>
+<style>
+#buttonDiv {
+	width: 500px;
+	margin: 0 auto;
+	padding: 0 auto;	
+	color: white;
+}
 
+#buttonDiv input {
+	margin: 0px 5px 0px 5px;
+    border-radius: 15px;
+    height: 40px;
+    background: #12192c;
+    color: white;
+    font-size: 1.0vw;
+    font-weight: bold;
+}
+
+.btn btn-outline-succes {
+	color: white;
+	width: 50px;
+	background: red;
+}
+
+</style>
 </head>
 <c:import url="../common/header.jsp"/>
 <c:import url="../common/sidebar.jsp"/>
@@ -22,7 +46,6 @@
 			<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/memberUpdate.do" method="post" onsubmit="return fn_update_validate();" id="updateForm" >
 				<table id="updateTable">
 					<thead>
-					
 						<th>${member.empName} 님의 정보
 					</thead>
 					<tr>
