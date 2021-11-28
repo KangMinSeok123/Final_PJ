@@ -110,7 +110,6 @@ public class ASController {
       PdVo pdvo = asService.productInfo(proCode);
       
       String msg = "상품명 : " + pdvo.getProname() + 
-                   "\n품목 코드 : " + pdvo.getProcode() + 
                    "\n카테고리 : " + pdvo.getCategory() + 
                    "\n재고수량 : " + pdvo.getStock();
       String loc = "/AS/ASView.do?asCode="+asCode;
