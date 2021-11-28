@@ -44,11 +44,6 @@ h1 {
 	height: 100%;
 }
 
-.inputArea{
-	magin-top: 500px;
-}
-
-
 div {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 13px;
@@ -102,7 +97,7 @@ body {
 			<div class="form_section">
 				<form role="form" action="${pageContext.request.contextPath}/pd/modify" 
 				      method="post" autocomplete="off">
-				<input type="hidden" name="n" value="${param.n}" />
+				<input type="hidden" name="n" value="${pd.procode}" />
 				<table id="in-tbl" border="1" style="text-align : center">
 				<tr>
 					<th>품목코드</th>
@@ -139,8 +134,7 @@ body {
 					<div class="inputArea">
 						<button type="submit" id="modify_Btn" class="btn btn-warning">수 정</button>
 						<button type="button" id="delete_Btn" class="btn btn-danger" onclick="deletePd();">삭 제</button>
-					</div>
-					
+
 						<script>
 							var formObj = $("form[role='form']");
 /* 
@@ -164,7 +158,7 @@ body {
 								 }
 								});
 						</script>
-					
+					</div>
 
 				</form>
 			</div>

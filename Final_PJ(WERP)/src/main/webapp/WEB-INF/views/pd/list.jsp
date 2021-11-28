@@ -13,49 +13,11 @@
 <link rel="stylesheet" href="/spring/resources/css/common.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
 <link rel="stylesheet" href="/spring/resources/css/sidebar.css">
+
+
+
 </head>
 <style>
-.pagination {
- display: flex;
- padding-left: 0;
- list-style: none;
- border-radius: 0.25rem;
- margin: 0 auto;
-}
-
-.page-item.active .page-link {
- z-index: 1;
- color: #12192c;
- background-color: #fff;
- border-color: #12192c;
-}
-
-li.page-item.disabled>.page-link {
-color: #fff;
-display: inline-block;
-background : #12192c;
-padding: 7px;
-border: 1px solid #12192c;
-font-size: 13px;
-cursor: pointer;
-}
-
-.page-item>a.page-link {
-color: #fff;
-display: inline-block;
-padding: 7px;
-background: #12192c;
-border: 1px solid #12192c;
-font-size: 13px;
-cursor: pointer;
-}
-
-.pagination {
- margin-top: 30px;
- margin-left: 600px;
-}
-
-
 #container_box table td {
 	width: 100px;
 }
@@ -124,7 +86,6 @@ cursor: pointer;
       text-align : center;
    }
 </style>
-
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h1>품목 조회</h1>

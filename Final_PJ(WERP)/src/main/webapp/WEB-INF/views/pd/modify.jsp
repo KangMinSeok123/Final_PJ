@@ -88,6 +88,7 @@
 	</style>
 
 
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
@@ -96,58 +97,57 @@
 	<div id="container">
 	<div class="admin_content_main">
 		<form name="pdupdateFrm" action="${pageContext.request.contextPath}/pd/pdUpdate" method="post">
+		<input type="hidden" name="n" value="${pd.procode}" />
+		
          
          <table>
          <tr>
-          <input type="hidden" name="procodeList" value="${productList}" />
          	<th>품목코드</th>
          	<td>
-         		${PdVo.procode }
+         		<input type="text" class="form-control" id="procode" name="procode" value="${ pd.procode }" />
          	</td>
          </tr>
          <tr>
          	<th>품목명</th>
          	<td>
-         		<input type="text" class="form-control" id="proname" name="proname" value="${ proname }" />
+         		<input type="text" class="form-control" id="proname" name="proname" value="${ pd.proname }" />
          	</td>
          </tr>
          <tr>
          	<th>카테고리</th>
          	<td>
-         		<input type="text" class="form-control" id="category" name="category" value="${ PdVo.category }" />
+         		<input type="text" class="form-control" id="category" name="category" value="${ pd.category }" />
          	</td>
          </tr>
          <tr>
          	<th>입고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ PdVo.inprice }" />
+         		<input type="text" class="form-control" id="inprice" name="inprice" value="${ pd.inprice }" />
          	</td>
          </tr>
          <tr>
          	<th>출고단가</th>
          	<td>
-         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ PdVo.outprice }" />
+         		<input type="text" class="form-control" id="outprice" name="outprice" value="${ pd.outprice }" />
          	</td>
          </tr>
          <tr>
          	<th>입력일</th>
          	<td>
          		<input type="text" calss="form-control" id="inputdateStr" name="inputdateStr" 
-         	       placeholder="yyyy-MM-dd 로 입력해주세요"value="${ PdVo.inputdate }" />
+         	       placeholder="yyyy-MM-dd 로 입력해주세요"value="${ pd.inputdate }" />
          	</td>
          </tr>
          <tr>
          	<th>재고수량</th>
          	<td>
-         		<input type="text" class="form-control" id="stock" name="stock" value="${ PdVo.stock }" />
+         		<input type="text" class="form-control" id="stock" name="stock" value="${ pd.stock }" />
          	</td>
          </tr>
-				</table>		
-				
-				<div class="updateArea">	
+				</table>			
 						<button type="submit" id="update_Btn" class="btn btn-warning" >완 료</button>
 						<button type="button" id="back_Btn" class="btn btn-danger" onclick="backPd();">취 소</button>
-				</div>
+
 						<script>
 							var formObj = $("form[role='form']");
 /* 
