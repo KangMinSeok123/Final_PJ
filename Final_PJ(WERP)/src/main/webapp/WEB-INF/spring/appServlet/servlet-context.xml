@@ -35,22 +35,26 @@
 		</beans:property>
 	</beans:bean>
 	
-	<!-- Session Interceptor -->
 	<interceptors>
-		<interceptor>
-			<mapping path="/*"/>
-			<exclude-mapping path="/Log*.do"/>
-			<exclude-mapping path="/enroll*.do"/>
-			<exclude-mapping path="/checkIdDuplicate.do"/>
-			<beans:bean class="com.kh.spring.SessionInterceptor"></beans:bean>
-		</interceptor>
-		<beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
-		        <beans:property name="cacheSeconds" value="0" />
-		        <beans:property name="useExpiresHeader" value="true" />
-		        <beans:property name="useCacheControlHeader" value="true" />
-		        <beans:property name="useCacheControlNoStore" value="true" />
-		</beans:bean>
-	</interceptors>
+      <interceptor>
+         <mapping path="/**"/>
+         <exclude-mapping path="/Log*.do"/>
+         <exclude-mapping path="/enroll*.do"/>
+         <exclude-mapping path="/checkIdDuplicate.do"/>
+         <exclude-mapping path="/resources/**"/>
+         
+         
+         <!-- <beans:bean class="com.kh.spring.SessionInterceptor"></beans:bean> -->
+         <beans:bean class="com.kh.spring.common.LoginInterceptor"></beans:bean>
+         
+      </interceptor>
+      <beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+              <beans:property name="cacheSeconds" value="0" />
+              <beans:property name="useExpiresHeader" value="true" />
+              <beans:property name="useCacheControlHeader" value="true" />
+              <beans:property name="useCacheControlNoStore" value="true" />
+      </beans:bean>
+   </interceptors>
 
 <!-- MultipartResolver : 파일 업로드를 처리하는 클래스 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
