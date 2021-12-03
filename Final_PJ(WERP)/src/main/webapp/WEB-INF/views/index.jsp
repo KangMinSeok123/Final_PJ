@@ -189,10 +189,12 @@ $.ajax({
     async : true,
     dataType:'json',
     success : function (data) {
-       for(var i=0; i< data.length; i++) {
+       for(var i=0; i< data.length; i++) {				    // 가져온 데이터를 데이터 길이만큼 변수에 담아준다.
          stock.push(data[i].stock);
          proNameSet.push(data[i].proname);
        }
+       
+       // 차트에 데이터 변수를 넣어서 그려준다.
        var ctx = document.getElementById('canvas').getContext('2d');
        var myChart =new Chart(ctx,{
           type: 'bar',
@@ -225,9 +227,6 @@ $.ajax({
         console.log(errorThrown);
     }   
 })
-   
-   
-   
    })();
 
 

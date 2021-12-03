@@ -86,7 +86,7 @@ margin-left:5px;
 		var check2 = false;
 		var check3 = false;
 		
-        window.onload = function() {
+        window.onload = function() { // 처음 창이 뜰때 테이블1만 보이기
     
             $("#table1").show();
             $("#table2").hide();
@@ -94,9 +94,9 @@ margin-left:5px;
             
         }
         
-        $(document).ready(function() {
+        $(document).ready(function() {                                // 시작하는 화면에서 1번은 무조건 실행
         	$.ajax({
-     		   	url: "${pageContext.request.contextPath}/pd/list.li",
+     		   	url: "${pageContext.request.contextPath}/pd/list.li", // 품목관리 리스트에 접근하여 데이터를 가져옴
      		    type: 'post',
      		    async : true,
      		    dataType:'json',
@@ -104,7 +104,8 @@ margin-left:5px;
      		    console.log(data);
      		    $.each(data, function(index, item) {
      		    	console.log(data);
-    	$('#prolist').append("<tr><td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+item.outprice+"</td>"+"<td>"+item.stock+"</td>"+"</tr>")
+    	$('#prolist').append("<tr><td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+ // 가져온 데이터를 테이블에 기재한다.
+    			item.outprice+"</td>"+"<td>"+item.stock+"</td>"+"</tr>")
      		    check = true;
     	
      		    })	
@@ -126,7 +127,8 @@ margin-left:5px;
                  		    console.log(data);
                  		    $.each(data, function(index, item) {
                  		    	console.log(data);
-                	$('#prolist').append("<tr><td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+item.outprice+"</td>"+"<td>"+item.stock+"</td>"+"</tr>")
+                	$('#prolist').append("<tr><td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+
+                			item.outprice+"</td>"+"<td>"+item.stock+"</td>"+"</tr>")
                  		    check = true;
                  		    })	
                  		    	
@@ -146,7 +148,7 @@ margin-left:5px;
                $("#btn_2").click(function() {
            if(check2==false) {
             	$.ajax({
-            		   	url: "${pageContext.request.contextPath}/in/inList.do",
+            		   	url: "${pageContext.request.contextPath}/in/inList.do", // 입고 리스트에서 데이터를 가져옴
             		    type: 'post',
             		    async : true,
             		    dataType:'json',
@@ -154,7 +156,8 @@ margin-left:5px;
             		    console.log(data);
             		    
             		    $.each(data, function(index, item) {
-           	$('#inlist').append("<tr><td>"+item.incode+"</td>"+"<td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+item.inNum+"</td>"+"</tr>")
+           	$('#inlist').append("<tr><td>"+item.incode+"</td>"+"<td>"+item.procode+"</td>"+"<td>"+
+           			item.proname+"</td>"+"<td>"+item.inNum+"</td>"+"</tr>")
             		    check2 = true;
             		    })	
             		    	
@@ -177,7 +180,7 @@ margin-left:5px;
             $("#btn_3").click(function() {
             	 if(check3==false) {
                  	$.ajax({
-                 		   	url: "${pageContext.request.contextPath}/out/outList.do",
+                 		   	url: "${pageContext.request.contextPath}/out/outList.do", // 출고 리스트에서 데이터를 가져옴
                  		    type: 'post',
                  		    async : true,
                  		    dataType:'json',
@@ -185,7 +188,8 @@ margin-left:5px;
                  		    console.log(data);
                  		    
                  		    $.each(data, function(index, item) {
-                	$('#outlist').append("<tr><td>"+item.outcode+"</td>"+"<td>"+item.procode+"</td>"+"<td>"+item.proname+"</td>"+"<td>"+item.outNum+"</td>"+"</tr>")
+                	$('#outlist').append("<tr><td>"+item.outcode+"</td>"+"<td>"+item.procode+"</td>"+"<td>"+
+                			item.proname+"</td>"+"<td>"+item.outNum+"</td>"+"</tr>")
                  		    check3 = true;
                  		    })	
                  		    	
