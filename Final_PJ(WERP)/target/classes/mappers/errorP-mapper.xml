@@ -7,7 +7,7 @@
 		SELECT B.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE ERRORPNO = B.errorpNo) FILECOUNT
 		FROM ERRORP B
 	<include refid = "search" />
-		ORDER BY INPUTDATE DESC, ERRORPNO DESC
+		ORDER BY ERRORPNO DESC
 	</select>
 	
 <sql id = "search">

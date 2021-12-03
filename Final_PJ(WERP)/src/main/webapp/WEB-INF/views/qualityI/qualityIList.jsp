@@ -51,7 +51,7 @@ li.page-item.disabled>.page-link {
 }
 
 li.page-item {
-height:40px;
+height:36px;
 }
 
 .page-item>a.page-link {
@@ -61,7 +61,7 @@ height:40px;
     border: 1px solid #999;
     font-size: 12px;
     cursor: pointer;
-    height: 40px;
+    height: :;px;
 }
 
 .pagination  {       
@@ -165,7 +165,7 @@ font-weight: bold;
 }
 
 #location-tag { 
-margin-top: 90px;
+margin-top: 20px;
 margin-left: 150px;
 
 }

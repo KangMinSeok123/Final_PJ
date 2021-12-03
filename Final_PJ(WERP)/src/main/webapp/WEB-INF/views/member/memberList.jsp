@@ -19,6 +19,49 @@
 
 	<style>
 
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+li.page-item.disabled>.page-link {
+	color: black;
+	display: inline-block;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #999;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+li.page-item {
+height:40px;
+}
+
+.page-item>a.page-link {
+	display: inline-block;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #999;
+    font-size: 12px;
+    cursor: pointer;
+    height: 20px;
+}
+
+.pagination  {       
+
+margin-left: 105px;
+
+}
 
 table {
 	font-family:Arial, Helvetica, sans-serif;
@@ -217,7 +260,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 					</c:forEach>
 					
 				</table>
-				
+				<c:out value="${pageBar}" escapeXml="false"/>
 				
 				
 	

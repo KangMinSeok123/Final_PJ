@@ -200,7 +200,7 @@ height:20px;
 	function managerButton() {
 		var url = "${pageContext.request.contextPath}/member/memberList.do";
 		var name = "popup1";
-	    var _width = '350';
+	    var _width = '380';
 	    var _height = '500';				 			    
 	    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 			
@@ -212,7 +212,7 @@ height:20px;
 	function procodeButton() {
 		var url = "${pageContext.request.contextPath}/errorP/proCodeList.do";
 		var name = "popup1";
-	    var _width = '350';
+	    var _width = '380';
 	    var _height = '500';				 			    
 	    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 			

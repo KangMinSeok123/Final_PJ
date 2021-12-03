@@ -244,7 +244,7 @@ background: #f6f6f6;
 	function procodeButton() {
 		var url = "${pageContext.request.contextPath}/errorP/proCodeList.do";
 		var name = "popup1";
-	    var _width = '350';
+	    var _width = '370';
 	    var _height = '500';				 			    
 	    var _left = Math.ceil(( window.screen.width - _width )/2 + 50);
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 			

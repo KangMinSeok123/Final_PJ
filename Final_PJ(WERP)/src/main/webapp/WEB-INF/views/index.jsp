@@ -154,10 +154,10 @@ margin-top : 50px;
    calendar.render();
    });
    
-   //차트
-var stock=[];
-var proNameSet=[];
-var bgColorSet=[
+   
+var stock=[];				   // 폼묵개수 변수
+var proNameSet=[];			   // 품목명 변수
+var bgColorSet=[     		   // 차트 색상 설정
    'rgba(15, 99, 132, 0.2)',
     'rgba(25, 162, 235, 0.2)',
     'rgba(35, 206, 86, 0.2)',
@@ -184,7 +184,7 @@ var brColorSet=[
     'rgba(115, 162, 235, 1)'
 ];
 $.ajax({
-   url: "${pageContext.request.contextPath}/pd/list.li",
+   url: "${pageContext.request.contextPath}/pd/list.li",	// 품목관리 테이블에서 데이터를 가져옴
     method: 'POST',
     async : true,
     dataType:'json',

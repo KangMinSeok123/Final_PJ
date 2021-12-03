@@ -35,7 +35,7 @@
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    height: 40px;
+    height: 36px;
 }
 
 li.page-item.disabled>.page-link {
@@ -49,7 +49,7 @@ li.page-item.disabled>.page-link {
 }
 
 li.page-item {
-height:40px;
+height:36px;
 }
 
 .page-item>a.page-link {
@@ -64,7 +64,7 @@ height:40px;
 .pagination  {       
 
 margin-top: 5px; 
-margin-left: 705px;
+margin-left: 636px;
 
 }
 
@@ -370,7 +370,7 @@ input::-moz-placeholder {color:#a8a8a8;}
   <select class= "search-option" name="key">
 
 <%--페이지 이동시에도 옵션 유지 --%>
-<option value="CODE" ${(key == "CODE")?"selected":"" }>상품코드</option> 
+<option value="CODE" ${(key == "CODE")?"selected":"" }>품목코드</option> 
 <option value="NAME" ${(key == "NAME")?"selected":"" }>불량자재명</option>
 
 </select>
@@ -399,7 +399,7 @@ input::-moz-placeholder {color:#a8a8a8;}
 					<tr class="top">
 					 <td><input type="checkbox" id="allCheckBox" class="chk" onclick="allChecked(this)"></td>
 						<td>번호</td>
-						<td>상품코드</td>
+						<td>품목코드</td>
 						<td>불량자제명</td>
 						<td>내용</td>
 						<td>합계</td>
