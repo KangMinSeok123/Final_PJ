@@ -256,8 +256,8 @@ input::-moz-placeholder {color:#a8a8a8;}
 				
 					<tr class="top">
 					
-						<td>상품코드</td>
-						<td>상품명</td>
+						<td>품목코드</td>
+						<td>품목명</td>
 					
 						
 					</tr>

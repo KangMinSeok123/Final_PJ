@@ -25,4 +25,5 @@ public class ErrorP implements Serializable {
 	private Date inputDate;
 	
 	private int fileCount;
+	
 }

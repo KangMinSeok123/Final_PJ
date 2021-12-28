@@ -298,12 +298,12 @@ background: #f6f6f6;
 				</colgroup>
 				
 					<tr class="top">
-					 <td>상품코드
+					 <td>품목코드
 					 <button class="search-btn" onclick="procodeButton();"><i class="fas fa-search" ></i>	</button>
      				  <i class="glyphicon glyphicon-search"></i>
 					 </td>
 						<td><input type="text" class="form-control" name="procode" id="procode" required style="text-align:center; width:160px; height:20px;" readonly></td>
-						<td>상품명</td>
+						<td>불량자재명</td>
 						<td><input type="text" class="form-control" name="proname" id="proname" required style="text-align:center; width:160px; height:20px;" readonly></td>
 						</tr>
 						
